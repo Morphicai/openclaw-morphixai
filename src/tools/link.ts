@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeLinkSchema, type OfficeLinkParams } from "../schemas/office-link-schema.js";
+import { OfficeLinkSchema, type OfficeLinkParams } from "../schemas/link-schema.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
 import { json } from "../helpers.js";
 

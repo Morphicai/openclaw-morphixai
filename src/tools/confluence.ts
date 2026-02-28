@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeConfluenceSchema, type OfficeConfluenceParams } from "../schemas/office-confluence-schema.js";
+import { OfficeConfluenceSchema, type OfficeConfluenceParams } from "../schemas/confluence-schema.js";
 import { ConfluenceClient } from "../app-clients/confluence-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

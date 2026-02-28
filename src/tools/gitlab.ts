@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeGitLabSchema, type OfficeGitLabParams } from "../schemas/office-gitlab-schema.js";
+import { OfficeGitLabSchema, type OfficeGitLabParams } from "../schemas/gitlab-schema.js";
 import { GitLabClient } from "../app-clients/gitlab-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

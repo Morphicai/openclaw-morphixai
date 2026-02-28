@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeJiraSchema, type OfficeJiraParams } from "../schemas/office-jira-schema.js";
+import { OfficeJiraSchema, type OfficeJiraParams } from "../schemas/jira-schema.js";
 import { JiraClient } from "../app-clients/jira-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
