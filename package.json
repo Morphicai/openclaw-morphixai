@@ -1,5 +1,5 @@
 {
-  "name": "@morphixai/openclaw-morphixai",
+  "name": "openclaw-morphixai",
   "version": "0.2.0",
   "type": "module",
   "description": "OpenClaw 办公 Skills：GitLab、Jira、Gmail、Outlook 工作流 + 统一第三方账号链接与 API 代理",
@@ -13,11 +13,7 @@
   },
   "files": [
     "dist",
-    "index.ts",
-    "src",
     "skills",
-    "templates",
-    "docs",
     "openclaw.plugin.json"
   ],
   "scripts": {
@@ -46,10 +42,10 @@
     "pipedream"
   ],
   "openclaw": {
-    "extensions": ["./index.ts"],
+    "extensions": ["./dist/index.js"],
     "skills": "./skills",
     "install": {
-      "npmSpec": "@morphixai/openclaw-morphixai",
+      "npmSpec": "openclaw-morphixai",
       "localPath": ".",
       "defaultChoice": "local"
     }
