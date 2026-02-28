@@ -1,0 +1,98 @@
+{
+  "$schema": "https://openclaw.dev/schema/config.json",
+
+  "gateway": {
+    "bind": "loopback",
+    "port": 18789,
+    "auth": { "mode": "token" }
+  },
+
+  "channels": {
+    "tanka": {
+      "enabled": true,
+      "email": "CHANGE_ME@your-company.com",
+      "env": "sd-or",
+
+      "dmPolicy": "pairing",
+      "allowFrom": [],
+
+      "groupPolicy": "open",
+      "requireMention": true,
+      "groupSenderAllowList": [],
+
+      "historyLimit": 10,
+      "mediaMaxMb": 30,
+
+      "tools": {
+        "memo": true,
+        "chat": true,
+        "contact": true,
+        "media": true
+      }
+    }
+  },
+
+  "agents": {
+    "defaults": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4.5",
+
+      "sandbox": {
+        "mode": "all",
+        "workspaceAccess": "rw"
+      },
+
+      "subagents": {
+        "model": "anthropic/claude-sonnet-4.5",
+        "thinking": "low",
+        "maxConcurrent": 4,
+        "archiveAfterMinutes": 60
+      }
+    }
+  },
+
+  "browser": {
+    "enabled": true,
+    "executablePath": "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+    "defaultProfile": "openclaw",
+    "evaluateEnabled": false,
+    "profiles": {
+      "openclaw": { "cdpPort": 18800 },
+      "edge": {}
+    }
+  },
+
+  "skills": {
+    "entries": {
+      "gitlab-workflow": {
+        "enabled": true,
+        "env": { "GITLAB_TOKEN": "${GITLAB_TOKEN}" }
+      },
+      "daily-standup": { "enabled": true },
+      "release-workflow": { "enabled": true }
+    }
+  },
+
+  "session": {
+    "dmScope": "main",
+    "reset": {
+      "mode": "daily",
+      "atHour": 4,
+      "idleMinutes": 240
+    }
+  },
+
+  "logging": {
+    "redactSensitive": "tools",
+    "redactPatterns": [
+      "GITLAB_TOKEN",
+      "JIRA_API_TOKEN",
+      "OUTLOOK_CLIENT_ID",
+      "OUTLOOK_CLIENT_SECRET"
+    ]
+  },
+
+  "discovery": {
+    "mdns": { "mode": "off" }
+  }
+}
