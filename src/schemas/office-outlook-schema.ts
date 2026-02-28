@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_outlook tool schema
+ * mx_outlook tool schema
  *
  * Microsoft Outlook Email integration via Microsoft Graph API.
  */

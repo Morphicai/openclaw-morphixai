@@ -10,26 +10,26 @@ metadata:
 
 # Figma
 
-通过 `office_figma` 工具访问 Figma 工作区：浏览项目文件、读取设计结构、导出图片、管理评论、查看组件库/组件集/样式、获取设计变量（Design Token）。
+通过 `mx_figma` 工具访问 Figma 工作区：浏览项目文件、读取设计结构、导出图片、管理评论、查看组件库/组件集/样式、获取设计变量（Design Token）。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Figma 账号（app: `figma`）
+2. 用户需要通过 `mx_link` 工具链接 Figma 账号（app: `figma`）
 
 ## 核心操作
 
 ### 查看当前用户
 
 ```
-office_figma:
+mx_figma:
   action: get_me
 ```
 
 ### 浏览团队项目
 
 ```
-office_figma:
+mx_figma:
   action: list_team_projects
   team_id: "123456789"
 ```
@@ -37,7 +37,7 @@ office_figma:
 ### 列出项目中的文件
 
 ```
-office_figma:
+mx_figma:
   action: list_project_files
   project_id: "987654321"
 ```
@@ -45,7 +45,7 @@ office_figma:
 ### 获取文件结构
 
 ```
-office_figma:
+mx_figma:
   action: get_file
   file_key: "abc123DEF456"
   depth: 2  # 1=仅页面, 2=页面+Frame, 省略=完整树
@@ -56,7 +56,7 @@ office_figma:
 ### 获取指定节点
 
 ```
-office_figma:
+mx_figma:
   action: get_file_nodes
   file_key: "abc123DEF456"
   node_ids: ["1:2", "3:4"]
@@ -66,7 +66,7 @@ office_figma:
 ### 导出图片
 
 ```
-office_figma:
+mx_figma:
   action: export_images
   file_key: "abc123DEF456"
   node_ids: ["1:2"]
@@ -80,14 +80,14 @@ office_figma:
 
 **列出评论：**
 ```
-office_figma:
+mx_figma:
   action: list_comments
   file_key: "abc123DEF456"
 ```
 
 **发表评论：**
 ```
-office_figma:
+mx_figma:
   action: post_comment
   file_key: "abc123DEF456"
   message: "这个按钮的圆角需要改为 8px"
@@ -95,7 +95,7 @@ office_figma:
 
 **回复评论：**
 ```
-office_figma:
+mx_figma:
   action: post_comment
   file_key: "abc123DEF456"
   message: "已修改，请确认"
@@ -104,7 +104,7 @@ office_figma:
 
 **删除评论：**
 ```
-office_figma:
+mx_figma:
   action: delete_comment
   file_key: "abc123DEF456"
   comment_id: "12345"
@@ -113,7 +113,7 @@ office_figma:
 ### 版本历史
 
 ```
-office_figma:
+mx_figma:
   action: list_versions
   file_key: "abc123DEF456"
 ```
@@ -122,14 +122,14 @@ office_figma:
 
 **文件内组件：**
 ```
-office_figma:
+mx_figma:
   action: get_file_components
   file_key: "abc123DEF456"
 ```
 
 **团队组件库：**
 ```
-office_figma:
+mx_figma:
   action: get_team_components
   team_id: "123456789"
   page_size: 30
@@ -141,14 +141,14 @@ office_figma:
 
 **文件内组件集：**
 ```
-office_figma:
+mx_figma:
   action: get_file_component_sets
   file_key: "abc123DEF456"
 ```
 
 **团队组件集：**
 ```
-office_figma:
+mx_figma:
   action: get_team_component_sets
   team_id: "123456789"
 ```
@@ -157,14 +157,14 @@ office_figma:
 
 **文件内样式：**
 ```
-office_figma:
+mx_figma:
   action: get_file_styles
   file_key: "abc123DEF456"
 ```
 
 **团队样式库：**
 ```
-office_figma:
+mx_figma:
   action: get_team_styles
   team_id: "123456789"
 ```
@@ -175,7 +175,7 @@ office_figma:
 
 **本地变量：**
 ```
-office_figma:
+mx_figma:
   action: get_local_variables
   file_key: "abc123DEF456"
 ```
@@ -185,7 +185,7 @@ office_figma:
 
 **发布的变量（跨文件共享）：**
 ```
-office_figma:
+mx_figma:
   action: get_published_variables
   file_key: "abc123DEF456"
 ```
@@ -195,45 +195,45 @@ office_figma:
 ### 设计走查
 
 ```
-1. office_figma: get_file, file_key: "xxx", depth: 1  → 查看页面列表
-2. office_figma: get_file_nodes, file_key: "xxx", node_ids: ["page_id"]  → 查看页面详情
-3. office_figma: list_comments, file_key: "xxx"  → 查看设计评论
-4. office_figma: post_comment  → 添加走查反馈
+1. mx_figma: get_file, file_key: "xxx", depth: 1  → 查看页面列表
+2. mx_figma: get_file_nodes, file_key: "xxx", node_ids: ["page_id"]  → 查看页面详情
+3. mx_figma: list_comments, file_key: "xxx"  → 查看设计评论
+4. mx_figma: post_comment  → 添加走查反馈
 ```
 
 ### 设计资产导出
 
 ```
-1. office_figma: get_file, file_key: "xxx", depth: 2  → 找到目标 Frame
-2. office_figma: export_images, node_ids: ["frame_id"], format: "svg", scale: 2  → 导出 SVG
+1. mx_figma: get_file, file_key: "xxx", depth: 2  → 找到目标 Frame
+2. mx_figma: export_images, node_ids: ["frame_id"], format: "svg", scale: 2  → 导出 SVG
 ```
 
 ### 设计系统检查
 
 ```
-1. office_figma: get_file_components, file_key: "xxx"  → 查看文件组件
-2. office_figma: get_file_component_sets, file_key: "xxx"  → 查看组件变体
-3. office_figma: get_file_styles, file_key: "xxx"  → 查看文件样式
-4. office_figma: get_local_variables, file_key: "xxx"  → 查看设计变量/Token
-5. office_figma: get_team_components, team_id: "xxx"  → 查看团队组件库
+1. mx_figma: get_file_components, file_key: "xxx"  → 查看文件组件
+2. mx_figma: get_file_component_sets, file_key: "xxx"  → 查看组件变体
+3. mx_figma: get_file_styles, file_key: "xxx"  → 查看文件样式
+4. mx_figma: get_local_variables, file_key: "xxx"  → 查看设计变量/Token
+5. mx_figma: get_team_components, team_id: "xxx"  → 查看团队组件库
 ```
 
 ### 开发阶段：获取图层和组件信息
 
 ```
-1. office_figma: get_file, file_key: "xxx", depth: 2  → 获取页面和 Frame 结构
-2. office_figma: get_file_nodes, file_key: "xxx", node_ids: ["target_node"]  → 获取指定节点详细属性
-3. office_figma: get_file_components, file_key: "xxx"  → 获取可复用组件列表
-4. office_figma: get_file_component_sets, file_key: "xxx"  → 获取组件变体（Primary/Secondary 等）
-5. office_figma: get_local_variables, file_key: "xxx"  → 获取颜色/间距/字体等设计 Token
-6. office_figma: export_images, file_key: "xxx", node_ids: ["icon_id"], format: "svg"  → 导出图标资源
+1. mx_figma: get_file, file_key: "xxx", depth: 2  → 获取页面和 Frame 结构
+2. mx_figma: get_file_nodes, file_key: "xxx", node_ids: ["target_node"]  → 获取指定节点详细属性
+3. mx_figma: get_file_components, file_key: "xxx"  → 获取可复用组件列表
+4. mx_figma: get_file_component_sets, file_key: "xxx"  → 获取组件变体（Primary/Secondary 等）
+5. mx_figma: get_local_variables, file_key: "xxx"  → 获取颜色/间距/字体等设计 Token
+6. mx_figma: export_images, file_key: "xxx", node_ids: ["icon_id"], format: "svg"  → 导出图标资源
 ```
 
 ### 版本对比
 
 ```
-1. office_figma: list_versions, file_key: "xxx"  → 查看历史版本
-2. office_figma: list_comments, file_key: "xxx"  → 查看相关讨论
+1. mx_figma: list_versions, file_key: "xxx"  → 查看历史版本
+2. mx_figma: list_comments, file_key: "xxx"  → 查看相关讨论
 ```
 
 ## 注意事项

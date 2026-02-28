@@ -15,7 +15,7 @@ function nl(s?: string): string | undefined {
 export function registerOfficeGitLabTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_gitlab",
+      name: "mx_gitlab",
       label: "GitLab",
       description:
         "GitLab integration: list projects, merge requests, issues, pipelines, branches. Create MRs and issues, approve/merge MRs, retry pipelines. " +
@@ -173,8 +173,8 @@ export function registerOfficeGitLabTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_gitlab" },
+    { name: "mx_gitlab" },
   );
 
-  api.logger.info?.("office_gitlab: Registered");
+  api.logger.info?.("mx_gitlab: Registered");
 }

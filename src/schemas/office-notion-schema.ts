@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_notion tool schema
+ * mx_notion tool schema
  *
  * Notion integration: search, pages, databases, blocks.
  */

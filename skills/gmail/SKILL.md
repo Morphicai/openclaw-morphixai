@@ -10,28 +10,28 @@ metadata:
 
 # Gmail 邮件（暂不可用）
 
-> **状态：暂不可用** — Gmail 账号尚未链接，该工具暂时不可使用。如需启用，请通过 `office_link` 工具链接 Gmail 账号（app: `gmail`）。
+> **状态：暂不可用** — Gmail 账号尚未链接，该工具暂时不可使用。如需启用，请通过 `mx_link` 工具链接 Gmail 账号（app: `gmail`）。
 
-通过 `office_gmail` 工具管理 Gmail 邮箱：读取、搜索、发送邮件，管理标签。
+通过 `mx_gmail` 工具管理 Gmail 邮箱：读取、搜索、发送邮件，管理标签。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Gmail 账号（app: `gmail`）
+2. 用户需要通过 `mx_link` 工具链接 Gmail 账号（app: `gmail`）
 
 ## 核心操作
 
 ### 查看用户信息
 
 ```
-office_gmail:
+mx_gmail:
   action: get_profile
 ```
 
 ### 列出邮件
 
 ```
-office_gmail:
+mx_gmail:
   action: list_messages
   max_results: 10
 ```
@@ -41,7 +41,7 @@ office_gmail:
 ### 查看邮件详情
 
 ```
-office_gmail:
+mx_gmail:
   action: get_message
   message_id: "18dxxxxxxxx"
 ```
@@ -49,7 +49,7 @@ office_gmail:
 ### 搜索邮件
 
 ```
-office_gmail:
+mx_gmail:
   action: search_messages
   query: "from:boss@company.com subject:周报"
   max_results: 5
@@ -66,7 +66,7 @@ office_gmail:
 ### 发送邮件
 
 ```
-office_gmail:
+mx_gmail:
   action: send_mail
   to: "colleague@company.com"
   subject: "项目更新"
@@ -77,14 +77,14 @@ office_gmail:
 ### 列出标签
 
 ```
-office_gmail:
+mx_gmail:
   action: list_labels
 ```
 
 ### 标记已读
 
 ```
-office_gmail:
+mx_gmail:
   action: mark_as_read
   message_id: "18dxxxxxxxx"
 ```
@@ -92,7 +92,7 @@ office_gmail:
 ### 删除邮件（移入回收站）
 
 ```
-office_gmail:
+mx_gmail:
   action: trash_message
   message_id: "18dxxxxxxxx"
 ```
@@ -102,17 +102,17 @@ office_gmail:
 ### 查看未读邮件
 
 ```
-1. office_gmail: list_messages, q: "is:unread", max_results: 5
-2. office_gmail: get_message, message_id: "xxx"  → 逐条查看
-3. office_gmail: mark_as_read, message_id: "xxx"  → 标记已读
+1. mx_gmail: list_messages, q: "is:unread", max_results: 5
+2. mx_gmail: get_message, message_id: "xxx"  → 逐条查看
+3. mx_gmail: mark_as_read, message_id: "xxx"  → 标记已读
 ```
 
 ### 搜索并回复（通过发送新邮件）
 
 ```
-1. office_gmail: search_messages, query: "from:client@example.com"
-2. office_gmail: get_message → 查看内容
-3. office_gmail: send_mail, to: "client@example.com", subject: "Re: xxx"
+1. mx_gmail: search_messages, query: "from:client@example.com"
+2. mx_gmail: get_message → 查看内容
+3. mx_gmail: send_mail, to: "client@example.com", subject: "Re: xxx"
 ```
 
 ## 注意事项

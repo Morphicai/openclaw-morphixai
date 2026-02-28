@@ -10,7 +10,7 @@ const APP_SLUG = "microsoft_outlook";
 export function registerOfficeOutlookTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_outlook",
+      name: "mx_outlook",
       label: "Outlook Email",
       description:
         "Microsoft Outlook email integration: read, search, send, and reply to emails. List mail folders. " +
@@ -85,8 +85,8 @@ export function registerOfficeOutlookTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_outlook" },
+    { name: "mx_outlook" },
   );
 
-  api.logger.info?.("office_outlook: Registered");
+  api.logger.info?.("mx_outlook: Registered");
 }

@@ -10,19 +10,19 @@ metadata:
 
 # Jira 项目管理
 
-通过 `office_jira` 工具管理 Jira Cloud 中的 Issue、项目和工作流。所有操作通过 MorphixAI 代理，无需直接管理 OAuth token。
+通过 `mx_jira` 工具管理 Jira Cloud 中的 Issue、项目和工作流。所有操作通过 MorphixAI 代理，无需直接管理 OAuth token。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Jira 账号（app: `jira`）
+2. 用户需要通过 `mx_link` 工具链接 Jira 账号（app: `jira`）
 
 ## 核心操作
 
 ### 查看项目列表
 
 ```
-office_jira:
+mx_jira:
   action: list_projects
   max_results: 10
 ```
@@ -30,7 +30,7 @@ office_jira:
 ### 搜索 Issue（JQL）
 
 ```
-office_jira:
+mx_jira:
   action: search_issues
   jql: "project = PROJ AND status != Done ORDER BY updated DESC"
   max_results: 10
@@ -41,7 +41,7 @@ office_jira:
 ### 查看 Issue 详情
 
 ```
-office_jira:
+mx_jira:
   action: get_issue
   issue_key: "PROJ-123"
 ```
@@ -49,7 +49,7 @@ office_jira:
 ### 创建 Issue
 
 ```
-office_jira:
+mx_jira:
   action: create_issue
   project: "PROJ"
   summary: "实现用户登录功能"
@@ -64,7 +64,7 @@ office_jira:
 ### 更新 Issue
 
 ```
-office_jira:
+mx_jira:
   action: update_issue
   issue_key: "PROJ-123"
   fields: { "summary": "新标题", "priority": { "name": "High" } }
@@ -73,7 +73,7 @@ office_jira:
 ### 切换 Issue 状态
 
 ```
-office_jira:
+mx_jira:
   action: transition_issue
   issue_key: "PROJ-123"
   target_status: "In Progress"
@@ -85,7 +85,7 @@ office_jira:
 ### 查看可用的状态转换
 
 ```
-office_jira:
+mx_jira:
   action: get_transitions
   issue_key: "PROJ-123"
 ```
@@ -93,7 +93,7 @@ office_jira:
 ### 添加评论
 
 ```
-office_jira:
+mx_jira:
   action: add_comment
   issue_key: "PROJ-123"
   body: "代码已提交到 feature 分支，请 review。\n\n**变更内容：**\n- 添加了登录 API\n- 增加了单元测试"
@@ -106,24 +106,24 @@ office_jira:
 ### 每日 Standup — 查看我的待办
 
 ```
-1. office_jira: get_myself  → 获取当前用户 accountId
-2. office_jira: search_issues
+1. mx_jira: get_myself  → 获取当前用户 accountId
+2. mx_jira: search_issues
    jql: "assignee = <accountId> AND status != Done ORDER BY priority DESC, updated DESC"
 ```
 
 ### 创建 Issue 并开始工作
 
 ```
-1. office_jira: create_issue → 获取 issue_key
-2. office_jira: transition_issue, target_status: "In Progress"
-3. office_jira: add_comment, body: "开始开发"
+1. mx_jira: create_issue → 获取 issue_key
+2. mx_jira: transition_issue, target_status: "In Progress"
+3. mx_jira: add_comment, body: "开始开发"
 ```
 
 ### 完成 Issue
 
 ```
-1. office_jira: add_comment, body: "开发完成，PR: <url>"
-2. office_jira: transition_issue, target_status: "Done"
+1. mx_jira: add_comment, body: "开发完成，PR: <url>"
+2. mx_jira: transition_issue, target_status: "Done"
 ```
 
 ## 注意事项

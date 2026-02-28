@@ -10,26 +10,26 @@ metadata:
 
 # GitHub 集成
 
-通过 `office_github` 工具管理 GitHub 仓库、Issue、PR 和 CI/CD 工作流。
+通过 `mx_github` 工具管理 GitHub 仓库、Issue、PR 和 CI/CD 工作流。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 GitHub 账号（app: `github`）
+2. 用户需要通过 `mx_link` 工具链接 GitHub 账号（app: `github`）
 
 ## 核心操作
 
 ### 查看当前用户
 
 ```
-office_github:
+mx_github:
   action: get_user
 ```
 
 ### 列出仓库
 
 ```
-office_github:
+mx_github:
   action: list_repos
   sort: "updated"
   per_page: 10
@@ -38,7 +38,7 @@ office_github:
 ### 查看仓库详情
 
 ```
-office_github:
+mx_github:
   action: get_repo
   repo: "owner/repo-name"
 ```
@@ -47,7 +47,7 @@ office_github:
 
 **列出 Issue（不含 PR）：**
 ```
-office_github:
+mx_github:
   action: list_issues
   repo: "owner/repo"
   state: "open"
@@ -56,7 +56,7 @@ office_github:
 
 **创建 Issue：**
 ```
-office_github:
+mx_github:
   action: create_issue
   repo: "owner/repo"
   title: "Bug: 登录页面加载异常"
@@ -67,7 +67,7 @@ office_github:
 
 **更新 Issue：**
 ```
-office_github:
+mx_github:
   action: update_issue
   repo: "owner/repo"
   issue_number: 42
@@ -78,7 +78,7 @@ office_github:
 
 **列出 PR：**
 ```
-office_github:
+mx_github:
   action: list_pulls
   repo: "owner/repo"
   state: "open"
@@ -86,7 +86,7 @@ office_github:
 
 **创建 PR：**
 ```
-office_github:
+mx_github:
   action: create_pull
   repo: "owner/repo"
   title: "feat: 添加用户登录功能"
@@ -99,7 +99,7 @@ office_github:
 
 **查看工作流运行：**
 ```
-office_github:
+mx_github:
   action: list_workflow_runs
   repo: "owner/repo"
   per_page: 5
@@ -107,7 +107,7 @@ office_github:
 
 **触发工作流：**
 ```
-office_github:
+mx_github:
   action: trigger_workflow
   repo: "owner/repo"
   workflow_id: "deploy.yml"
@@ -120,16 +120,16 @@ office_github:
 ### 创建 Feature PR
 
 ```
-1. office_github: create_pull
+1. mx_github: create_pull
      repo: "owner/repo", title: "feat: xxx", head: "feature/xxx", base: "main"
-2. office_github: list_workflow_runs  → 检查 CI 状态
+2. mx_github: list_workflow_runs  → 检查 CI 状态
 ```
 
 ### 查看项目 Issue 和 PR 概况
 
 ```
-1. office_github: list_issues, repo: "owner/repo", state: "open"
-2. office_github: list_pulls, repo: "owner/repo", state: "open"
+1. mx_github: list_issues, repo: "owner/repo", state: "open"
+2. mx_github: list_pulls, repo: "owner/repo", state: "open"
 ```
 
 ## 注意事项

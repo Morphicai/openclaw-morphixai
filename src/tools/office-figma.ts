@@ -10,7 +10,7 @@ const APP_SLUG = "figma";
 export function registerOfficeFigmaTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_figma",
+      name: "mx_figma",
       label: "Figma",
       description:
         "Figma integration: browse team projects & files, read file structure/pages/nodes, export images, manage comments, view version history, inspect components/component sets/styles, get design variables (tokens). " +
@@ -136,8 +136,8 @@ export function registerOfficeFigmaTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_figma" },
+    { name: "mx_figma" },
   );
 
-  api.logger.info?.("office_figma: Registered");
+  api.logger.info?.("mx_figma: Registered");
 }

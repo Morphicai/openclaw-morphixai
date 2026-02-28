@@ -10,12 +10,12 @@ metadata:
 
 # Notion
 
-通过 `office_notion` 工具管理 Notion 工作区：搜索、页面管理、数据库查询、内容读写。
+通过 `mx_notion` 工具管理 Notion 工作区：搜索、页面管理、数据库查询、内容读写。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Notion 账号（app: `notion`）
+2. 用户需要通过 `mx_link` 工具链接 Notion 账号（app: `notion`）
 3. 在 Notion 中将需要访问的页面/数据库与集成共享
 
 ## 核心操作
@@ -23,14 +23,14 @@ metadata:
 ### 查看当前用户
 
 ```
-office_notion:
+mx_notion:
   action: get_me
 ```
 
 ### 搜索页面和数据库
 
 ```
-office_notion:
+mx_notion:
   action: search
   query: "会议纪要"
   filter_type: "page"
@@ -42,7 +42,7 @@ office_notion:
 ### 获取页面详情
 
 ```
-office_notion:
+mx_notion:
   action: get_page
   page_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -50,7 +50,7 @@ office_notion:
 ### 创建页面
 
 ```
-office_notion:
+mx_notion:
   action: create_page
   parent_type: "page"
   parent_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -67,7 +67,7 @@ office_notion:
 ### 更新页面属性
 
 ```
-office_notion:
+mx_notion:
   action: update_page
   page_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   properties:
@@ -80,7 +80,7 @@ office_notion:
 ### 归档页面
 
 ```
-office_notion:
+mx_notion:
   action: archive_page
   page_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -88,7 +88,7 @@ office_notion:
 ### 读取页面内容（区块）
 
 ```
-office_notion:
+mx_notion:
   action: get_block_children
   block_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   page_size: 50
@@ -97,7 +97,7 @@ office_notion:
 ### 追加内容到页面
 
 ```
-office_notion:
+mx_notion:
   action: append_blocks
   block_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   children:
@@ -112,7 +112,7 @@ office_notion:
 ### 查询数据库
 
 ```
-office_notion:
+mx_notion:
   action: query_database
   database_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   filter:
@@ -130,17 +130,17 @@ office_notion:
 ### 知识库搜索
 
 ```
-1. office_notion: search, query: "API 设计规范", filter_type: "page"
-2. office_notion: get_page, page_id: "xxx"  → 查看页面元信息
-3. office_notion: get_block_children, block_id: "xxx"  → 读取具体内容
+1. mx_notion: search, query: "API 设计规范", filter_type: "page"
+2. mx_notion: get_page, page_id: "xxx"  → 查看页面元信息
+3. mx_notion: get_block_children, block_id: "xxx"  → 读取具体内容
 ```
 
 ### 项目管理（数据库）
 
 ```
-1. office_notion: search, filter_type: "database"  → 找到项目数据库
-2. office_notion: query_database, database_id: "xxx", filter: { status = "进行中" }
-3. office_notion: create_page, parent_type: "database", parent_id: "xxx"  → 创建新任务
+1. mx_notion: search, filter_type: "database"  → 找到项目数据库
+2. mx_notion: query_database, database_id: "xxx", filter: { status = "进行中" }
+3. mx_notion: create_page, parent_type: "database", parent_id: "xxx"  → 创建新任务
 ```
 
 ## 注意事项

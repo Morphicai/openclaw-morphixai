@@ -10,7 +10,7 @@ const APP_SLUG = "jira";
 export function registerOfficeJiraTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_jira",
+      name: "mx_jira",
       label: "Jira",
       description:
         "Jira Cloud integration: search issues with JQL, create/update issues, transition status, add comments, list projects. " +
@@ -99,8 +99,8 @@ export function registerOfficeJiraTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_jira" },
+    { name: "mx_jira" },
   );
 
-  api.logger.info?.("office_jira: Registered");
+  api.logger.info?.("mx_jira: Registered");
 }

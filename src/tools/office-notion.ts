@@ -10,7 +10,7 @@ const APP_SLUG = "notion";
 export function registerOfficeNotionTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_notion",
+      name: "mx_notion",
       label: "Notion",
       description:
         "Notion integration: search pages/databases, create/update/archive pages, read/append block content, query databases. " +
@@ -110,8 +110,8 @@ export function registerOfficeNotionTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_notion" },
+    { name: "mx_notion" },
   );
 
-  api.logger.info?.("office_notion: Registered");
+  api.logger.info?.("mx_notion: Registered");
 }

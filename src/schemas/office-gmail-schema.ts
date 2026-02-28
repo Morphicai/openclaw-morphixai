@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_gmail tool schema
+ * mx_gmail tool schema
  *
  * Gmail integration via Gmail API.
  */

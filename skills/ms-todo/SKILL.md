@@ -10,26 +10,26 @@ metadata:
 
 # Microsoft To Do
 
-通过 `office_ms_todo` 工具管理 Microsoft To Do 中的任务列表和任务。
+通过 `mx_ms_todo` 工具管理 Microsoft To Do 中的任务列表和任务。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 MS To Do 账号（app: `microsofttodo`）
+2. 用户需要通过 `mx_link` 工具链接 MS To Do 账号（app: `microsofttodo`）
 
 ## 核心操作
 
 ### 列出任务列表
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: list_task_lists
 ```
 
 ### 创建任务列表
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: create_task_list
   display_name: "项目待办"
 ```
@@ -37,7 +37,7 @@ office_ms_todo:
 ### 列出任务
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: list_tasks
   list_id: "AQMkADxx..."
   top: 20
@@ -46,7 +46,7 @@ office_ms_todo:
 ### 查看任务详情
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: get_task
   list_id: "AQMkADxx..."
   task_id: "AQMkADxx..."
@@ -55,7 +55,7 @@ office_ms_todo:
 ### 创建任务
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: create_task
   list_id: "AQMkADxx..."
   title: "完成 API 文档"
@@ -67,7 +67,7 @@ office_ms_todo:
 ### 更新任务
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: update_task
   list_id: "AQMkADxx..."
   task_id: "AQMkADxx..."
@@ -78,7 +78,7 @@ office_ms_todo:
 ### 完成任务
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: complete_task
   list_id: "AQMkADxx..."
   task_id: "AQMkADxx..."
@@ -87,7 +87,7 @@ office_ms_todo:
 ### 删除任务
 
 ```
-office_ms_todo:
+mx_ms_todo:
   action: delete_task
   list_id: "AQMkADxx..."
   task_id: "AQMkADxx..."
@@ -98,10 +98,10 @@ office_ms_todo:
 ### 每日任务管理
 
 ```
-1. office_ms_todo: list_task_lists → 找到目标列表
-2. office_ms_todo: list_tasks, list_id: "xxx" → 查看当前任务
-3. office_ms_todo: create_task → 添加新任务
-4. office_ms_todo: complete_task → 完成已做的任务
+1. mx_ms_todo: list_task_lists → 找到目标列表
+2. mx_ms_todo: list_tasks, list_id: "xxx" → 查看当前任务
+3. mx_ms_todo: create_task → 添加新任务
+4. mx_ms_todo: complete_task → 完成已做的任务
 ```
 
 ## 注意事项

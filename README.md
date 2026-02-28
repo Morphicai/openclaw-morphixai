@@ -131,18 +131,18 @@ GITLAB_TOKEN=glpat-xxxxxxxxxxxxxxxxxxxx
 
 | 工具名 | 平台 | 核心能力 |
 |--------|------|---------|
-| `office_gitlab` | GitLab | 项目/MR/Pipeline/Issue/分支 |
-| `office_github` | GitHub | 仓库/Issue/PR/Workflow |
-| `office_jira` | Jira | 项目/Issue/状态流转/评论 |
-| `office_confluence` | Confluence | 空间/页面/CQL 搜索/评论 |
-| `office_outlook` | Outlook 邮箱 | 收发/搜索/回复邮件 |
-| `office_outlook_calendar` | Outlook 日历 | 日历事件 CRUD |
-| `office_ms_todo` | MS To Do | 任务列表/任务管理 |
-| `office_gmail` | Gmail | 收发/搜索邮件 |
-| `office_google_tasks` | Google Tasks | 任务列表/任务管理 |
-| `office_notion` | Notion | 页面/数据库/区块 |
-| `office_figma` | Figma | 文件/组件/样式/评论/导出 |
-| `office_link` | 统一入口 | 账号管理/通用 API 代理 |
+| `mx_gitlab` | GitLab | 项目/MR/Pipeline/Issue/分支 |
+| `mx_github` | GitHub | 仓库/Issue/PR/Workflow |
+| `mx_jira` | Jira | 项目/Issue/状态流转/评论 |
+| `mx_confluence` | Confluence | 空间/页面/CQL 搜索/评论 |
+| `mx_outlook` | Outlook 邮箱 | 收发/搜索/回复邮件 |
+| `mx_outlook_calendar` | Outlook 日历 | 日历事件 CRUD |
+| `mx_ms_todo` | MS To Do | 任务列表/任务管理 |
+| `mx_gmail` | Gmail | 收发/搜索邮件 |
+| `mx_google_tasks` | Google Tasks | 任务列表/任务管理 |
+| `mx_notion` | Notion | 页面/数据库/区块 |
+| `mx_figma` | Figma | 文件/组件/样式/评论/导出 |
+| `mx_link` | 统一入口 | 账号管理/通用 API 代理 |
 
 ### 15 个 Skill 工作流
 

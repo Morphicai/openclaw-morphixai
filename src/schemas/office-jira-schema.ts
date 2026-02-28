@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_jira tool schema
+ * mx_jira tool schema
  *
  * Jira Cloud integration: issues, projects, transitions, comments.
  */

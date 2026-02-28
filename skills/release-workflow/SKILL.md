@@ -23,14 +23,14 @@ metadata:
 
 ### 1. 预检查
 
-使用 `office_gitlab` 工具执行所有检查：
+使用 `mx_gitlab` 工具执行所有检查：
 
 ```
-1. office_gitlab: action: list_pipelines, project: "<ID>", per_page: 1
+1. mx_gitlab: action: list_pipelines, project: "<ID>", per_page: 1
      → 目标分支最近 pipeline 必须为 "success"
-2. office_gitlab: action: list_merge_requests, project: "<ID>", state: "opened"
+2. mx_gitlab: action: list_merge_requests, project: "<ID>", state: "opened"
      → 确认无未合并的相关 MR
-3. office_jira: action: search_issues
+3. mx_jira: action: search_issues
      jql: "project = <KEY> AND priority in (Highest, High) AND status != Done"
      → 确认无 P0/P1 未关闭 Issue
 ```
@@ -72,10 +72,10 @@ Commit message: `release: update changelog for vX.Y.Z`
 
 ### 4. 创建 MR
 
-使用 `office_gitlab` 工具创建发布 MR：
+使用 `mx_gitlab` 工具创建发布 MR：
 
 ```
-office_gitlab:
+mx_gitlab:
   action: create_merge_request
   project: "<ID>"
   source_branch: "release/vX.Y.Z"
@@ -87,7 +87,7 @@ office_gitlab:
 等待 review 和 CI 通过。可用以下命令检查：
 
 ```
-office_gitlab:
+mx_gitlab:
   action: list_pipelines
   project: "<ID>"
   per_page: 1
@@ -106,7 +106,7 @@ git push origin vX.Y.Z
 验证 CI/CD pipeline 触发了 publish job：
 
 ```
-office_gitlab:
+mx_gitlab:
   action: list_pipelines
   project: "<ID>"
   per_page: 1
@@ -117,7 +117,7 @@ office_gitlab:
 - 确认包已发布（npm、registry 等）
 - 通知团队（通过邮件或 IM），附版本号和 changelog 摘要：
   ```
-  office_outlook:
+  mx_outlook:
     action: send_mail
     subject: "Release vX.Y.Z 已发布"
     to: ["team@company.com"]
@@ -125,11 +125,11 @@ office_gitlab:
   ```
 - 关闭相关 Jira Issue：
   ```
-  office_jira:
+  mx_jira:
     action: search_issues
     jql: "fixVersion = vX.Y.Z AND status != Done"
   → 对每个 Issue:
-  office_jira:
+  mx_jira:
     action: transition_issue
     issue_key: "XXX-123"
     target_status: "Done"

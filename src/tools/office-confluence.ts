@@ -10,7 +10,7 @@ const APP_SLUG = "confluence";
 export function registerOfficeConfluenceTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_confluence",
+      name: "mx_confluence",
       label: "Confluence",
       description:
         "Confluence Cloud integration: spaces, pages CRUD, labels, comments, child pages, CQL search. " +
@@ -135,8 +135,8 @@ export function registerOfficeConfluenceTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_confluence" },
+    { name: "mx_confluence" },
   );
 
-  api.logger.info?.("office_confluence: Registered");
+  api.logger.info?.("mx_confluence: Registered");
 }
