@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_outlook_calendar tool schema
+ * mx_outlook_calendar tool schema
  *
  * Microsoft Outlook Calendar integration via Microsoft Graph API.
  */

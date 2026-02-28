@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_github tool schema
+ * mx_github tool schema
  *
  * GitHub integration: repos, issues, pull requests, workflow runs.
  */

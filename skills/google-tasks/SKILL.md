@@ -10,28 +10,28 @@ metadata:
 
 # Google Tasks（暂不可用）
 
-> **状态：暂不可用** — Google Tasks 账号尚未链接，该工具暂时不可使用。如需启用，请通过 `office_link` 工具链接 Google Tasks 账号（app: `google_tasks`）。
+> **状态：暂不可用** — Google Tasks 账号尚未链接，该工具暂时不可使用。如需启用，请通过 `mx_link` 工具链接 Google Tasks 账号（app: `google_tasks`）。
 
-通过 `office_google_tasks` 工具管理 Google Tasks 中的任务列表和任务。
+通过 `mx_google_tasks` 工具管理 Google Tasks 中的任务列表和任务。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Google Tasks 账号（app: `google_tasks`）
+2. 用户需要通过 `mx_link` 工具链接 Google Tasks 账号（app: `google_tasks`）
 
 ## 核心操作
 
 ### 列出任务列表
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: list_task_lists
 ```
 
 ### 创建任务列表
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: create_task_list
   title: "工作待办"
 ```
@@ -39,7 +39,7 @@ office_google_tasks:
 ### 删除任务列表
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: delete_task_list
   task_list_id: "MDxxxxxxxx"
 ```
@@ -47,7 +47,7 @@ office_google_tasks:
 ### 列出任务
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: list_tasks
   task_list_id: "MDxxxxxxxx"
   max_results: 20
@@ -57,7 +57,7 @@ office_google_tasks:
 ### 查看任务详情
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: get_task
   task_list_id: "MDxxxxxxxx"
   task_id: "Xxxxxxxx"
@@ -66,7 +66,7 @@ office_google_tasks:
 ### 创建任务
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: create_task
   task_list_id: "MDxxxxxxxx"
   title: "完成代码 Review"
@@ -77,7 +77,7 @@ office_google_tasks:
 ### 更新任务
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: update_task
   task_list_id: "MDxxxxxxxx"
   task_id: "Xxxxxxxx"
@@ -88,7 +88,7 @@ office_google_tasks:
 ### 完成任务
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: complete_task
   task_list_id: "MDxxxxxxxx"
   task_id: "Xxxxxxxx"
@@ -97,7 +97,7 @@ office_google_tasks:
 ### 删除任务
 
 ```
-office_google_tasks:
+mx_google_tasks:
   action: delete_task
   task_list_id: "MDxxxxxxxx"
   task_id: "Xxxxxxxx"
@@ -108,10 +108,10 @@ office_google_tasks:
 ### 每日任务管理
 
 ```
-1. office_google_tasks: list_task_lists → 找到目标列表
-2. office_google_tasks: list_tasks, task_list_id: "xxx", show_completed: false
-3. office_google_tasks: create_task → 添加新任务
-4. office_google_tasks: complete_task → 完成已做的任务
+1. mx_google_tasks: list_task_lists → 找到目标列表
+2. mx_google_tasks: list_tasks, task_list_id: "xxx", show_completed: false
+3. mx_google_tasks: create_task → 添加新任务
+4. mx_google_tasks: complete_task → 完成已做的任务
 ```
 
 ## 注意事项

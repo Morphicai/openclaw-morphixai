@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_figma tool schema
+ * mx_figma tool schema
  *
  * Figma integration: files, projects, components, styles, comments, images.
  */

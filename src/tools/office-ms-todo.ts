@@ -10,7 +10,7 @@ const APP_SLUG = "microsofttodo";
 export function registerOfficeMsTodoTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_ms_todo",
+      name: "mx_ms_todo",
       label: "Microsoft To Do",
       description:
         "Microsoft To Do integration: manage task lists and tasks. Create, update, complete, and delete tasks. " +
@@ -89,8 +89,8 @@ export function registerOfficeMsTodoTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_ms_todo" },
+    { name: "mx_ms_todo" },
   );
 
-  api.logger.info?.("office_ms_todo: Registered");
+  api.logger.info?.("mx_ms_todo: Registered");
 }

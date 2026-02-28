@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_confluence tool schema
+ * mx_confluence tool schema
  *
  * Confluence Cloud integration: spaces, pages (v2 API), CQL search (v1 API).
  */

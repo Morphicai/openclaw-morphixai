@@ -13,7 +13,7 @@ const APP_SLUG = "google_tasks";
 export function registerOfficeGoogleTasksTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_google_tasks",
+      name: "mx_google_tasks",
       label: "Google Tasks",
       description:
         "Google Tasks integration: manage task lists and tasks. Create, update, complete, and delete tasks. " +
@@ -99,8 +99,8 @@ export function registerOfficeGoogleTasksTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_google_tasks" },
+    { name: "mx_google_tasks" },
   );
 
-  api.logger.info?.("office_google_tasks: Registered");
+  api.logger.info?.("mx_google_tasks: Registered");
 }

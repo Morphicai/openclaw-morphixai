@@ -10,33 +10,33 @@ metadata:
 
 # Microsoft Outlook Calendar
 
-通过 `office_outlook_calendar` 工具管理 Outlook 日历：查看日历列表、事件 CRUD、日期范围查询。
+通过 `mx_outlook_calendar` 工具管理 Outlook 日历：查看日历列表、事件 CRUD、日期范围查询。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Outlook Calendar 账号（app: `microsoft_outlook_calendar`）
+2. 用户需要通过 `mx_link` 工具链接 Outlook Calendar 账号（app: `microsoft_outlook_calendar`）
 
 ## 核心操作
 
 ### 查看用户信息
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: get_me
 ```
 
 ### 列出日历
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: list_calendars
 ```
 
 ### 列出事件
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: list_events
   top: 10
   order_by: "start/dateTime desc"
@@ -45,7 +45,7 @@ office_outlook_calendar:
 ### 按日期范围查看日程
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: get_calendar_view
   start_date_time: "2026-03-01T00:00:00Z"
   end_date_time: "2026-03-31T23:59:59Z"
@@ -55,7 +55,7 @@ office_outlook_calendar:
 ### 获取事件详情
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: get_event
   event_id: "AAMkADxx..."
 ```
@@ -63,7 +63,7 @@ office_outlook_calendar:
 ### 创建事件
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: create_event
   subject: "项目评审会"
   start: "2026-03-01T14:00:00"
@@ -82,7 +82,7 @@ office_outlook_calendar:
 ### 更新事件
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: update_event
   event_id: "AAMkADxx..."
   subject: "更新后的会议标题"
@@ -94,7 +94,7 @@ office_outlook_calendar:
 ### 删除事件
 
 ```
-office_outlook_calendar:
+mx_outlook_calendar:
   action: delete_event
   event_id: "AAMkADxx..."
 ```
@@ -104,7 +104,7 @@ office_outlook_calendar:
 ### 查看今日日程
 
 ```
-1. office_outlook_calendar: get_calendar_view,
+1. mx_outlook_calendar: get_calendar_view,
    start_date_time: "2026-02-25T00:00:00Z",
    end_date_time: "2026-02-25T23:59:59Z"
 ```
@@ -112,14 +112,14 @@ office_outlook_calendar:
 ### 安排会议
 
 ```
-1. office_outlook_calendar: get_calendar_view → 查看空闲时间
-2. office_outlook_calendar: create_event → 创建会议，自动发送邀请
+1. mx_outlook_calendar: get_calendar_view → 查看空闲时间
+2. mx_outlook_calendar: create_event → 创建会议，自动发送邀请
 ```
 
 ### 每周回顾
 
 ```
-1. office_outlook_calendar: get_calendar_view,
+1. mx_outlook_calendar: get_calendar_view,
    start_date_time: "本周一", end_date_time: "本周日"
 2. 汇总会议数量和时间分布
 ```

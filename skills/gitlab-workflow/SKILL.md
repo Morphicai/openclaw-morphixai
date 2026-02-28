@@ -10,18 +10,18 @@ metadata:
 
 # GitLab 工作流
 
-通过 `office_gitlab` 工具管理 GitLab 项目。严格遵守团队规范。
+通过 `mx_gitlab` 工具管理 GitLab 项目。严格遵守团队规范。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 通过 `office_link` 工具链接 GitLab 账号（app: `gitlab`）
+2. 通过 `mx_link` 工具链接 GitLab 账号（app: `gitlab`）
 
 ---
 
 ## 参数命名规范（重要）
 
-`office_gitlab` 工具所有 action 的参数命名：
+`mx_gitlab` 工具所有 action 的参数命名：
 
 | 参数 | 说明 |
 |------|------|
@@ -110,13 +110,13 @@ git diff origin/<target-branch>...origin/<source-branch> -- src/components/
 
 ---
 
-### ⚠️ 备用：office_link proxy（本地无仓库时使用）
+### ⚠️ 备用：mx_link proxy（本地无仓库时使用）
 
 当本地不存在仓库时，通过 MorphixAI 代理调用 GitLab API。
 **注意：大型 MR 的 diff 可能因响应体过大返回 400，此时只能使用本地 git。**
 
 ```
-office_link:
+mx_link:
   action: proxy
   account_id: <gitlab-account-id>
   method: GET
@@ -151,19 +151,19 @@ office_link:
 
 ---
 
-## 核心操作（office_gitlab）
+## 核心操作（mx_gitlab）
 
 ### 查看当前用户
 
 ```
-office_gitlab:
+mx_gitlab:
   action: get_user
 ```
 
 ### 列出项目
 
 ```
-office_gitlab:
+mx_gitlab:
   action: list_projects
   per_page: 10
 ```
@@ -171,7 +171,7 @@ office_gitlab:
 ### 查看项目详情
 
 ```
-office_gitlab:
+mx_gitlab:
   action: get_project
   project: "12345"
 ```
@@ -180,7 +180,7 @@ office_gitlab:
 
 **列出 MR：**
 ```
-office_gitlab:
+mx_gitlab:
   action: list_merge_requests
   project: "12345"
   state: "opened"
@@ -188,7 +188,7 @@ office_gitlab:
 
 **创建 MR：**
 ```
-office_gitlab:
+mx_gitlab:
   action: create_merge_request
   project: "12345"
   source_branch: "feature/JIRA-123-user-login"
@@ -199,7 +199,7 @@ office_gitlab:
 
 **审批 MR：**
 ```
-office_gitlab:
+mx_gitlab:
   action: approve_merge_request
   project: "12345"
   mr_iid: 42
@@ -207,7 +207,7 @@ office_gitlab:
 
 **查看单条 MR 详情（含合并就绪状态）：**
 ```
-office_gitlab:
+mx_gitlab:
   action: get_merge_request
   project: "12345"
   mr_iid: 42
@@ -224,16 +224,16 @@ office_gitlab:
 
 ```
 # 正确流程：
-1. office_gitlab: get_merge_request → 确认 detailed_merge_status === "mergeable"
+1. mx_gitlab: get_merge_request → 确认 detailed_merge_status === "mergeable"
 2. 如果是 "preparing" 或 "checking" → 等待后重试 get_merge_request
 3. 如果是 "ci_must_pass" → CI 未通过，不能合并
 4. 如果是 "not_approved" → 需要审批，先 approve_merge_request
-5. 确认 mergeable 后 → office_gitlab: merge_merge_request
+5. 确认 mergeable 后 → mx_gitlab: merge_merge_request
 ```
 
 **合并 MR：**
 ```
-office_gitlab:
+mx_gitlab:
   action: merge_merge_request
   project: "12345"
   mr_iid: 42
@@ -244,12 +244,12 @@ office_gitlab:
 **更新 MR（设置 Reviewer / Assignee / 标签等）：**
 ```
 # 先搜索 GitLab 用户 ID
-office_gitlab:
+mx_gitlab:
   action: search_users
   search: "username_or_name"
 
 # 再设置 reviewer（使用搜索结果中的 id 字段）
-office_gitlab:
+mx_gitlab:
   action: update_merge_request
   project: "12345"
   mr_iid: 42
@@ -260,7 +260,7 @@ office_gitlab:
 
 **查看 Pipeline：**
 ```
-office_gitlab:
+mx_gitlab:
   action: list_pipelines
   project: "12345"
   per_page: 5
@@ -268,7 +268,7 @@ office_gitlab:
 
 **重试失败的 Pipeline：**
 ```
-office_gitlab:
+mx_gitlab:
   action: retry_pipeline
   project: "12345"
   pipeline_id: 67890
@@ -278,7 +278,7 @@ office_gitlab:
 
 **列出 Issue：**
 ```
-office_gitlab:
+mx_gitlab:
   action: list_issues
   project: "12345"
   state: "opened"
@@ -286,7 +286,7 @@ office_gitlab:
 
 **创建 Issue：**
 ```
-office_gitlab:
+mx_gitlab:
   action: create_issue
   project: "12345"
   title: "Bug: 登录页面白屏"
@@ -298,7 +298,7 @@ office_gitlab:
 
 **列出分支：**
 ```
-office_gitlab:
+mx_gitlab:
   action: list_branches
   project: "12345"
   search: "feature/"
@@ -338,7 +338,7 @@ Review MR 时，按顺序检查所有项目：
 ### 审查指定 MR（完整流程）
 
 ```
-1. office_gitlab: list_merge_requests, project: "<id>", state: "opened"
+1. mx_gitlab: list_merge_requests, project: "<id>", state: "opened"
      → 获取 MR 信息（source_branch, target_branch, mr_iid）
 
 2. nodes.run: find ~/www -maxdepth 4 -type d -name '<repo>'
@@ -356,46 +356,46 @@ Review MR 时，按顺序检查所有项目：
 6. nodes.run: git diff origin/<target>...origin/<source> -- <关键文件>
      → 深入审查关键文件的 diff
 
-7. office_gitlab: list_pipelines, project: "<id>" → 确认 CI 状态
+7. mx_gitlab: list_pipelines, project: "<id>" → 确认 CI 状态
 
-8. office_gitlab: approve_merge_request, project: "<id>", mr_iid: <iid>（审查通过后）
+8. mx_gitlab: approve_merge_request, project: "<id>", mr_iid: <iid>（审查通过后）
 ```
 
 ### 查看我的待处理 MR
 
 ```
-1. office_gitlab: get_user → 获取用户名
-2. office_gitlab: list_merge_requests, project: "<id>", state: "opened"
+1. mx_gitlab: get_user → 获取用户名
+2. mx_gitlab: list_merge_requests, project: "<id>", state: "opened"
      → 列出 open 状态的 MR
-3. office_gitlab: list_pipelines, project: "<id>" → 检查 CI 状态
+3. mx_gitlab: list_pipelines, project: "<id>" → 检查 CI 状态
 ```
 
 ### 创建并合并 Feature MR
 
 ```
-1. office_gitlab: create_merge_request
+1. mx_gitlab: create_merge_request
      project: "<id>", source_branch: "feature/xxx", target_branch: "main"
      title: "[JIRA-xxx] desc"
-2. office_gitlab: get_merge_request, project: "<id>", mr_iid: <iid>
+2. mx_gitlab: get_merge_request, project: "<id>", mr_iid: <iid>
      → 等待 detailed_merge_status 变为 "mergeable"
      (刚创建后状态为 "preparing"，需要等待 GitLab 完成检查)
-3. office_gitlab: list_pipelines, project: "<id>" → 确认 CI 通过
-4. office_gitlab: merge_merge_request, project: "<id>", mr_iid: <iid> → 合并
+3. mx_gitlab: list_pipelines, project: "<id>" → 确认 CI 通过
+4. mx_gitlab: merge_merge_request, project: "<id>", mr_iid: <iid> → 合并
 ```
 
 ### CI 失败处理
 
 ```
-1. office_gitlab: list_pipelines, project: "<id>", status: "failed"
-2. office_gitlab: retry_pipeline, project: "<id>", pipeline_id: <id>
+1. mx_gitlab: list_pipelines, project: "<id>", status: "failed"
+2. mx_gitlab: retry_pipeline, project: "<id>", pipeline_id: <id>
 ```
 
 ### 设置 MR Reviewer（完整流程）
 
 ```
-1. office_gitlab: search_users, search: "reviewer_name"
+1. mx_gitlab: search_users, search: "reviewer_name"
      → 从结果中找到目标用户的 id（数字）
-2. office_gitlab: update_merge_request
+2. mx_gitlab: update_merge_request
      project: "<id>", mr_iid: <iid>, reviewer_ids: [<user_id>]
 ```
 
@@ -411,7 +411,7 @@ Review MR 时，按顺序检查所有项目：
 >
 > 或用户要求"立即检查"时，直接调用：
 > ```
-> office_gitlab: list_pipelines, project: "<id>", per_page: 5
+> mx_gitlab: list_pipelines, project: "<id>", per_page: 5
 > ```
 > 对比 pipeline id 和状态，判断是否完成。
 
@@ -422,4 +422,4 @@ Review MR 时，按顺序检查所有项目：
 - `project` 参数：数字 ID（如 `"12345"`）或路径（如 `"my-group/my-project"`），通过 `list_projects` 或 `get_project` 获取
 - `mr_iid` 是 MR 在项目内的序号（非全局 ID），从 `list_merge_requests` 或 `create_merge_request` 返回结果中获取
 - `account_id` 参数通常省略，工具自动检测已链接的 GitLab 账号
-- `office_link proxy` 获取 MR diff 可能因响应体过大返回 400，优先使用本地 git
+- `mx_link proxy` 获取 MR diff 可能因响应体过大返回 400，优先使用本地 git

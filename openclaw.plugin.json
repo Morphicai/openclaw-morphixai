@@ -64,7 +64,7 @@
       "label": "MorphixAI Link (Third-party Integration)",
       "description": "Link third-party accounts (GitHub, GitLab, Gmail, Outlook, Jira, Slack, etc.) via MorphixAI",
       "properties": {
-        "enabled": { "label": "Enable MorphixAI", "description": "Enable office_link tool for third-party account management and API proxy" },
+        "enabled": { "label": "Enable MorphixAI", "description": "Enable mx_link tool for third-party account management and API proxy" },
         "apiKey": { "label": "API Key", "description": "MorphixAI API Key (mk_xxx). Create at https://baibian.app/api-keys with all scopes", "sensitive": true },
         "baseUrl": { "label": "Base URL", "description": "Override MorphixAI API endpoint (advanced)" }
       }

@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_link tool schema
+ * mx_link tool schema
  *
  * Unified third-party account linking and proxy API access
  * via MorphixAI Pipedream integration.

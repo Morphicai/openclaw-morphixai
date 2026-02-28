@@ -19,33 +19,33 @@ import { registerOfficeFigmaTool } from "./src/tools/office-figma.js";
  * Provides:
  * - Workflow skills loaded from ./morphixai/ via openclaw.plugin.json
  * - Runtime tools:
- *   - office_link: account linking & raw proxy
- *   - office_jira: Jira Cloud (issues, projects, transitions)
- *   - office_gitlab: GitLab (projects, MRs, issues, pipelines)
- *   - office_github: GitHub (repos, issues, PRs, workflows)
- *   - office_outlook: Outlook Email (read, send, search)
- *   - office_ms_todo: Microsoft To Do (task lists, tasks)
- *   - office_gmail: Gmail (read, send, search, labels)
- *   - office_google_tasks: Google Tasks (task lists, tasks)
- *   - office_notion: Notion (pages, databases, blocks, search)
- *   - office_confluence: Confluence Cloud (spaces, pages, search)
- *   - office_outlook_calendar: Outlook Calendar (calendars, events)
- *   - office_figma: Figma (files, projects, components, styles, comments)
+ *   - mx_link: account linking & raw proxy
+ *   - mx_jira: Jira Cloud (issues, projects, transitions)
+ *   - mx_gitlab: GitLab (projects, MRs, issues, pipelines)
+ *   - mx_github: GitHub (repos, issues, PRs, workflows)
+ *   - mx_outlook: Outlook Email (read, send, search)
+ *   - mx_ms_todo: Microsoft To Do (task lists, tasks)
+ *   - mx_gmail: Gmail (read, send, search, labels)
+ *   - mx_google_tasks: Google Tasks (task lists, tasks)
+ *   - mx_notion: Notion (pages, databases, blocks, search)
+ *   - mx_confluence: Confluence Cloud (spaces, pages, search)
+ *   - mx_outlook_calendar: Outlook Calendar (calendars, events)
+ *   - mx_figma: Figma (files, projects, components, styles, comments)
  */
 
 const appTools = [
-  { name: "office_link", register: registerOfficeLinkTool },
-  { name: "office_jira", register: registerOfficeJiraTool },
-  { name: "office_gitlab", register: registerOfficeGitLabTool },
-  { name: "office_github", register: registerOfficeGitHubTool },
-  { name: "office_outlook", register: registerOfficeOutlookTool },
-  { name: "office_ms_todo", register: registerOfficeMsTodoTool },
-  { name: "office_gmail", register: registerOfficeGmailTool },
-  { name: "office_google_tasks", register: registerOfficeGoogleTasksTool },
-  { name: "office_notion", register: registerOfficeNotionTool },
-  { name: "office_confluence", register: registerOfficeConfluenceTool },
-  { name: "office_outlook_calendar", register: registerOfficeOutlookCalendarTool },
-  { name: "office_figma", register: registerOfficeFigmaTool },
+  { name: "mx_link", register: registerOfficeLinkTool },
+  { name: "mx_jira", register: registerOfficeJiraTool },
+  { name: "mx_gitlab", register: registerOfficeGitLabTool },
+  { name: "mx_github", register: registerOfficeGitHubTool },
+  { name: "mx_outlook", register: registerOfficeOutlookTool },
+  { name: "mx_ms_todo", register: registerOfficeMsTodoTool },
+  { name: "mx_gmail", register: registerOfficeGmailTool },
+  { name: "mx_google_tasks", register: registerOfficeGoogleTasksTool },
+  { name: "mx_notion", register: registerOfficeNotionTool },
+  { name: "mx_confluence", register: registerOfficeConfluenceTool },
+  { name: "mx_outlook_calendar", register: registerOfficeOutlookCalendarTool },
+  { name: "mx_figma", register: registerOfficeFigmaTool },
 ];
 
 const plugin: {

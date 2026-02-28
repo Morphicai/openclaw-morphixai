@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_gitlab tool schema
+ * mx_gitlab tool schema
  *
  * GitLab integration: projects, merge requests, issues, pipelines, branches.
  */

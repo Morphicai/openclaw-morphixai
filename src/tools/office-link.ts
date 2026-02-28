@@ -41,7 +41,7 @@ function resolveConfig(api: OpenClawPluginApi): { apiKey: string; baseUrl?: stri
 }
 
 /**
- * Register office_link tool
+ * Register mx_link tool
  *
  * Provides unified third-party account linking and proxy API access
  * via MorphixAI Pipedream integration.
@@ -50,13 +50,13 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
   // Check if explicitly disabled
   const officeConfig = (api.config as any)?.office ?? (api.config as any);
   if (officeConfig?.baibian?.enabled === false) {
-    api.logger.debug?.("office_link: disabled in config");
+    api.logger.debug?.("mx_link: disabled in config");
     return;
   }
 
   api.registerTool(
     {
-      name: "office_link",
+      name: "mx_link",
       label: "Office Link",
       description:
         "Manage linked third-party accounts (GitHub, GitLab, Gmail, Outlook, Jira, Slack, etc.) and call their APIs through MorphixAI proxy. " +
@@ -177,8 +177,8 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_link" },
+    { name: "mx_link" },
   );
 
-  api.logger.info?.("office_link: Registered office_link tool");
+  api.logger.info?.("mx_link: Registered mx_link tool");
 }

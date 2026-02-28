@@ -10,19 +10,19 @@ metadata:
 
 # Confluence Cloud
 
-通过 `office_confluence` 工具管理 Confluence 工作区：空间浏览、页面 CRUD、标签管理、评论、子页面导航、CQL 搜索。
+通过 `mx_confluence` 工具管理 Confluence 工作区：空间浏览、页面 CRUD、标签管理、评论、子页面导航、CQL 搜索。
 
 ## 前置条件
 
 1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `office_link` 工具链接 Confluence 账号（app: `confluence`）
+2. 用户需要通过 `mx_link` 工具链接 Confluence 账号（app: `confluence`）
 
 ## 核心操作
 
 ### 列出空间
 
 ```
-office_confluence:
+mx_confluence:
   action: list_spaces
   limit: 10
   type: "global"
@@ -33,7 +33,7 @@ office_confluence:
 ### 获取空间详情
 
 ```
-office_confluence:
+mx_confluence:
   action: get_space
   space_id: "163843"
 ```
@@ -41,7 +41,7 @@ office_confluence:
 ### 列出页面
 
 ```
-office_confluence:
+mx_confluence:
   action: list_pages
   space_id: "163843"
   limit: 20
@@ -53,7 +53,7 @@ office_confluence:
 ### 获取页面详情
 
 ```
-office_confluence:
+mx_confluence:
   action: get_page
   page_id: "163923"
   body_format: "storage"
@@ -64,7 +64,7 @@ office_confluence:
 ### 创建页面
 
 ```
-office_confluence:
+mx_confluence:
   action: create_page
   space_id: "163843"
   title: "会议纪要 2026-02-25"
@@ -77,7 +77,7 @@ office_confluence:
 ### 更新页面
 
 ```
-office_confluence:
+mx_confluence:
   action: update_page
   page_id: "163923"
   title: "更新后的标题"
@@ -90,7 +90,7 @@ office_confluence:
 ### 删除页面
 
 ```
-office_confluence:
+mx_confluence:
   action: delete_page
   page_id: "163923"
 ```
@@ -98,7 +98,7 @@ office_confluence:
 ### 获取子页面
 
 ```
-office_confluence:
+mx_confluence:
   action: get_child_pages
   page_id: "163923"
   limit: 20
@@ -108,7 +108,7 @@ office_confluence:
 ### 获取页面标签
 
 ```
-office_confluence:
+mx_confluence:
   action: get_page_labels
   page_id: "163923"
 ```
@@ -116,7 +116,7 @@ office_confluence:
 ### 添加标签
 
 ```
-office_confluence:
+mx_confluence:
   action: add_page_label
   page_id: "163923"
   label: "important"
@@ -125,7 +125,7 @@ office_confluence:
 ### 删除标签
 
 ```
-office_confluence:
+mx_confluence:
   action: delete_page_label
   page_id: "163923"
   label_id: "12345"
@@ -136,7 +136,7 @@ office_confluence:
 ### 获取页面评论
 
 ```
-office_confluence:
+mx_confluence:
   action: get_page_comments
   page_id: "163923"
   body_format: "storage"
@@ -146,7 +146,7 @@ office_confluence:
 ### 添加评论
 
 ```
-office_confluence:
+mx_confluence:
   action: add_page_comment
   page_id: "163923"
   body: "<p>这是一条评论</p>"
@@ -155,7 +155,7 @@ office_confluence:
 ### CQL 搜索
 
 ```
-office_confluence:
+mx_confluence:
   action: search
   cql: "type=page AND space.key=SOP AND title~\"API\""
   limit: 10
@@ -174,18 +174,18 @@ office_confluence:
 ### 浏览团队文档
 
 ```
-1. office_confluence: list_spaces → 找到目标空间
-2. office_confluence: list_pages, space_id: "xxx", sort: "-modified-date"
-3. office_confluence: get_page, page_id: "xxx", body_format: "storage" → 查看内容
+1. mx_confluence: list_spaces → 找到目标空间
+2. mx_confluence: list_pages, space_id: "xxx", sort: "-modified-date"
+3. mx_confluence: get_page, page_id: "xxx", body_format: "storage" → 查看内容
 ```
 
 ### 创建并更新文档
 
 ```
-1. office_confluence: list_spaces → 选择空间
-2. office_confluence: create_page, space_id: "xxx", title: "...", body: "..."
-3. office_confluence: get_page → 获取版本号
-4. office_confluence: update_page, version: N+1 → 更新内容
+1. mx_confluence: list_spaces → 选择空间
+2. mx_confluence: create_page, space_id: "xxx", title: "...", body: "..."
+3. mx_confluence: get_page → 获取版本号
+4. mx_confluence: update_page, version: N+1 → 更新内容
 ```
 
 ## 注意事项

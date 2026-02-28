@@ -10,7 +10,7 @@ const APP_SLUG = "github";
 export function registerOfficeGitHubTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_github",
+      name: "mx_github",
       label: "GitHub",
       description:
         "GitHub integration: list repos, issues, pull requests, workflow runs. Create issues/PRs, update issues, trigger workflows. " +
@@ -122,8 +122,8 @@ export function registerOfficeGitHubTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_github" },
+    { name: "mx_github" },
   );
 
-  api.logger.info?.("office_github: Registered");
+  api.logger.info?.("mx_github: Registered");
 }

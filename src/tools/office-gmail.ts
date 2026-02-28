@@ -10,7 +10,7 @@ const APP_SLUG = "gmail";
 export function registerOfficeGmailTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_gmail",
+      name: "mx_gmail",
       label: "Gmail",
       description:
         "Gmail integration: list, read, search, send emails. Manage labels, mark as read, trash messages. " +
@@ -84,8 +84,8 @@ export function registerOfficeGmailTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_gmail" },
+    { name: "mx_gmail" },
   );
 
-  api.logger.info?.("office_gmail: Registered");
+  api.logger.info?.("mx_gmail: Registered");
 }

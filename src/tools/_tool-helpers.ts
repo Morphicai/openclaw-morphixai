@@ -85,7 +85,7 @@ export const NO_API_KEY_ERROR = {
 export class AppNotConnectedError extends Error {
   constructor(public readonly appSlug: string) {
     super(
-      `No ${appSlug} account connected. Visit ${CONNECTIONS_URL} to link your ${appSlug} account, or use the office_link tool with action "connect" and app="${appSlug}".`,
+      `No ${appSlug} account connected. Visit ${CONNECTIONS_URL} to link your ${appSlug} account, or use the mx_link tool with action "connect" and app="${appSlug}".`,
     );
     this.name = "AppNotConnectedError";
   }

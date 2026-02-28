@@ -10,9 +10,9 @@ metadata:
 
 # Office Link — 第三方账号链接与 API 代理
 
-通过 `office_link` 工具，统一管理第三方平台的账号链接和 API 调用。Bot 不直接持有 OAuth token，所有请求通过 MorphixAI 服务端代理，自动管理凭据。
+通过 `mx_link` 工具，统一管理第三方平台的账号链接和 API 调用。Bot 不直接持有 OAuth token，所有请求通过 MorphixAI 服务端代理，自动管理凭据。
 
-> **重要：优先使用已有的专用 skill。** 对于已有专用 skill 的平台，**必须优先使用对应 skill**（如 `jira-workflow`、`gitlab-workflow`、`outlook-email` 等）而非 `office_link` 的 `proxy`。专用 skill 自动处理 URL 构建、认证、数据格式转换，更可靠且更简洁。`office_link` 仅用于：
+> **重要：优先使用已有的专用 skill。** 对于已有专用 skill 的平台，**必须优先使用对应 skill**（如 `jira-workflow`、`gitlab-workflow`、`outlook-email` 等）而非 `mx_link` 的 `proxy`。专用 skill 自动处理 URL 构建、认证、数据格式转换，更可靠且更简洁。`mx_link` 仅用于：
 > 1. **账号管理**（查看/链接账号）
 > 2. **调用尚未有专用 skill 的平台 API**（如 Slack、Discord、Zoom、Google Sheets 等）
 
@@ -21,8 +21,8 @@ metadata:
 ```
 用户请求操作某个平台
   ├── 有专用 skill？ → 使用专用 skill（见下方列表）
-  ├── 账号未链接？ → office_link: connect 引导授权
-  └── 无专用 skill？ → office_link: proxy 兜底代理调用
+  ├── 账号未链接？ → mx_link: connect 引导授权
+  └── 无专用 skill？ → mx_link: proxy 兜底代理调用
 ```
 
 ## 核心能力
@@ -53,14 +53,14 @@ metadata:
 | | Trello | `trello` |
 | | Asana | `asana` |
 
-> 完整列表可通过 `office_link` 的 `list_apps` action 获取。
+> 完整列表可通过 `mx_link` 的 `list_apps` action 获取。
 
 ## 使用流程
 
 ### 1. 检查已链接账号
 
 ```
-使用 office_link 工具:
+使用 mx_link 工具:
   action: list_accounts
   app_name: "github"  (可选，筛选特定平台)
 ```
@@ -70,7 +70,7 @@ metadata:
 如果用户需要的平台尚未链接：
 
 ```
-使用 office_link 工具:
+使用 mx_link 工具:
   action: connect
   app: "github"  (必须指定目标应用)
 ```
@@ -95,7 +95,7 @@ metadata:
 
 **示例：查询 Slack 频道消息（无专用工具，使用 proxy）**
 ```
-使用 office_link 工具:
+使用 mx_link 工具:
   action: proxy
   account_id: "apn_xxx"   (从 list_accounts 获取)
   method: "GET"
@@ -105,7 +105,7 @@ metadata:
 
 **示例：创建 Google Sheets 行（无专用工具，使用 proxy）**
 ```
-使用 office_link 工具:
+使用 mx_link 工具:
   action: proxy
   account_id: "apn_xxx"
   method: "POST"
@@ -118,21 +118,21 @@ metadata:
 
 ## 已有专用 Skill（必须优先使用）
 
-以下平台已有专用 skill，**禁止使用 `office_link: proxy` 替代**：
+以下平台已有专用 skill，**禁止使用 `mx_link: proxy` 替代**：
 
 | 专用 skill | 平台 | app 标识 | 使用的工具 |
 |-----------|------|----------|-----------|
-| `jira-workflow` | Jira Cloud | `jira` | `office_jira` |
-| `gitlab-workflow` | GitLab | `gitlab` | `office_gitlab` |
-| `github-workflow` | GitHub | `github` | `office_github` |
-| `outlook-email` | Outlook 邮箱 | `microsoft_outlook` | `office_outlook` |
-| `outlook-calendar` | Outlook 日历 | `microsoft_outlook_calendar` | `office_outlook_calendar` |
-| `ms-todo` | Microsoft To Do | `microsofttodo` | `office_ms_todo` |
-| `gmail` | Gmail | `gmail` | `office_gmail` |
-| `google-tasks` | Google Tasks | `google_tasks` | `office_google_tasks` |
-| `notion` | Notion | `notion` | `office_notion` |
-| `confluence` | Confluence Cloud | `confluence` | `office_confluence` |
-| `figma` | Figma | `figma` | `office_figma` |
+| `jira-workflow` | Jira Cloud | `jira` | `mx_jira` |
+| `gitlab-workflow` | GitLab | `gitlab` | `mx_gitlab` |
+| `github-workflow` | GitHub | `github` | `mx_github` |
+| `outlook-email` | Outlook 邮箱 | `microsoft_outlook` | `mx_outlook` |
+| `outlook-calendar` | Outlook 日历 | `microsoft_outlook_calendar` | `mx_outlook_calendar` |
+| `ms-todo` | Microsoft To Do | `microsofttodo` | `mx_ms_todo` |
+| `gmail` | Gmail | `gmail` | `mx_gmail` |
+| `google-tasks` | Google Tasks | `google_tasks` | `mx_google_tasks` |
+| `notion` | Notion | `notion` | `mx_notion` |
+| `confluence` | Confluence Cloud | `confluence` | `mx_confluence` |
+| `figma` | Figma | `figma` | `mx_figma` |
 
 专用 skill 的优势：
 - **自动账号检测** — 无需手动查 account_id
@@ -141,7 +141,7 @@ metadata:
 - **语义化参数** — `jql: "..."` 比手写 REST URL 更直观
 - **内置工作流** — 每个 skill 包含常见场景的操作步骤
 
-`office_link` 的 `proxy` action **仅适用于**上述列表之外的应用（如 Slack、Discord、Zoom、Google Sheets 等）。
+`mx_link` 的 `proxy` action **仅适用于**上述列表之外的应用（如 Slack、Discord、Zoom、Google Sheets 等）。
 
 ## 常见场景
 
@@ -149,41 +149,41 @@ metadata:
 
 ```
 # 查 Jira 待办 → 使用 jira-workflow skill
-office_jira: action: search_issues,
+mx_jira: action: search_issues,
   jql: "assignee = currentUser() AND status != Done ORDER BY updated DESC"
 
 # 查 GitLab MR → 使用 gitlab-workflow skill
-office_gitlab: action: list_merge_requests, state: "opened"
+mx_gitlab: action: list_merge_requests, state: "opened"
 
 # 查 GitHub 仓库 → 使用 github-workflow skill
-office_github: action: list_repos, sort: "updated", per_page: 5
+mx_github: action: list_repos, sort: "updated", per_page: 5
 
 # 查今日日程 → 使用 outlook-calendar skill
-office_outlook_calendar: action: get_calendar_view,
+mx_outlook_calendar: action: get_calendar_view,
   start_date_time: "2026-02-25T00:00:00Z", end_date_time: "2026-02-25T23:59:59Z"
 ```
 
-### 无专用 skill → 兜底使用 office_link proxy
+### 无专用 skill → 兜底使用 mx_link proxy
 
 ```
 # Slack 消息（无专用 skill）→ 使用 proxy
-1. office_link: list_accounts, app_name="slack"
-2. office_link: proxy, account_id="apn_xxx", method="GET",
+1. mx_link: list_accounts, app_name="slack"
+2. mx_link: proxy, account_id="apn_xxx", method="GET",
    url="https://slack.com/api/conversations.history",
    params={"channel":"C01234567","limit":10}
 
 # Google Sheets（无专用 skill）→ 使用 proxy
-1. office_link: list_accounts, app_name="google_sheets"
-2. office_link: proxy, account_id="apn_xxx", method="GET",
+1. mx_link: list_accounts, app_name="google_sheets"
+2. mx_link: proxy, account_id="apn_xxx", method="GET",
    url="https://sheets.googleapis.com/v4/spreadsheets/{id}/values/Sheet1"
 ```
 
 ### 账号未链接 → 引导连接
 
 ```
-1. office_link: list_accounts, app_name="slack"
+1. mx_link: list_accounts, app_name="slack"
      → 返回空列表
-2. office_link: connect, app: "slack"
+2. mx_link: connect, app: "slack"
      → 返回 OAuth 授权链接，发给用户
 3. 用户完成授权后，重新操作
 ```
@@ -228,5 +228,5 @@ MORPHIXAI_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 1. **专用 skill 优先** — 有专用 skill 的平台**必须用对应 skill**，`proxy` 只作为无专用 skill 时的兜底
 2. **先查后连** — 总是先用 `list_accounts` 检查是否已链接，避免重复引导用户授权
 3. **缓存 account_id** — 在对话中缓存 `account_id`，无需每次都查询
-4. **组合使用** — 一个对话中可以跨 skill 操作（先用 `jira-workflow` 查任务，再用 `office_link: proxy` 发 Slack 通知）
+4. **组合使用** — 一个对话中可以跨 skill 操作（先用 `jira-workflow` 查任务，再用 `mx_link: proxy` 发 Slack 通知）
 5. **优雅降级** — 如果 API Key 未配置，提示用户设置环境变量

@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_google_tasks tool schema
+ * mx_google_tasks tool schema
  *
  * Google Tasks integration via Google Tasks API.
  */

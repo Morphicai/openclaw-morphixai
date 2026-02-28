@@ -1,7 +1,7 @@
 import { Type, type Static } from "@sinclair/typebox";
 
 /**
- * office_ms_todo tool schema
+ * mx_ms_todo tool schema
  *
  * Microsoft To Do integration via Microsoft Graph API.
  */

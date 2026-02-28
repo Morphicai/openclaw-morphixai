@@ -10,7 +10,7 @@ const APP_SLUG = "microsoft_outlook_calendar";
 export function registerOfficeOutlookCalendarTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
-      name: "office_outlook_calendar",
+      name: "mx_outlook_calendar",
       label: "Outlook Calendar",
       description:
         "Microsoft Outlook Calendar integration: list calendars, view/create/update/delete events, get calendar view by date range. " +
@@ -105,8 +105,8 @@ export function registerOfficeOutlookCalendarTool(api: OpenClawPluginApi) {
         }
       },
     },
-    { name: "office_outlook_calendar" },
+    { name: "mx_outlook_calendar" },
   );
 
-  api.logger.info?.("office_outlook_calendar: Registered");
+  api.logger.info?.("mx_outlook_calendar: Registered");
 }

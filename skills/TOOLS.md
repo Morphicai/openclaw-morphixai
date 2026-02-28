@@ -24,18 +24,18 @@ MORPHIXAI_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 | 工具 | 平台 | app 标识 | 核心功能 |
 |------|------|----------|---------|
-| `office_gitlab` | GitLab | `gitlab` | 项目/MR/Pipeline/Issue/分支 |
-| `office_github` | GitHub | `github` | 仓库/Issue/PR/Workflow |
-| `office_jira` | Jira Cloud | `jira` | 项目/Issue/状态流转/评论 |
-| `office_confluence` | Confluence | `confluence` | 空间/页面/标签/评论/子页面/CQL 搜索 |
-| `office_outlook` | Outlook 邮箱 | `microsoft_outlook` | 收发/搜索/回复邮件 |
-| `office_outlook_calendar` | Outlook 日历 | `microsoft_outlook_calendar` | 日历/事件 CRUD |
-| `office_ms_todo` | Microsoft To Do | `microsofttodo` | 任务列表/任务 CRUD |
-| `office_gmail` | Gmail | `gmail` | 收发/搜索邮件 |
-| `office_google_tasks` | Google Tasks | `google_tasks` | 任务列表/任务 CRUD |
-| `office_notion` | Notion | `notion` | 页面/数据库/区块 |
-| `office_figma` | Figma | `figma` | 文件/项目/组件/样式/评论/图片导出 |
-| `office_link` | 统一入口 | - | 账号管理/API 代理 |
+| `mx_gitlab` | GitLab | `gitlab` | 项目/MR/Pipeline/Issue/分支 |
+| `mx_github` | GitHub | `github` | 仓库/Issue/PR/Workflow |
+| `mx_jira` | Jira Cloud | `jira` | 项目/Issue/状态流转/评论 |
+| `mx_confluence` | Confluence | `confluence` | 空间/页面/标签/评论/子页面/CQL 搜索 |
+| `mx_outlook` | Outlook 邮箱 | `microsoft_outlook` | 收发/搜索/回复邮件 |
+| `mx_outlook_calendar` | Outlook 日历 | `microsoft_outlook_calendar` | 日历/事件 CRUD |
+| `mx_ms_todo` | Microsoft To Do | `microsofttodo` | 任务列表/任务 CRUD |
+| `mx_gmail` | Gmail | `gmail` | 收发/搜索邮件 |
+| `mx_google_tasks` | Google Tasks | `google_tasks` | 任务列表/任务 CRUD |
+| `mx_notion` | Notion | `notion` | 页面/数据库/区块 |
+| `mx_figma` | Figma | `figma` | 文件/项目/组件/样式/评论/图片导出 |
+| `mx_link` | 统一入口 | - | 账号管理/API 代理 |
 
 ## 常用 Jira JQL
 
@@ -74,12 +74,12 @@ is:unread newer_than:7d
 has:attachment from:client@example.com
 ```
 
-## office_link 代理（高级用法）
+## mx_link 代理（高级用法）
 
-对于上述工具未封装的 API，可使用 `office_link` 的 `proxy` action 直接调用：
+对于上述工具未封装的 API，可使用 `mx_link` 的 `proxy` action 直接调用：
 
 ```
-office_link:
+mx_link:
   action: proxy
   account_id: "apn_xxx"
   method: "GET"
