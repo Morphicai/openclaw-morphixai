@@ -1,0 +1,75 @@
+{
+  "name": "@morphixai/skills",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "OpenClaw 办公 Skills：GitLab、Jira、Gmail、Outlook 工作流 + 统一第三方账号链接与 API 代理",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "index.ts",
+    "src",
+    "skills",
+    "templates",
+    "docs",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "install-skills": "node dist/index.js install",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "openclaw",
+    "skills",
+    "plugin",
+    "gitlab",
+    "jira",
+    "confluence",
+    "outlook",
+    "github",
+    "gmail",
+    "slack",
+    "office",
+    "workflow",
+    "agent",
+    "morphixai",
+    "pipedream"
+  ],
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "skills": "./skills",
+    "install": {
+      "npmSpec": "@morphixai/skills",
+      "localPath": ".",
+      "defaultChoice": "local"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.48"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vitest": "^4.0.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.1.29"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  }
+}

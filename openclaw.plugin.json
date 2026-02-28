@@ -1,0 +1,73 @@
+{
+  "id": "openclaw-morphixai",
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable or disable the MorphixAI skills plugin"
+      },
+      "gitlab": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean", "default": true },
+          "token": { "type": "string", "description": "GitLab personal access token (or use GITLAB_TOKEN env var)" }
+        },
+        "additionalProperties": false
+      },
+      "pipedream": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean", "default": false },
+          "token": { "type": "string", "description": "Pipedream API token" },
+          "projectId": { "type": "string", "description": "Pipedream project ID" }
+        },
+        "additionalProperties": false
+      },
+      "baibian": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean", "default": true },
+          "apiKey": { "type": "string", "description": "MorphixAI API Key (mk_xxx format). Or use MORPHIXAI_API_KEY env var" },
+          "baseUrl": { "type": "string", "description": "MorphixAI API base URL (default: https://api.baibian.app)" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "uiHints": {
+    "enabled": {
+      "label": "Enable MorphixAI Skills",
+      "description": "Master toggle for all MorphixAI workflow skills"
+    },
+    "gitlab": {
+      "label": "GitLab Integration",
+      "description": "GitLab workflow configuration",
+      "properties": {
+        "enabled": { "label": "Enable GitLab", "description": "Enable GitLab workflow skill" },
+        "token": { "label": "GitLab Token", "description": "Personal access token (scope: api)", "sensitive": true }
+      }
+    },
+    "pipedream": {
+      "label": "Pipedream Proxy",
+      "description": "Optional: Use Pipedream for unified credential management",
+      "properties": {
+        "enabled": { "label": "Enable Pipedream", "description": "Use Pipedream API proxy instead of direct tokens" },
+        "token": { "label": "Pipedream Token", "description": "Pipedream API key", "sensitive": true },
+        "projectId": { "label": "Project ID", "description": "Pipedream project ID" }
+      }
+    },
+    "baibian": {
+      "label": "MorphixAI Link (Third-party Integration)",
+      "description": "Link third-party accounts (GitHub, GitLab, Gmail, Outlook, Jira, Slack, etc.) via MorphixAI",
+      "properties": {
+        "enabled": { "label": "Enable MorphixAI", "description": "Enable office_link tool for third-party account management and API proxy" },
+        "apiKey": { "label": "API Key", "description": "MorphixAI API Key (mk_xxx). Create at https://baibian.app/api-keys with all scopes", "sensitive": true },
+        "baseUrl": { "label": "Base URL", "description": "Override MorphixAI API endpoint (advanced)" }
+      }
+    }
+  }
+}
