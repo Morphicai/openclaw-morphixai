@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeOutlookSchema, type OfficeOutlookParams } from "../schemas/office-outlook-schema.js";
+import { OfficeOutlookSchema, type OfficeOutlookParams } from "../schemas/outlook-schema.js";
 import { OutlookClient } from "../app-clients/outlook-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

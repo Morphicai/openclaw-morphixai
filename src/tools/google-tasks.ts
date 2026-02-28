@@ -2,7 +2,7 @@ import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import {
   OfficeGoogleTasksSchema,
   type OfficeGoogleTasksParams,
-} from "../schemas/office-google-tasks-schema.js";
+} from "../schemas/google-tasks-schema.js";
 import { GoogleTasksClient } from "../app-clients/google-tasks-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

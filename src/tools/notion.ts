@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeNotionSchema, type OfficeNotionParams } from "../schemas/office-notion-schema.js";
+import { OfficeNotionSchema, type OfficeNotionParams } from "../schemas/notion-schema.js";
 import { NotionClient } from "../app-clients/notion-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

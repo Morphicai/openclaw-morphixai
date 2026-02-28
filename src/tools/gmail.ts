@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeGmailSchema, type OfficeGmailParams } from "../schemas/office-gmail-schema.js";
+import { OfficeGmailSchema, type OfficeGmailParams } from "../schemas/gmail-schema.js";
 import { GmailClient } from "../app-clients/gmail-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

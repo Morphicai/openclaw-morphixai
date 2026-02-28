@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeMsTodoSchema, type OfficeMsTodoParams } from "../schemas/office-ms-todo-schema.js";
+import { OfficeMsTodoSchema, type OfficeMsTodoParams } from "../schemas/ms-todo-schema.js";
 import { MsTodoClient } from "../app-clients/ms-todo-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeOutlookCalendarSchema, type OfficeOutlookCalendarParams } from "../schemas/office-outlook-calendar-schema.js";
+import { OfficeOutlookCalendarSchema, type OfficeOutlookCalendarParams } from "../schemas/outlook-calendar-schema.js";
 import { OutlookCalendarClient } from "../app-clients/outlook-calendar-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";

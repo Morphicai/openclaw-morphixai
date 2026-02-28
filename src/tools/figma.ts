@@ -1,5 +1,5 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeFigmaSchema, type OfficeFigmaParams } from "../schemas/office-figma-schema.js";
+import { OfficeFigmaSchema, type OfficeFigmaParams } from "../schemas/figma-schema.js";
 import { FigmaClient } from "../app-clients/figma-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
 import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
