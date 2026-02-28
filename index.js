@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * @morphixai/openclaw-morphixai
+ * openclaw-morphixai
  *
  * Quick install:
  *   cp -r skills/* ~/.openclaw/skills/
@@ -29,7 +29,7 @@ if (cmd === "install") {
   cpSync(join(__dirname, "skills"), resolved, { recursive: true })
   console.log(`Skills installed to ${resolved}`)
 } else {
-  console.log(`@morphixai/openclaw-morphixai v0.1.0
+  console.log(`openclaw-morphixai v0.1.0
 
 Usage:
   node index.js install [--skills-dir <path>]
