@@ -1,4 +1,4 @@
-# @morphixai/skills — OpenClaw 办公插件
+# @morphixai/openclaw-morphixai — OpenClaw 办公插件
 
 将 OpenClaw 变成你的个人办公助手，通过 MorphixAI 统一代理集成 12 个第三方平台。
 
