@@ -24,6 +24,13 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
+  "author": "MorphixAI <hello@morphix.app>",
+  "license": "MIT",
+  "homepage": "https://morphix.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Morphicai/openclaw-morphixai"
+  },
   "keywords": [
     "openclaw",
     "skills",
@@ -47,7 +54,7 @@
     "install": {
       "npmSpec": "openclaw-morphixai",
       "localPath": ".",
-      "defaultChoice": "local"
+      "defaultChoice": "npm"
     }
   },
   "engines": {
