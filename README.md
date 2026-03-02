@@ -1,14 +1,15 @@
 <div align="center">
-  <img src="https://morphix.app/images/icon.png" alt="MorphixAI" width="64" height="64" />
-  <h1>openclaw-morphixai</h1>
-  <p><strong>MorphixAI Office Plugin for OpenClaw</strong></p>
+  <img src="https://morphix.app/images/icon.png" alt="MorphixAI" width="80" height="80" />
+  <h1>MorphixAI for OpenClaw</h1>
+  <p><strong>One API Key. Thousands of Integrations.</strong></p>
+  <p>一个密钥，链接数千个应用。</p>
 
   [![npm version](https://img.shields.io/npm/v/openclaw-morphixai)](https://www.npmjs.com/package/openclaw-morphixai)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
   [![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-plugin-blue)](https://morphix.app)
 </div>
 
-> Turn OpenClaw into your personal office assistant — 12 tools and 15 skill workflows integrating GitLab, GitHub, Jira, Confluence, Outlook, Gmail, Notion, Figma, and more via MorphixAI unified proxy.
+> Connect GitLab, GitHub, Jira, Confluence, Outlook, Gmail, Notion, Figma and more to your AI agent — powered by **MorphixAI**. One key unlocks them all.
 
 **[English](#english) | [中文](#中文)**
 
@@ -16,26 +17,28 @@
 
 ## Quick Start
 
+> **One API Key. Thousands of Integrations.** — Get yours at [morphix.app/api-keys](https://morphix.app/api-keys).
+
 ```bash
-# Step 1 — Install the plugin
+# 1. Install MorphixAI for OpenClaw
 openclaw plugins install openclaw-morphixai
 
-# Step 2 — Set your MorphixAI API Key (get one at https://morphix.app/api-keys)
+# 2. Add your MorphixAI API Key
 echo "MORPHIXAI_API_KEY=mk_your_key_here" >> ~/.openclaw/.env
 
-# Step 3 — Link your accounts at https://morphix.app/connections
-# Then restart OpenClaw and start chatting 🎉
+# 3. Link accounts → https://morphix.app/connections
+# Restart OpenClaw — done.
 ```
 
-That's all it takes. No cloning, no building, no manual config files.
-
-> **New user?** Get a free MorphixAI API Key at [morphix.app/api-keys](https://morphix.app/api-keys) — takes 30 seconds.
+No cloning. No building. No config files.
 
 ---
 
 ## English
 
 ### Installation
+
+Install **MorphixAI for OpenClaw** from the npm registry:
 
 ```bash
 openclaw plugins install openclaw-morphixai
@@ -245,20 +248,28 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### 快速开始
 
+> **一个密钥，链接数千个应用。** — 立即在 [morphix.app/api-keys](https://morphix.app/api-keys) 获取。
+
 ```bash
-# 第 1 步 — 安装插件
+# 1. 安装 MorphixAI for OpenClaw
 openclaw plugins install openclaw-morphixai
 
-# 第 2 步 — 设置 MorphixAI API Key（在 https://morphix.app/api-keys 获取）
+# 2. 填入你的 MorphixAI API Key
 echo "MORPHIXAI_API_KEY=mk_your_key_here" >> ~/.openclaw/.env
 
-# 第 3 步 — 在 https://morphix.app/connections 链接你的第三方账号
-# 重启 OpenClaw，开始对话 🎉
+# 3. 链接第三方账号 → https://morphix.app/connections
+# 重启 OpenClaw，即可使用。
 ```
 
-无需 clone 代码，无需手动构建，开箱即用。
+无需 clone，无需构建，开箱即用。
 
-> **新用户？** 在 [morphix.app/api-keys](https://morphix.app/api-keys) 免费获取 API Key，30 秒完成。
+### 安装
+
+从 npm 安装 **MorphixAI for OpenClaw**：
+
+```bash
+openclaw plugins install openclaw-morphixai
+```
 
 ### 配置
 
