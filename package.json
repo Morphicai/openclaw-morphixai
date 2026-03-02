@@ -1,6 +1,6 @@
 {
   "name": "openclaw-morphixai",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "description": "OpenClaw 办公 Skills：GitLab、Jira、Gmail、Outlook 工作流 + 统一第三方账号链接与 API 代理",
   "main": "./dist/index.js",
