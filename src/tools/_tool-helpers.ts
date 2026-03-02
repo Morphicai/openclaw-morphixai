@@ -73,8 +73,8 @@ export async function resolveAppAccount(
   return active.accountId;
 }
 
-export const API_KEY_GUIDE_URL = "https://baibian.app/api-keys";
-export const CONNECTIONS_URL = "https://baibian.app/connections";
+export const API_KEY_GUIDE_URL = "https://morphix.app/api-keys";
+export const CONNECTIONS_URL = "https://morphix.app/connections";
 
 export const NO_API_KEY_ERROR = {
   error:

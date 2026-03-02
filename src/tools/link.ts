@@ -70,8 +70,8 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
         if (!config) {
           return json({
             error: "MorphixAI API key not configured. Set MORPHIXAI_API_KEY environment variable or configure office.baibian.apiKey in openclaw config.",
-            setup_guide: "Visit https://baibian.app/api-keys to create an API Key (select all scopes).",
-            connections_guide: "After creating the API Key, visit https://baibian.app/connections to link your third-party accounts.",
+            setup_guide: "Visit https://morphix.app/api-keys to create an API Key (select all scopes).",
+            connections_guide: "After creating the API Key, visit https://morphix.app/connections to link your third-party accounts.",
           });
         }
 
@@ -162,7 +162,7 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
 
             if (err.statusCode === 401) {
               errorInfo.hint =
-                "API Key is invalid, revoked, or expired. Visit MorphixAI console (https://baibian.app/api-keys) to create a new one.";
+                "API Key is invalid, revoked, or expired. Visit MorphixAI console (https://morphix.app/api-keys) to create a new one.";
             } else if (err.statusCode === 403) {
               errorInfo.hint =
                 "API Key lacks required scope. Ensure all scopes (user:profile:read, link) are selected.";

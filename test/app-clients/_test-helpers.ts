@@ -2,17 +2,17 @@
  * Shared test helpers for app-client integration tests.
  *
  * Setup:
- *   1. Get API Key at: https://baibian.app/api-keys (select all scopes)
+ *   1. Get API Key at: https://morphix.app/api-keys (select all scopes)
  *   2. Set MORPHIXAI_API_KEY in .env or environment
- *   3. Link accounts at: https://baibian.app/connections
+ *   3. Link accounts at: https://morphix.app/connections
  *   4. Run: npx vitest run test/app-clients/
  *
  * If an app is not connected, the test prints guidance and skips gracefully.
  */
 import { BaibianClient } from "../../src/baibian-client.js";
 
-const CONNECTIONS_URL = "https://baibian.app/connections";
-const API_KEY_URL = "https://baibian.app/api-keys";
+const CONNECTIONS_URL = "https://morphix.app/connections";
+const API_KEY_URL = "https://morphix.app/api-keys";
 
 export const API_KEY = process.env.MORPHIXAI_API_KEY;
 export const BASE_URL =

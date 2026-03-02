@@ -6,10 +6,10 @@
 
 | 项目 | 值 |
 |------|-----|
-| 基础 URL | `https://api.baibian.app` |
+| 基础 URL | `https://api.morphix.app` |
 | 认证 | `Authorization: Bearer mk_xxx`（API Key） |
-| 获取 Key | https://baibian.app/api-keys（Scope 全选） |
-| 链接账号 | https://baibian.app/connections |
+| 获取 Key | https://morphix.app/api-keys（Scope 全选） |
+| 链接账号 | https://morphix.app/connections |
 
 ### 环境变量
 
