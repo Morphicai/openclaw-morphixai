@@ -53,13 +53,13 @@ openclaw plugin install --path ~/www/openclaw-office
 
 所有第三方平台 API 调用均通过 MorphixAI 代理，只需一个 Key：
 
-1. 访问 https://baibian.app/api-keys
+1. 访问 https://morphix.app/api-keys
 2. 创建 API Key（Scope 全选）
 3. 复制 `mk_xxx` 格式的 Key
 
 ### 2. 链接第三方账号
 
-访问 https://baibian.app/connections ，点击对应平台完成 OAuth 授权。支持的平台：
+访问 https://morphix.app/connections ，点击对应平台完成 OAuth 授权。支持的平台：
 
 | 平台 | 功能 |
 |------|------|

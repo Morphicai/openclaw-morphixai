@@ -190,7 +190,7 @@ mx_outlook_calendar: action: get_calendar_view,
 
 ## 错误处理
 
-- **401** — API Key 无效或已过期，提示用户到 MorphixAI 控制台 (https://baibian.app/api-keys) 重新创建
+- **401** — API Key 无效或已过期，提示用户到 MorphixAI 控制台 (https://morphix.app/api-keys) 重新创建
 - **403** — API Key 缺少权限范围，需要全选 scope（`user:profile:read`、`link`）
 - **账号未链接** — 使用 `connect` action 引导用户授权
 - **第三方 API 错误** — proxy 返回第三方原始错误，根据各平台文档处理
@@ -219,7 +219,7 @@ MORPHIXAI_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### 获取 API Key
 
-1. 登录 MorphixAI 控制台 https://baibian.app/api-keys
+1. 登录 MorphixAI 控制台 https://morphix.app/api-keys
 2. 点击「创建 API Key」，**Scope 全选**
 3. 复制保存 Key（只显示一次）
 

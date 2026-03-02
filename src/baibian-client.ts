@@ -5,13 +5,13 @@
  * Completely independent from Tanka SDK — uses native fetch.
  *
  * Auth: Bearer API Key (mk_xxx format)
- * Base URL: https://api.baibian.app
+ * Base URL: https://api.morphix.app
  */
 
 export interface BaibianClientConfig {
   /** API Key (mk_xxx format) */
   apiKey: string;
-  /** Base URL override (default: https://api.baibian.app) */
+  /** Base URL override (default: https://api.morphix.app) */
   baseUrl?: string;
   /** Request timeout in ms (default: 30000) */
   timeout?: number;
@@ -90,7 +90,7 @@ export class BaibianClient {
 
   constructor(config: BaibianClientConfig) {
     this.apiKey = config.apiKey;
-    this.baseUrl = (config.baseUrl || "https://api.baibian.app").replace(/\/$/, "");
+    this.baseUrl = (config.baseUrl || "https://api.morphix.app").replace(/\/$/, "");
     this.timeout = config.timeout || 30000;
   }
 

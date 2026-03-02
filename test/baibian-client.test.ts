@@ -44,7 +44,7 @@ describe('BaibianClient', () => {
     test('should use default base URL', () => {
       const client = createClient();
       // Access private field for verification
-      expect((client as any).baseUrl).toBe('https://api.baibian.app');
+      expect((client as any).baseUrl).toBe('https://api.morphix.app');
     });
 
     test('should use custom base URL', () => {
@@ -92,7 +92,7 @@ describe('BaibianClient', () => {
 
       expect(fetchMock).toHaveBeenCalledOnce();
       const [url, init] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/auth/check');
+      expect(url).toBe('https://api.morphix.app/auth/check');
       expect(init.method).toBe('GET');
       expect(init.headers.Authorization).toBe('Bearer mk_test_key_123');
       expect(result.user.id).toBe('user_123');
@@ -113,7 +113,7 @@ describe('BaibianClient', () => {
       const result = await client.listAccounts();
 
       const [url] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/accounts');
+      expect(url).toBe('https://api.morphix.app/pipedream/accounts');
       expect(result).toEqual(accounts);
     });
 
@@ -152,7 +152,7 @@ describe('BaibianClient', () => {
       const result = await client.getAccount('apn_abc');
 
       const [url] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/accounts/apn_abc');
+      expect(url).toBe('https://api.morphix.app/pipedream/accounts/apn_abc');
       expect(result.accountId).toBe('apn_abc');
     });
   });
@@ -169,7 +169,7 @@ describe('BaibianClient', () => {
       const result = await client.getStatistics();
 
       const [url] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/statistics');
+      expect(url).toBe('https://api.morphix.app/pipedream/statistics');
       expect(result.totalAccounts).toBe(5);
     });
   });
@@ -186,7 +186,7 @@ describe('BaibianClient', () => {
       const result = await client.listApps();
 
       const [url] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/apps');
+      expect(url).toBe('https://api.morphix.app/pipedream/apps');
       expect(result.data).toHaveLength(1);
       expect(result.count).toBe(1);
     });
@@ -217,7 +217,7 @@ describe('BaibianClient', () => {
       const result = await client.createConnectToken('github');
 
       const [url, init] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/connect-token');
+      expect(url).toBe('https://api.morphix.app/pipedream/connect-token');
       expect(init.method).toBe('POST');
       const body = JSON.parse(init.body);
       expect(body.app).toBe('github');
@@ -254,7 +254,7 @@ describe('BaibianClient', () => {
       });
 
       const [url, init] = fetchMock.mock.calls[0];
-      expect(url).toBe('https://api.baibian.app/pipedream/proxy');
+      expect(url).toBe('https://api.morphix.app/pipedream/proxy');
       expect(init.method).toBe('POST');
       const body = JSON.parse(init.body);
       expect(body.accountId).toBe('apn_abc');
