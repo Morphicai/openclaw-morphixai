@@ -68,8 +68,7 @@
         "enabled": true,
         "env": { "GITLAB_TOKEN": "${GITLAB_TOKEN}" }
       },
-      "daily-standup": { "enabled": true },
-      "release-workflow": { "enabled": true }
+      "daily-standup": { "enabled": true }
     }
   },
 

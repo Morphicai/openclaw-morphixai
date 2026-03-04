@@ -116,7 +116,7 @@ openclaw security audit --fix
 
 | 类型 | 数量 |
 |------|------|
-| Skills | 3 (gitlab-workflow, daily-standup, release-workflow) |
+| Skills | 2 (gitlab-workflow, daily-standup) |
 | Templates | 4 (openclaw.json, AGENTS.md, SOUL.md, .env.example) |
 | Docs | 4 (README, QUICKSTART, SECURITY, SKILLS, REVIEW) |
 | 总行数 | ~1,200 LOC |

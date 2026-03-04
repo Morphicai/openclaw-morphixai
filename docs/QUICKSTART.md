@@ -99,7 +99,6 @@ openclaw gateway start
 |-------|---------|
 | `gitlab-workflow` | MR/CI/Review，包含分支和提交规范 |
 | `daily-standup` | 早报聚合器，汇总 GitLab + Jira + 邮件 |
-| `release-workflow` | 版本发布 SOP，带预检查 |
 
 ### 模板
 
