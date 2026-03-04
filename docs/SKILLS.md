@@ -5,8 +5,7 @@
 ```
 ~/.openclaw/skills/           ← 共享 skills (本包安装在这里)
   ├── gitlab-workflow/
-  ├── daily-standup/
-  └── release-workflow/
+  └── daily-standup/
 
 ~/www/mini-tanka/packages/
   └── clawdbot-tanka/skills/  ← Tanka 插件 skills (与插件打包)
@@ -50,23 +49,6 @@
 - "standup"
 - "早报"
 - "今天有什么要处理的"
-
-## Skill: release-workflow
-
-**用途**: 逐步强制执行发布 SOP。
-
-**依赖**: `git` + `glab` CLI
-
-**功能**:
-- 发布前验证 (CI、MRs、issues)
-- 引导版本升级
-- Changelog 生成
-- Tag 创建和发布验证
-
-**示例提示**:
-- "发布 v1.2.0"
-- "准备 release"
-- "bump patch version"
 
 ## Tanka 插件 Skills
 

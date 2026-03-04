@@ -21,7 +21,6 @@
 |-------|------|------|
 | **gitlab-workflow** | GitLab MR/CI/Review，包含分支命名和 commit 规范 | glab CLI, GITLAB_TOKEN |
 | **daily-standup** | 早报聚合器，汇总 GitLab + Jira + 邮件 | glab CLI (必需), Atlassian MCP (可选) |
-| **release-workflow** | 逐步发布 SOP，带预检查 | git, glab CLI |
 | **pipedream-proxy** | 通过 Pipedream 统一管理 API 凭据（可选） | PIPEDREAM_TOKEN |
 
 ## ✅ 可用性检查清单
@@ -67,7 +66,7 @@
 
 | 类型 | 数量 |
 |------|------|
-| Skills | 4 |
+| Skills | 3 |
 | Templates | 4 |
 | 文档 | 5 |
 | 工具脚本 | 3 (package.json, index.js, verify.sh) |

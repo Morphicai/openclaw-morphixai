@@ -278,6 +278,5 @@ AI: [查 Jira Issue → 提取信息 → 创建 Git 分支 → 创建 MR]
 
 1. **早报习惯**：每天第一件事在 Tanka 发 `standup`
 2. **MR 创建**：用 Agent 创建确保规范一致
-3. **发布流程**：用 `release-workflow` 避免遗漏步骤
-4. **Review 自动化**：`review MR #xxx` 快速检查合规性
-5. **群组使用**：在团队群 @bot 让大家看到操作透明性
+3. **Review 自动化**：`review MR #xxx` 快速检查合规性
+4. **群组使用**：在团队群 @bot 让大家看到操作透明性

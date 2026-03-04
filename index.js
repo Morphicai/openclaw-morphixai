@@ -37,7 +37,6 @@ Usage:
 Skills included:
   - gitlab-workflow   GitLab MR/CI/Review with team conventions
   - daily-standup     Multi-source morning briefing
-  - release-workflow  Versioned release SOP
 
 Templates included:
   - openclaw.personal.json    Single-user office setup

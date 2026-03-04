@@ -41,12 +41,6 @@ else
     check_fail "daily-standup skill missing"
 fi
 
-if [ -f ~/.openclaw/skills/release-workflow/SKILL.md ]; then
-    check_pass "release-workflow skill installed"
-else
-    check_fail "release-workflow skill missing"
-fi
-
 if [ -f ~/.openclaw/skills/pipedream-proxy/SKILL.md ]; then
     check_pass "pipedream-proxy skill installed (optional)"
 else

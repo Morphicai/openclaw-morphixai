@@ -103,7 +103,7 @@ MORPHIXAI_API_KEY=mk_your_api_key_here
 
 #### 4. (Optional) GitLab Direct Token
 
-Required for `gitlab-workflow`, `release-workflow`, and `daily-standup` skills:
+Required for `gitlab-workflow` and `daily-standup` skills:
 
 ```bash
 # ~/.openclaw/.env
@@ -139,7 +139,7 @@ Create a Notion page for today's meeting
 
 ### Skills
 
-15 pre-defined multi-step workflows that the agent activates automatically:
+14 pre-defined multi-step workflows that the agent activates automatically:
 
 | Skill | Purpose |
 |-------|---------|
@@ -148,7 +148,6 @@ Create a Notion page for today's meeting
 | `jira-workflow` | Issue management and status transitions |
 | `confluence` | Page editing and search |
 | `daily-standup` | Morning briefing — aggregates GitLab + Jira + email |
-| `release-workflow` | Step-by-step release SOP with pre-flight checks |
 | `outlook-email` | Outlook mail workflow |
 | `outlook-calendar` | Outlook calendar management |
 | `gmail` | Gmail workflow |
@@ -326,7 +325,7 @@ MORPHIXAI_API_KEY=mk_your_api_key_here
 
 #### 4. （可选）GitLab 直连 Token
 
-使用 `gitlab-workflow`、`release-workflow`、`daily-standup` Skill 时需要：
+使用 `gitlab-workflow`、`daily-standup` Skill 时需要：
 
 ```bash
 # ~/.openclaw/.env
@@ -362,7 +361,7 @@ GITLAB_TOKEN=glpat-xxxxxxxxxxxxxxxxxxxx
 
 ### Skill 工作流
 
-15 个预定义多步骤工作流，Agent 匹配场景后自动激活：
+14 个预定义多步骤工作流，Agent 匹配场景后自动激活：
 
 | Skill | 用途 |
 |-------|------|
@@ -371,7 +370,6 @@ GITLAB_TOKEN=glpat-xxxxxxxxxxxxxxxxxxxx
 | `jira-workflow` | Jira Issue 管理和状态流转 |
 | `confluence` | Confluence 页面编辑和搜索 |
 | `daily-standup` | 每日早报，聚合 GitLab + Jira + 邮件 |
-| `release-workflow` | 逐步发布 SOP，带预检查 |
 | `outlook-email` | Outlook 邮件收发工作流 |
 | `outlook-calendar` | Outlook 日历管理 |
 | `gmail` | Gmail 邮件工作流 |
