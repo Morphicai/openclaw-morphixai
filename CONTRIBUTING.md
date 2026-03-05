@@ -44,7 +44,7 @@ Thank you for your interest in contributing! / 感谢你的贡献意愿！
 ### Code Style
 
 - TypeScript strict mode encouraged
-- Use `BaibianClient` for all MorphixAI proxy calls — never call third-party APIs directly
+- Use `MorphixClient` for all MorphixAI proxy calls — never call third-party APIs directly
 - Use `wrapToolExecute` from `_tool-helpers.ts` for consistent error handling
 - All tool inputs must be defined with TypeBox schemas
 
@@ -103,7 +103,7 @@ Please use [GitHub Issues](https://github.com/Morphicai/openclaw-morphixai/issue
 ### 代码规范
 
 - 鼓励使用 TypeScript strict 模式
-- 所有 MorphixAI 代理调用必须通过 `BaibianClient`，禁止直接调用第三方 API
+- 所有 MorphixAI 代理调用必须通过 `MorphixClient`，禁止直接调用第三方 API
 - 使用 `_tool-helpers.ts` 中的 `wrapToolExecute` 保证统一错误处理
 - 所有工具输入参数必须用 TypeBox schema 定义
 

@@ -8,7 +8,7 @@
  * Base URL: https://api.morphix.app
  */
 
-export interface BaibianClientConfig {
+export interface MorphixClientConfig {
   /** API Key (mk_xxx format) */
   apiKey: string;
   /** Base URL override (default: https://api.morphix.app) */
@@ -17,7 +17,7 @@ export interface BaibianClientConfig {
   timeout?: number;
 }
 
-export interface BaibianResponse<T = any> {
+export interface MorphixResponse<T = any> {
   success: boolean;
   data: T;
   count?: number;
@@ -83,12 +83,12 @@ export interface ProxyRequestParams {
   params?: Record<string, any>;
 }
 
-export class BaibianClient {
+export class MorphixClient {
   private readonly apiKey: string;
   private readonly baseUrl: string;
   private readonly timeout: number;
 
-  constructor(config: BaibianClientConfig) {
+  constructor(config: MorphixClientConfig) {
     this.apiKey = config.apiKey;
     this.baseUrl = (config.baseUrl || "https://api.morphix.app").replace(/\/$/, "");
     this.timeout = config.timeout || 30000;
@@ -163,7 +163,7 @@ export class BaibianClient {
     path: string,
     options?: { params?: Record<string, string>; body?: any },
   ): Promise<T> {
-    const raw = await this.requestRaw<BaibianResponse<T>>(method, path, options);
+    const raw = await this.requestRaw<MorphixResponse<T>>(method, path, options);
     // Handle both { success, data } and direct data responses
     if (raw && typeof raw === "object" && "data" in raw) {
       return raw.data;
@@ -215,7 +215,7 @@ export class BaibianClient {
         const parsed = JSON.parse(errorBody);
         errorCode = parsed.errorCode || "";
       } catch {}
-      throw new BaibianAPIError(
+      throw new MorphixAPIError(
         `MorphixAI API error: ${response.status} ${response.statusText}${errorCode ? ` [${errorCode}]` : ""}`,
         response.status,
         errorCode,
@@ -227,7 +227,7 @@ export class BaibianClient {
   }
 }
 
-export class BaibianAPIError extends Error {
+export class MorphixAPIError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number,
@@ -235,6 +235,6 @@ export class BaibianAPIError extends Error {
     public readonly responseBody: string,
   ) {
     super(message);
-    this.name = "BaibianAPIError";
+    this.name = "MorphixAPIError";
   }
 }

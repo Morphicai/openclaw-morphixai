@@ -9,7 +9,7 @@ metadata:
 
 # Pipedream Proxy — 已废弃
 
-> **此 skill 已废弃。** 所有功能已迁移到 `office-link` skill（基于 MorphixAI/Baibian）。
+> **此 skill 已废弃。** 所有功能已迁移到 `office-link` skill（基于 MorphixAI）。
 
 ## 迁移指南
 

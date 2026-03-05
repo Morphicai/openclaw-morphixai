@@ -27,7 +27,7 @@
         },
         "additionalProperties": false
       },
-      "baibian": {
+      "morphix": {
         "type": "object",
         "properties": {
           "enabled": { "type": "boolean", "default": true },
@@ -60,7 +60,7 @@
         "projectId": { "label": "Project ID", "description": "Pipedream project ID" }
       }
     },
-    "baibian": {
+    "morphix": {
       "label": "MorphixAI Link (Third-party Integration)",
       "description": "Link third-party accounts (GitHub, GitLab, Gmail, Outlook, Jira, Slack, etc.) via MorphixAI",
       "properties": {

@@ -8,7 +8,7 @@
  * because v2 does not have a search endpoint.
  * IMPORTANT: Query params must be embedded in URL (proxy `params` field unreliable for some endpoints).
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface ConfluenceSite {
@@ -61,8 +61,8 @@ export class ConfluenceClient extends BaseAppClient {
   private cloudId?: string;
   private sites?: ConfluenceSite[];
 
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   // ─── URL Resolution ───
@@ -84,7 +84,7 @@ export class ConfluenceClient extends BaseAppClient {
 
   async getAccessibleSites(): Promise<ConfluenceSite[]> {
     if (this.sites) return this.sites;
-    const result = await this.baibian.proxy({
+    const result = await this.morphix.proxy({
       accountId: this.accountId,
       method: "GET",
       url: "https://api.atlassian.com/oauth/token/accessible-resources",

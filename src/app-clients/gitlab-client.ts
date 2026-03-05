@@ -7,7 +7,7 @@
  * URL pattern: https://gitlab.com/api/v4/... (or self-hosted)
  * Note: `/projects` (global) times out on Pipedream; always use scoped endpoints.
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface GitLabUser {
@@ -79,11 +79,11 @@ export class GitLabClient extends BaseAppClient {
   private userId?: number;
 
   constructor(
-    baibian: BaibianClient,
+    morphix: MorphixClient,
     accountId: string,
     baseApiUrl: string = "https://gitlab.com",
   ) {
-    super(baibian, accountId);
+    super(morphix, accountId);
     this.baseApiUrl = baseApiUrl.replace(/\/$/, "");
   }
 

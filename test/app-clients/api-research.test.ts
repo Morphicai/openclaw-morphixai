@@ -1,9 +1,9 @@
 import { describe, test, beforeAll } from "vitest";
-import { BaibianClient } from "../../src/baibian-client.js";
+import { MorphixClient } from "../../src/morphix-client.js";
 import { CAN_RUN, createClient, resolveAccountId } from "./_test-helpers.js";
 
 describe.skipIf(!CAN_RUN)("API Research - Notion, Confluence, Calendar", () => {
-  let client: BaibianClient;
+  let client: MorphixClient;
   let notionAccountId: string | null = null;
   let confluenceAccountId: string | null = null;
   let calendarAccountId: string | null = null;

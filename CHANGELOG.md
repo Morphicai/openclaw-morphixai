@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - 12 office tools: `mx_gitlab`, `mx_github`, `mx_jira`, `mx_confluence`, `mx_outlook`, `mx_outlook_calendar`, `mx_ms_todo`, `mx_gmail`, `mx_google_tasks`, `mx_notion`, `mx_figma`, `mx_link`
 - 14 skill workflows covering GitLab, GitHub, Jira, Confluence, Outlook, Gmail, Notion, Figma, and more
-- MorphixAI unified API proxy client (`BaibianClient`)
+- MorphixAI unified API proxy client (`MorphixClient`)
 - Universal account management via `mx_link` tool (list, connect, proxy)
 - `daily-standup` skill — aggregates GitLab MRs, Jira issues, and unread email
 - TypeBox schemas for all tool inputs
@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Migrated API domain from `baibian.app` to `morphix.app`
+- Renamed `BaibianClient` → `MorphixClient`, config key `baibian` → `morphix`
 - Renamed package to `openclaw-morphixai`
 
 ## [0.1.0] - 2026-01-29

@@ -92,7 +92,7 @@ MORPHIXAI_API_KEY=mk_your_api_key_here
     "entries": {
       "openclaw-morphixai": {
         "enabled": true,
-        "baibian": {
+        "morphix": {
           "apiKey": "mk_your_api_key_here"
         }
       }
@@ -188,7 +188,7 @@ openclaw-morphixai/
 ├── openclaw.plugin.json   # Plugin manifest (ID, configSchema)
 ├── index.ts               # Entry point — registers 12 tools
 ├── src/
-│   ├── baibian-client.ts  # MorphixAI API proxy client
+│   ├── morphix-client.ts  # MorphixAI API proxy client
 │   ├── app-clients/       # Per-platform API clients
 │   ├── schemas/           # Tool input schemas (TypeBox)
 │   └── tools/             # 12 tool implementations
@@ -314,7 +314,7 @@ MORPHIXAI_API_KEY=mk_your_api_key_here
     "entries": {
       "openclaw-morphixai": {
         "enabled": true,
-        "baibian": {
+        "morphix": {
           "apiKey": "mk_your_api_key_here"
         }
       }

@@ -4,7 +4,7 @@
  * Wraps MorphixAI Pipedream proxy for Figma REST API v1.
  * URL pattern: https://api.figma.com/v1/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 // ─── Response types ───
@@ -115,8 +115,8 @@ export interface FigmaVariableCollection {
 }
 
 export class FigmaClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {
