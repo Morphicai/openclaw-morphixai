@@ -1,10 +1,10 @@
 /**
- * MorphixAI Client (BaibianClient) Unit Tests
+ * MorphixAI Client (MorphixClient) Unit Tests
  *
  * Uses mock fetch to test client logic without hitting real APIs.
  */
 import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
-import { BaibianClient, BaibianAPIError } from '../src/baibian-client.js';
+import { MorphixClient, MorphixAPIError } from '../src/morphix-client.js';
 
 // ─── Helpers ───
 
@@ -19,7 +19,7 @@ function mockFetchResponse(data: any, status = 200) {
 }
 
 function createClient(overrides?: { baseUrl?: string; timeout?: number }) {
-  return new BaibianClient({
+  return new MorphixClient({
     apiKey: 'mk_test_key_123',
     ...overrides,
   });
@@ -27,7 +27,7 @@ function createClient(overrides?: { baseUrl?: string; timeout?: number }) {
 
 // ─── Tests ───
 
-describe('BaibianClient', () => {
+describe('MorphixClient', () => {
   let originalFetch: typeof globalThis.fetch;
 
   beforeEach(() => {
@@ -287,41 +287,41 @@ describe('BaibianClient', () => {
   // ─── Error Handling ───
 
   describe('error handling', () => {
-    test('should throw BaibianAPIError on 401', async () => {
+    test('should throw MorphixAPIError on 401', async () => {
       const fetchMock = mockFetchResponse({ errorCode: 'INVALID_API_KEY' }, 401);
       globalThis.fetch = fetchMock;
 
       const client = createClient();
 
-      await expect(client.checkAuth()).rejects.toThrow(BaibianAPIError);
+      await expect(client.checkAuth()).rejects.toThrow(MorphixAPIError);
       try {
         await client.checkAuth();
       } catch (err) {
-        expect(err).toBeInstanceOf(BaibianAPIError);
-        expect((err as BaibianAPIError).statusCode).toBe(401);
-        expect((err as BaibianAPIError).errorCode).toBe('INVALID_API_KEY');
+        expect(err).toBeInstanceOf(MorphixAPIError);
+        expect((err as MorphixAPIError).statusCode).toBe(401);
+        expect((err as MorphixAPIError).errorCode).toBe('INVALID_API_KEY');
       }
     });
 
-    test('should throw BaibianAPIError on 403', async () => {
+    test('should throw MorphixAPIError on 403', async () => {
       const fetchMock = mockFetchResponse({ errorCode: 'API_KEY_SCOPE_DENIED' }, 403);
       globalThis.fetch = fetchMock;
 
       const client = createClient();
 
-      await expect(client.listAccounts()).rejects.toThrow(BaibianAPIError);
+      await expect(client.listAccounts()).rejects.toThrow(MorphixAPIError);
     });
 
-    test('should throw BaibianAPIError on 500', async () => {
+    test('should throw MorphixAPIError on 500', async () => {
       const fetchMock = mockFetchResponse({ message: 'Internal Server Error' }, 500);
       globalThis.fetch = fetchMock;
 
       const client = createClient();
 
-      await expect(client.getStatistics()).rejects.toThrow(BaibianAPIError);
+      await expect(client.getStatistics()).rejects.toThrow(MorphixAPIError);
     });
 
-    test('should include status code and error code in BaibianAPIError', async () => {
+    test('should include status code and error code in MorphixAPIError', async () => {
       const fetchMock = mockFetchResponse({ errorCode: 'API_KEY_REVOKED' }, 401);
       globalThis.fetch = fetchMock;
 
@@ -330,10 +330,10 @@ describe('BaibianClient', () => {
       try {
         await client.checkAuth();
       } catch (err) {
-        const apiErr = err as BaibianAPIError;
+        const apiErr = err as MorphixAPIError;
         expect(apiErr.statusCode).toBe(401);
         expect(apiErr.errorCode).toBe('API_KEY_REVOKED');
-        expect(apiErr.name).toBe('BaibianAPIError');
+        expect(apiErr.name).toBe('MorphixAPIError');
         expect(apiErr.message).toContain('401');
         expect(apiErr.message).toContain('API_KEY_REVOKED');
       }

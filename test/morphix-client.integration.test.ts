@@ -1,5 +1,5 @@
 /**
- * MorphixAI Client (BaibianClient) Integration Tests
+ * MorphixAI Client (MorphixClient) Integration Tests
  *
  * Tests against the real MorphixAI API.
  * Requires MORPHIXAI_API_KEY environment variable to be set.
@@ -12,10 +12,10 @@
  * with try/catch to distinguish client bugs from server issues.
  */
 import { describe, test, expect, beforeAll } from 'vitest';
-import { BaibianClient, BaibianAPIError } from '../src/baibian-client.js';
+import { MorphixClient, MorphixAPIError } from '../src/morphix-client.js';
 
 const API_KEY = process.env.MORPHIXAI_API_KEY;
-const BASE_URL = process.env.MORPHIXAI_BASE_URL || process.env.BAIBIAN_BASE_URL;
+const BASE_URL = process.env.MORPHIXAI_BASE_URL;
 
 const canRun = !!API_KEY;
 
@@ -27,7 +27,7 @@ async function tolerateServerError<T>(fn: () => Promise<T>): Promise<T | null> {
   try {
     return await fn();
   } catch (err) {
-    if (err instanceof BaibianAPIError && err.statusCode >= 500) {
+    if (err instanceof MorphixAPIError && err.statusCode >= 500) {
       console.log(`  ⊘ Server returned ${err.statusCode}, skipping (not a client bug)`);
       return null;
     }
@@ -35,11 +35,11 @@ async function tolerateServerError<T>(fn: () => Promise<T>): Promise<T | null> {
   }
 }
 
-describe.skipIf(!canRun)('BaibianClient Integration Tests', () => {
-  let client: BaibianClient;
+describe.skipIf(!canRun)('MorphixClient Integration Tests', () => {
+  let client: MorphixClient;
 
   beforeAll(() => {
-    client = new BaibianClient({
+    client = new MorphixClient({
       apiKey: API_KEY!,
       baseUrl: BASE_URL,
     });
@@ -213,18 +213,18 @@ describe.skipIf(!canRun)('BaibianClient Integration Tests', () => {
   // ─── Error Cases ───
 
   describe('error handling', () => {
-    test('should throw BaibianAPIError with invalid API key', async () => {
-      const badClient = new BaibianClient({
+    test('should throw MorphixAPIError with invalid API key', async () => {
+      const badClient = new MorphixClient({
         apiKey: 'mk_invalid_key_12345',
         baseUrl: BASE_URL,
       });
 
-      await expect(badClient.checkAuth()).rejects.toThrow(BaibianAPIError);
+      await expect(badClient.checkAuth()).rejects.toThrow(MorphixAPIError);
 
       try {
         await badClient.checkAuth();
       } catch (err) {
-        const apiErr = err as BaibianAPIError;
+        const apiErr = err as MorphixAPIError;
         expect(apiErr.statusCode).toBe(401);
         console.log(`  ✓ Got expected 401 error: ${apiErr.errorCode}`);
       }

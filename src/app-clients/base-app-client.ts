@@ -4,7 +4,7 @@
  * Shared base class for all app-specific Pipedream proxy clients.
  * Handles: URL resolution, proxy call wrapping, error normalization.
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 
 export class ProxyError extends Error {
   constructor(
@@ -20,7 +20,7 @@ export class ProxyError extends Error {
 
 export abstract class BaseAppClient {
   constructor(
-    protected readonly baibian: BaibianClient,
+    protected readonly morphix: MorphixClient,
     protected readonly accountId: string,
   ) {}
 
@@ -49,7 +49,7 @@ export abstract class BaseAppClient {
   ): Promise<T> {
     const url = await this.resolveUrl(path);
 
-    const result = await this.baibian.proxy({
+    const result = await this.morphix.proxy({
       accountId: this.accountId,
       method,
       url,

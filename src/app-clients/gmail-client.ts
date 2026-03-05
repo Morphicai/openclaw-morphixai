@@ -4,7 +4,7 @@
  * Wraps MorphixAI Pipedream proxy for Gmail API.
  * URL pattern: https://gmail.googleapis.com/gmail/v1/users/me/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface GmailMessage {
@@ -38,8 +38,8 @@ export interface GmailLabel {
 }
 
 export class GmailClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {

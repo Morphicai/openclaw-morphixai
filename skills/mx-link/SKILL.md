@@ -208,11 +208,8 @@ MORPHIXAI_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ```json
 {
-  "office": {
-    "baibian": {
-      "enabled": true,
-      "apiKey": "mk_xxx"
-    }
+  "morphix": {
+    "apiKey": "mk_xxx"
   }
 }
 ```

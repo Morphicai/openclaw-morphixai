@@ -7,7 +7,7 @@
  * IMPORTANT: For calendarView, query params must be embedded in URL
  * (proxy `params` field is unreliable for startDateTime/endDateTime).
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface OutlookCalendar {
@@ -45,8 +45,8 @@ export interface OutlookEvent {
 }
 
 export class OutlookCalendarClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {

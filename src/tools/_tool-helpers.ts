@@ -4,18 +4,18 @@
  * Provides config resolution, client caching, and automatic account lookup.
  */
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
+import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
 import { json } from "../helpers.js";
 
 // ─── Client caching ───
 
-let cachedClient: BaibianClient | null = null;
+let cachedClient: MorphixClient | null = null;
 let cachedKey: string | null = null;
 
-function getClient(apiKey: string, baseUrl?: string): BaibianClient {
+function getClient(apiKey: string, baseUrl?: string): MorphixClient {
   const key = `${apiKey}|${baseUrl ?? ""}`;
   if (cachedClient && cachedKey === key) return cachedClient;
-  cachedClient = new BaibianClient({ apiKey, baseUrl });
+  cachedClient = new MorphixClient({ apiKey, baseUrl });
   cachedKey = key;
   return cachedClient;
 }
@@ -30,21 +30,17 @@ export interface ResolvedConfig {
 export function resolveConfig(
   api: OpenClawPluginApi,
 ): ResolvedConfig | null {
-  const officeConfig = (api.config as any)?.office ?? (api.config as any);
-  const baibianConfig = officeConfig?.baibian;
+  const morphixConfig = (api.config as any)?.morphix;
 
   const apiKey =
-    baibianConfig?.apiKey ||
-    process.env.MORPHIXAI_API_KEY ||
-    process.env.BAIBIAN_API_KEY ||
-    process.env.BAIBIAN_TOKEN;
+    morphixConfig?.apiKey ||
+    process.env.MORPHIXAI_API_KEY;
 
   if (!apiKey) return null;
 
   const baseUrl =
-    baibianConfig?.baseUrl ||
+    morphixConfig?.baseUrl ||
     process.env.MORPHIXAI_BASE_URL ||
-    process.env.BAIBIAN_BASE_URL ||
     undefined;
 
   return { apiKey, baseUrl };
@@ -58,7 +54,7 @@ export function resolveConfig(
  * Otherwise, looks up the first active account for the given app slug.
  */
 export async function resolveAppAccount(
-  client: BaibianClient,
+  client: MorphixClient,
   appSlug: string,
   accountId?: string,
 ): Promise<string> {
@@ -78,7 +74,7 @@ export const CONNECTIONS_URL = "https://morphix.app/connections";
 
 export const NO_API_KEY_ERROR = {
   error:
-    "MorphixAI API key not configured. Set MORPHIXAI_API_KEY environment variable or configure office.baibian.apiKey in openclaw config.",
+    "MorphixAI API key not configured. Set MORPHIXAI_API_KEY environment variable or configure morphix.apiKey in openclaw config.",
   setup_guide: `Visit ${API_KEY_GUIDE_URL} to create an API Key (select all scopes).`,
 };
 
@@ -98,7 +94,7 @@ export class AppNotConnectedError extends Error {
  */
 export function wrapToolExecute(
   appSlug: string,
-  fn: (client: BaibianClient, config: ResolvedConfig) => Promise<any>,
+  fn: (client: MorphixClient, config: ResolvedConfig) => Promise<any>,
 ) {
   return async (api: OpenClawPluginApi) => {
     const config = resolveConfig(api);
@@ -119,7 +115,7 @@ export function wrapToolExecute(
           connect_url: CONNECTIONS_URL,
         });
       }
-      if (err instanceof BaibianAPIError) {
+      if (err instanceof MorphixAPIError) {
         const errorInfo: any = {
           error: err.message,
           status: err.statusCode,

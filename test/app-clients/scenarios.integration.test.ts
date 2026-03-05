@@ -29,7 +29,7 @@ import { OutlookCalendarClient } from "../../src/app-clients/outlook-calendar-cl
 import { MsTodoClient } from "../../src/app-clients/ms-todo-client.js";
 import { GitHubClient } from "../../src/app-clients/github-client.js";
 import { GitLabClient } from "../../src/app-clients/gitlab-client.js";
-import type { BaibianClient } from "../../src/baibian-client.js";
+import type { MorphixClient } from "../../src/morphix-client.js";
 
 const TAG = "[Scenario Test]";
 const now = new Date().toISOString().replace(/[:.]/g, "-").substring(0, 19);
@@ -672,22 +672,22 @@ describe.skipIf(!CAN_RUN)("Scenario: GitLab Project Overview", () => {
 // Real workflow: Create Jira issue → Schedule review meeting → Add todo reminder
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 describe.skipIf(!CAN_RUN)("Scenario: Cross-App Sprint Planning", () => {
-  let baibian: BaibianClient;
+  let morphix: MorphixClient;
   let jira: JiraClient | null = null;
   let calendar: OutlookCalendarClient | null = null;
   let todo: MsTodoClient | null = null;
 
   beforeAll(async () => {
-    baibian = createClient();
+    morphix = createClient();
 
-    const jiraAcct = await resolveAccountId(baibian, "jira");
-    if (jiraAcct) jira = new JiraClient(baibian, jiraAcct);
+    const jiraAcct = await resolveAccountId(morphix, "jira");
+    if (jiraAcct) jira = new JiraClient(morphix, jiraAcct);
 
-    const calAcct = await resolveAccountId(baibian, "microsoft_outlook_calendar");
-    if (calAcct) calendar = new OutlookCalendarClient(baibian, calAcct);
+    const calAcct = await resolveAccountId(morphix, "microsoft_outlook_calendar");
+    if (calAcct) calendar = new OutlookCalendarClient(morphix, calAcct);
 
-    const todoAcct = await resolveAccountId(baibian, "microsofttodo");
-    if (todoAcct) todo = new MsTodoClient(baibian, todoAcct);
+    const todoAcct = await resolveAccountId(morphix, "microsofttodo");
+    if (todoAcct) todo = new MsTodoClient(morphix, todoAcct);
   });
 
   test("Create Jira issue → Schedule calendar review → Add todo reminder → Cleanup", async () => {

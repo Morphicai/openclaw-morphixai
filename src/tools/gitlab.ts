@@ -2,7 +2,7 @@ import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { OfficeGitLabSchema, type OfficeGitLabParams } from "../schemas/gitlab-schema.js";
 import { GitLabClient } from "../app-clients/gitlab-client.js";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
+import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
 import { json } from "../helpers.js";
 
 const APP_SLUG = "gitlab";
@@ -29,7 +29,7 @@ export function registerOfficeGitLabTool(api: OpenClawPluginApi) {
           return json(NO_API_KEY_ERROR);
         }
 
-        const client = new BaibianClient({ apiKey: config.apiKey, baseUrl: config.baseUrl });
+        const client = new MorphixClient({ apiKey: config.apiKey, baseUrl: config.baseUrl });
 
         try {
           const accountId = await resolveAppAccount(client, APP_SLUG, (p as any).account_id);
@@ -166,7 +166,7 @@ export function registerOfficeGitLabTool(api: OpenClawPluginApi) {
           if (err instanceof AppNotConnectedError) {
             return json({ error: err.message, action_required: "connect_account", app: APP_SLUG, connect_url: CONNECTIONS_URL });
           }
-          if (err instanceof BaibianAPIError) {
+          if (err instanceof MorphixAPIError) {
             return json({ error: err.message, status: err.statusCode });
           }
           return json({ error: err instanceof Error ? err.message : String(err) });

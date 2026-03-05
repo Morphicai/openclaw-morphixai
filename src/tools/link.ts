@@ -1,16 +1,16 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { OfficeLinkSchema, type OfficeLinkParams } from "../schemas/link-schema.js";
-import { BaibianClient, BaibianAPIError } from "../baibian-client.js";
+import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
 import { json } from "../helpers.js";
 
 /** Cached client instance keyed on apiKey + baseUrl */
-let cachedClient: BaibianClient | null = null;
+let cachedClient: MorphixClient | null = null;
 let cachedKey: string | null = null;
 
-function getClient(apiKey: string, baseUrl?: string): BaibianClient {
+function getClient(apiKey: string, baseUrl?: string): MorphixClient {
   const key = `${apiKey}|${baseUrl ?? ""}`;
   if (cachedClient && cachedKey === key) return cachedClient;
-  cachedClient = new BaibianClient({ apiKey, baseUrl });
+  cachedClient = new MorphixClient({ apiKey, baseUrl });
   cachedKey = key;
   return cachedClient;
 }
@@ -19,22 +19,17 @@ function getClient(apiKey: string, baseUrl?: string): BaibianClient {
  * Resolve MorphixAI API config from OpenClaw plugin config or env vars
  */
 function resolveConfig(api: OpenClawPluginApi): { apiKey: string; baseUrl?: string } | null {
-  // Try plugin config first
-  const officeConfig = (api.config as any)?.office ?? (api.config as any);
-  const baibianConfig = officeConfig?.baibian;
+  const morphixConfig = (api.config as any)?.morphix;
 
   const apiKey =
-    baibianConfig?.apiKey ||
-    process.env.MORPHIXAI_API_KEY ||
-    process.env.BAIBIAN_API_KEY ||  // legacy fallback
-    process.env.BAIBIAN_TOKEN;      // legacy fallback
+    morphixConfig?.apiKey ||
+    process.env.MORPHIXAI_API_KEY;
 
   if (!apiKey) return null;
 
   const baseUrl =
-    baibianConfig?.baseUrl ||
+    morphixConfig?.baseUrl ||
     process.env.MORPHIXAI_BASE_URL ||
-    process.env.BAIBIAN_BASE_URL || // legacy fallback
     undefined;
 
   return { apiKey, baseUrl };
@@ -48,8 +43,7 @@ function resolveConfig(api: OpenClawPluginApi): { apiKey: string; baseUrl?: stri
  */
 export function registerOfficeLinkTool(api: OpenClawPluginApi) {
   // Check if explicitly disabled
-  const officeConfig = (api.config as any)?.office ?? (api.config as any);
-  if (officeConfig?.baibian?.enabled === false) {
+  if ((api.config as any)?.morphix?.enabled === false) {
     api.logger.debug?.("mx_link: disabled in config");
     return;
   }
@@ -69,7 +63,7 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
         const config = resolveConfig(api);
         if (!config) {
           return json({
-            error: "MorphixAI API key not configured. Set MORPHIXAI_API_KEY environment variable or configure office.baibian.apiKey in openclaw config.",
+            error: "MorphixAI API key not configured. Set MORPHIXAI_API_KEY environment variable or configure morphix.apiKey in openclaw config.",
             setup_guide: "Visit https://morphix.app/api-keys to create an API Key (select all scopes).",
             connections_guide: "After creating the API Key, visit https://morphix.app/connections to link your third-party accounts.",
           });
@@ -153,7 +147,7 @@ export function registerOfficeLinkTool(api: OpenClawPluginApi) {
               return json({ error: `Unknown action: ${(p as any).action}` });
           }
         } catch (err) {
-          if (err instanceof BaibianAPIError) {
+          if (err instanceof MorphixAPIError) {
             // Provide helpful error messages
             const errorInfo: any = {
               error: err.message,

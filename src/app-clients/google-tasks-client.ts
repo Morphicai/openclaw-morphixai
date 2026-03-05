@@ -4,7 +4,7 @@
  * Wraps MorphixAI Pipedream proxy for Google Tasks API.
  * URL pattern: https://tasks.googleapis.com/tasks/v1/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface GoogleTaskList {
@@ -29,8 +29,8 @@ export interface GoogleTask {
 }
 
 export class GoogleTasksClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {

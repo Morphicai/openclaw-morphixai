@@ -6,7 +6,7 @@
  *
  * IMPORTANT: All requests must include { "Notion-Version": "2022-06-28" } header.
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 const NOTION_VERSION = "2022-06-28";
@@ -48,8 +48,8 @@ export interface NotionSearchResult {
 }
 
 export class NotionClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {

@@ -4,7 +4,7 @@
  * Wraps MorphixAI Pipedream proxy for Microsoft Graph API (To Do).
  * URL pattern: https://graph.microsoft.com/v1.0/me/todo/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface MsTodoList {
@@ -29,8 +29,8 @@ export interface MsTodoTask {
 }
 
 export class MsTodoClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {

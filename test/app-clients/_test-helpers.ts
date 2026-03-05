@@ -9,14 +9,13 @@
  *
  * If an app is not connected, the test prints guidance and skips gracefully.
  */
-import { BaibianClient } from "../../src/baibian-client.js";
+import { MorphixClient } from "../../src/morphix-client.js";
 
 const CONNECTIONS_URL = "https://morphix.app/connections";
 const API_KEY_URL = "https://morphix.app/api-keys";
 
 export const API_KEY = process.env.MORPHIXAI_API_KEY;
-export const BASE_URL =
-  process.env.MORPHIXAI_BASE_URL || process.env.BAIBIAN_BASE_URL;
+export const BASE_URL = process.env.MORPHIXAI_BASE_URL;
 export const CAN_RUN = !!API_KEY;
 
 if (!CAN_RUN) {
@@ -26,10 +25,10 @@ if (!CAN_RUN) {
 }
 
 /**
- * Create a BaibianClient for tests. Call only when CAN_RUN is true.
+ * Create a MorphixClient for tests. Call only when CAN_RUN is true.
  */
-export function createClient(): BaibianClient {
-  return new BaibianClient({ apiKey: API_KEY!, baseUrl: BASE_URL });
+export function createClient(): MorphixClient {
+  return new MorphixClient({ apiKey: API_KEY!, baseUrl: BASE_URL });
 }
 
 /**
@@ -41,7 +40,7 @@ export function createClient(): BaibianClient {
  *   if (!accountId) return; // test skipped
  */
 export async function resolveAccountId(
-  client: BaibianClient,
+  client: MorphixClient,
   appSlug: string,
 ): Promise<string | null> {
   const accounts = await client.listAccounts(appSlug);

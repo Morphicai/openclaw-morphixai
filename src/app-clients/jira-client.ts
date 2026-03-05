@@ -6,7 +6,7 @@
  *
  * URL pattern: https://api.atlassian.com/ex/jira/{cloudId}/rest/api/3/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 import { textToAdf, markdownToAdf, type AdfNode } from "../helpers/adf.js";
 
@@ -63,8 +63,8 @@ export class JiraClient extends BaseAppClient {
   private cloudId?: string;
   private sites?: JiraSite[];
 
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   // ─── URL Resolution ───
@@ -96,7 +96,7 @@ export class JiraClient extends BaseAppClient {
     if (this.sites) return this.sites;
 
     // This endpoint is on api.atlassian.com directly (not under /ex/jira/{cloudId})
-    const result = await this.baibian.proxy({
+    const result = await this.morphix.proxy({
       accountId: this.accountId,
       method: "GET",
       url: "https://api.atlassian.com/oauth/token/accessible-resources",

@@ -6,7 +6,7 @@
  *
  * URL pattern: https://api.github.com/...
  */
-import type { BaibianClient } from "../baibian-client.js";
+import type { MorphixClient } from "../morphix-client.js";
 import { BaseAppClient } from "./base-app-client.js";
 
 export interface GitHubRepo {
@@ -64,8 +64,8 @@ export interface GitHubWorkflowRun {
 }
 
 export class GitHubClient extends BaseAppClient {
-  constructor(baibian: BaibianClient, accountId: string) {
-    super(baibian, accountId);
+  constructor(morphix: MorphixClient, accountId: string) {
+    super(morphix, accountId);
   }
 
   protected resolveUrl(path: string): string {
