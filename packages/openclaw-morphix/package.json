@@ -1,6 +1,6 @@
 {
   "name": "openclaw-morphix",
-  "version": "0.3.1",
+  "version": "0.6.0",
   "type": "module",
   "description": "DEPRECATED: Please install openclaw-morphixai instead. 此包已迁往 openclaw-morphixai",
   "deprecated": "This package has been renamed to openclaw-morphixai. Please update your dependencies.",
@@ -9,7 +9,7 @@
     "build": "echo 'No build needed'"
   },
   "dependencies": {
-    "openclaw-morphixai": "workspace:*"
+    "openclaw-morphixai": "0.6.0"
   },
   "openclaw": {
     "extensions": ["./index.js"],
