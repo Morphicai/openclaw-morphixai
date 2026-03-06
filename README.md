@@ -1,4 +1,4 @@
-# MorphixAI AI Agent Plugins (Monorepo)
+# MorphixAI AI Agent Plugins
 
 This repository contains the official integrations for **MorphixAI**, allowing various AI Agents (such as OpenClaw, Claude Code, Cursor, and Windsurf) to seamlessly interact with workplace tools like GitHub, GitLab, Jira, Notion, Google Workspace, and Office 365.
 
@@ -62,6 +62,31 @@ All MorphixAI plugins require a **MorphixAI API Key**.
 1. Visit [MorphixAI Connections](https://morphix.app/connections) to link your third-party accounts (GitHub, Jira, etc.).
 2. Visit [MorphixAI API Keys](https://morphix.app/api-keys) to generate your `mk_xxxxxx` key.
 3. Pass the key via the `MORPHIXAI_API_KEY` environment variable.
+
+## 🧩 Skills
+
+MorphixAI provides the following skills (capabilities) for AI agents to interact with workplace tools:
+
+| Skill | Tool | Description |
+|-------|------|-------------|
+| **GitHub Workflow** | `mx_github` | Repository, Issue, Pull Request management and GitHub Actions workflow triggering |
+| **GitLab Workflow** | `mx_gitlab` | MR/Issue/Pipeline/Branch management with code review best practices |
+| **Jira Workflow** | `mx_jira` | Project listing, JQL-based issue search, issue CRUD, status transitions, comments (Markdown auto-converts to ADF) |
+| **Notion** | `mx_notion` | Page/database CRUD, block management, knowledge base search |
+| **Confluence** | `mx_confluence` | Space/page CRUD, label management, comments, CQL search |
+| **Figma** | `mx_figma` | Browse projects/files, export images, manage comments, view components/styles/design tokens |
+| **Outlook Email** | `mx_outlook` | List/search/send/reply messages, folder management |
+| **Outlook Calendar** | `mx_outlook_calendar` | Calendar/event CRUD, calendar view, attendee management |
+| **Gmail** | `mx_gmail` | List/search/send messages, label management (requires linking Gmail account) |
+| **Microsoft To Do** | `mx_ms_todo` | Task list and task CRUD, complete tasks, importance/status management |
+| **Google Tasks** | `mx_google_tasks` | Task list and task CRUD (requires linking Google Tasks account) |
+| **Flights** | `mx_flights` | Airport/flight search, offer details, seat maps, order booking and management (powered by Duffel) |
+| **Daily Standup** | *composite* | Aggregates data from GitLab, GitHub, Jira, Email, Calendar, and Tasks into a concise daily report. Triggered by keywords like "standup", "日报", "早报" |
+| **Office Link** | `mx_link` | Unified entry point: account management, connect 40+ platforms, and API proxy for platforms without dedicated skills |
+
+> **Note:** All skills require a `MORPHIXAI_API_KEY`. Platforms with dedicated skills (e.g., GitHub, Jira) should always use those skills directly instead of `mx_link` proxy.
+
+---
 
 ## 🛠️ Development
 
