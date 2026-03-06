@@ -1,5 +1,5 @@
 {
-  "name": "@morphixai/openclaw-plugin",
+  "name": "openclaw-morphixai",
   "version": "0.3.0",
   "type": "module",
   "description": "MorphixAI OpenClaw 插件适配层",
@@ -23,7 +23,12 @@
     "openclaw": ">=2026.1.29"
   },
   "openclaw": {
-    "extensions": ["dist/index.js"],
-    "skills": "skills"
+    "extensions": ["./dist/index.js"],
+    "skills": "./skills",
+    "install": {
+      "npmSpec": "openclaw-morphixai",
+      "localPath": ".",
+      "defaultChoice": "npm"
+    }
   }
 }
