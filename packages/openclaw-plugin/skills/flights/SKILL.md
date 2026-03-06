@@ -233,23 +233,6 @@ mx_flights:
 - 价格（使用 `offer_summary` 中的值）
 - 有效期提醒
 
-### 3DS 验证（前端自动处理）
-
-3DS 验证在支付页面自动完成，Agent 无需直接调用。但如有需要：
-
-```
-mx_flights:
-  action: create_3ds_session
-  card_id: "tcd_0000AgqMV123"
-  resource_id: "off_0000AgqMVLkQ8X3p3rmHYC"
-```
-
-3DS 状态说明：
-- `ready_for_payment`: 无需验证，可直接下单
-- `challenge_required`: 需要银行验证（前端用 `client_id` 渲染验证 UI）
-- `failed`: 验证失败，需换卡
-- `expired`: 会话过期，需重新创建
-
 ## 注意事项
 
 - 搜索返回的 `total_amount` 已包含加价，这是展示给用户的最终价格

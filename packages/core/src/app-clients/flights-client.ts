@@ -110,6 +110,7 @@ export interface PaymentSession {
     date: string;
     total_amount: string;
     total_currency: string;
+    slices: any[];
   };
 }
 
@@ -159,8 +160,7 @@ export class FlightsClient {
     };
     if (options.limit) params.limit = String(options.limit);
     if (options.sort) params.sort = options.sort;
-    const resp = await this.request<{ offers: FlightOffer[] }>("GET", "/flights/offers", { params });
-    return resp.offers ?? resp as any;
+    return this.request<FlightOffer[]>("GET", "/flights/offers", { params });
   }
 
   async getOffer(offerId: string): Promise<FlightOffer> {

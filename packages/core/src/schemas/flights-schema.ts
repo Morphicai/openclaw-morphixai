@@ -75,13 +75,6 @@ export const OfficeFlightsSchema = Type.Union([
     offer_id: Type.String({ description: "Offer ID (off_xxx)" }),
   }),
 
-  // Create 3D Secure session (required for credit card payments)
-  Type.Object({
-    action: Type.Literal("create_3ds_session"),
-    card_id: Type.String({ description: "Card token from Duffel Cards API (created client-side)" }),
-    resource_id: Type.String({ description: "The offer ID or order ID to pay for" }),
-  }),
-
   // Create order (book a flight)
   Type.Object({
     action: Type.Literal("create_order"),
