@@ -1,6 +1,6 @@
 {
   "name": "@morphixai/core",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "MorphixAI 核心业务逻辑层 (Clients & Schemas)",
   "main": "./dist/index.js",
