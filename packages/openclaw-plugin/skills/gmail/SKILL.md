@@ -16,8 +16,10 @@ metadata:
 
 ## 前置条件
 
-1. 配置 `MORPHIXAI_API_KEY` 环境变量
-2. 用户需要通过 `mx_link` 工具链接 Gmail 账号（app: `gmail`）
+1. **安装插件**: `openclaw plugins install openclaw-morphixai`
+2. **获取 API Key**: 访问 [morphix.app/api-keys](https://morphix.app/api-keys) 生成 `mk_xxxxxx` 密钥
+3. **配置环境变量**: `export MORPHIXAI_API_KEY="mk_your_key_here"`
+4. **链接账号**: 访问 [morphix.app/connections](https://morphix.app/connections) 链接 Gmail 账号，或通过 `mx_link` 工具链接（app: `gmail`）
 
 ## 核心操作
 

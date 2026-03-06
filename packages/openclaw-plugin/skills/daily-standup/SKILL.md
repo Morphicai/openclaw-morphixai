@@ -12,6 +12,13 @@ metadata:
 
 聚合多个数据源，生成精简的晨报。
 
+## 前置条件
+
+1. **安装插件**: `openclaw plugins install openclaw-morphixai`
+2. **获取 API Key**: 访问 [morphix.app/api-keys](https://morphix.app/api-keys) 生成 `mk_xxxxxx` 密钥
+3. **配置环境变量**: `export MORPHIXAI_API_KEY="mk_your_key_here"`
+4. **链接账号**: 访问 [morphix.app/connections](https://morphix.app/connections) 链接需要聚合的服务账号（GitLab、Jira、Outlook 等），或通过 `mx_link` 工具逐个链接
+
 ## 触发词
 
 - "早报" / "日报" / "standup" / "今日工作"
