@@ -23,7 +23,7 @@
     "openclaw": ">=2026.1.29"
   },
   "openclaw": {
-    "extensions": ["./dist/index.js"],
-    "skills": "./skills"
+    "extensions": ["dist/index.js"],
+    "skills": "skills"
   }
 }
