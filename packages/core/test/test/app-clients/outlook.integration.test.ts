@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { OutlookClient } from "../../src/app-clients/outlook-client.js";
+import { OutlookClient } from "../../../src/app-clients/outlook-client.js";
 import {
   CAN_RUN,
   createClient,

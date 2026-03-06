@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { ConfluenceClient } from "../../src/app-clients/confluence-client.js";
+import { ConfluenceClient } from "../../../src/app-clients/confluence-client.js";
 import {
   CAN_RUN,
   createClient,

@@ -12,7 +12,7 @@
  * with try/catch to distinguish client bugs from server issues.
  */
 import { describe, test, expect, beforeAll } from 'vitest';
-import { MorphixClient, MorphixAPIError } from '../src/morphix-client.js';
+import { MorphixClient, MorphixAPIError } from '../../src/morphix-client.js';
 
 const API_KEY = process.env.MORPHIXAI_API_KEY;
 const BASE_URL = process.env.MORPHIXAI_BASE_URL;

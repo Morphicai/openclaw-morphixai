@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { GmailClient } from "../../src/app-clients/gmail-client.js";
+import { GmailClient } from "../../../src/app-clients/gmail-client.js";
 import {
   CAN_RUN,
   createClient,

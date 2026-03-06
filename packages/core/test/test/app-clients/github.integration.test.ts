@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { GitHubClient } from "../../src/app-clients/github-client.js";
+import { GitHubClient } from "../../../src/app-clients/github-client.js";
 import {
   CAN_RUN,
   createClient,

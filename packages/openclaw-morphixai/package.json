@@ -2,7 +2,8 @@
   "name": "openclaw-morphixai",
   "version": "0.3.0",
   "type": "module",
-  "description": "MorphixAI OpenClaw 插件 (此包名已弃用，建议安装 @morphixai/openclaw-plugin)",
+  "description": "DEPRECATED: Please install @morphixai/openclaw-plugin instead. 此包已迁往 @morphixai/openclaw-plugin",
+  "deprecated": "This package has been renamed to @morphixai/openclaw-plugin. Please update your dependencies.",
   "main": "index.js",
   "scripts": {
     "build": "echo 'No build needed'"

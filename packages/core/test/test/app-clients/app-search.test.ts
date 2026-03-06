@@ -1,5 +1,5 @@
 import { describe, test, beforeAll } from "vitest";
-import { MorphixClient } from "../../src/morphix-client.js";
+import { MorphixClient } from "../../../src/morphix-client.js";
 import { CAN_RUN, createClient } from "./_test-helpers.js";
 
 describe.skipIf(!CAN_RUN)("Pipedream App Search", () => {

@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { NotionClient } from "../../src/app-clients/notion-client.js";
+import { NotionClient } from "../../../src/app-clients/notion-client.js";
 import {
   CAN_RUN,
   createClient,

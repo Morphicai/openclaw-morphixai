@@ -22,14 +22,14 @@ import {
   resolveAccountId,
   tolerateServerError,
 } from "./_test-helpers.js";
-import { JiraClient } from "../../src/app-clients/jira-client.js";
-import { NotionClient } from "../../src/app-clients/notion-client.js";
-import { ConfluenceClient } from "../../src/app-clients/confluence-client.js";
-import { OutlookCalendarClient } from "../../src/app-clients/outlook-calendar-client.js";
-import { MsTodoClient } from "../../src/app-clients/ms-todo-client.js";
-import { GitHubClient } from "../../src/app-clients/github-client.js";
-import { GitLabClient } from "../../src/app-clients/gitlab-client.js";
-import type { MorphixClient } from "../../src/morphix-client.js";
+import { JiraClient } from "../../../src/app-clients/jira-client.js";
+import { NotionClient } from "../../../src/app-clients/notion-client.js";
+import { ConfluenceClient } from "../../../src/app-clients/confluence-client.js";
+import { OutlookCalendarClient } from "../../../src/app-clients/outlook-calendar-client.js";
+import { MsTodoClient } from "../../../src/app-clients/ms-todo-client.js";
+import { GitHubClient } from "../../../src/app-clients/github-client.js";
+import { GitLabClient } from "../../../src/app-clients/gitlab-client.js";
+import type { MorphixClient } from "../../../src/morphix-client.js";
 
 const TAG = "[Scenario Test]";
 const now = new Date().toISOString().replace(/[:.]/g, "-").substring(0, 19);

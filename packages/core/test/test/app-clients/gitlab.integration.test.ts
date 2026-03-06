@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { GitLabClient } from "../../src/app-clients/gitlab-client.js";
+import { GitLabClient } from "../../../src/app-clients/gitlab-client.js";
 import {
   CAN_RUN,
   createClient,
