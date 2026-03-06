@@ -13,33 +13,47 @@ Thank you for your interest in contributing! / 感谢你的贡献意愿！
 1. **Fork** the repository and clone your fork
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
-3. Build the project:
+3. Build all packages:
    ```bash
-   npm run build
+   pnpm build
    ```
-4. Copy the test environment template and fill in your credentials:
-   ```bash
-   cp test/.env.example test/.env
-   # Edit test/.env with your MORPHIXAI_API_KEY
-   ```
+
+### Project Structure
+
+This is a `pnpm workspace` monorepo:
+
+```
+packages/
+├── core/                  # @morphixai/core — shared API clients, schemas, MorphixClient
+│   └── src/
+│       ├── schemas/       # TypeBox schemas (e.g. jira-schema.ts)
+│       ├── app-clients/   # Platform API clients (e.g. jira-client.ts)
+│       └── morphix-client.ts
+├── openclaw-plugin/       # openclaw-morphixai — OpenClaw plugin adapter
+│   └── src/
+│       └── tools/         # Tool implementations (e.g. jira.ts)
+│   └── skills/            # Skill prompts (e.g. jira-workflow/SKILL.md)
+├── mcp-server/            # @morphixai/mcp-server — MCP server adapter
+└── openclaw-morphix/      # Legacy redirect → openclaw-morphixai
+```
 
 ### Development Workflow
 
-- `npm run build` — compile TypeScript to `dist/`
-- `npm run dev` — watch mode
-- `npm test` — run unit tests
-- `npm run test:watch` — watch mode tests
+- `pnpm build` — build all packages
+- `pnpm test` — run all tests
+- `pnpm -F openclaw-morphixai build` — build OpenClaw plugin only
+- `pnpm -F @morphixai/core build` — build core only
 
 ### Adding a New Tool
 
-1. Create a schema in `src/schemas/<name>-schema.ts`
-2. Create an app client in `src/app-clients/<name>.ts`
-3. Implement the tool in `src/tools/<name>.ts`
-4. Register the tool in `index.ts`
-5. Add a skill doc in `skills/<name>/SKILL.md`
-6. Add integration tests in `test/app-clients/<name>.test.ts`
+1. Create a schema in `packages/core/src/schemas/<name>-schema.ts`
+2. Create an app client in `packages/core/src/app-clients/<name>-client.ts`
+3. Implement the tool in `packages/openclaw-plugin/src/tools/<name>.ts`
+4. Register the tool in `packages/openclaw-plugin/src/index.ts`
+5. Add a skill doc in `packages/openclaw-plugin/skills/<name>/SKILL.md`
+6. Add integration tests in `packages/core/test/` or `packages/openclaw-plugin/test/`
 
 ### Code Style
 
@@ -52,7 +66,7 @@ Thank you for your interest in contributing! / 感谢你的贡献意愿！
 
 1. Create a feature branch: `git checkout -b feat/your-feature`
 2. Make your changes and add tests
-3. Ensure `npm run build` and `npm test` pass
+3. Ensure `pnpm build` and `pnpm test` pass
 4. Open a Pull Request against `main`
 
 ### Reporting Issues
@@ -72,33 +86,47 @@ Please use [GitHub Issues](https://github.com/Morphicai/openclaw-morphixai/issue
 1. **Fork** 本仓库并克隆你的 fork
 2. 安装依赖：
    ```bash
-   npm install
+   pnpm install
    ```
-3. 构建项目：
+3. 构建所有包：
    ```bash
-   npm run build
+   pnpm build
    ```
-4. 复制测试环境模板并填入你的凭据：
-   ```bash
-   cp test/.env.example test/.env
-   # 编辑 test/.env，填入 MORPHIXAI_API_KEY
-   ```
+
+### 项目结构
+
+本项目是 `pnpm workspace` monorepo：
+
+```
+packages/
+├── core/                  # @morphixai/core — 共享 API 客户端、Schema、MorphixClient
+│   └── src/
+│       ├── schemas/       # TypeBox schemas（如 jira-schema.ts）
+│       ├── app-clients/   # 平台 API 客户端（如 jira-client.ts）
+│       └── morphix-client.ts
+├── openclaw-plugin/       # openclaw-morphixai — OpenClaw 插件适配层
+│   └── src/
+│       └── tools/         # 工具实现（如 jira.ts）
+│   └── skills/            # Skill 提示词（如 jira-workflow/SKILL.md）
+├── mcp-server/            # @morphixai/mcp-server — MCP 服务适配层
+└── openclaw-morphix/      # 旧名重定向 → openclaw-morphixai
+```
 
 ### 开发命令
 
-- `npm run build` — 编译 TypeScript 到 `dist/`
-- `npm run dev` — 监听模式
-- `npm test` — 运行单元测试
-- `npm run test:watch` — 监听模式测试
+- `pnpm build` — 构建所有包
+- `pnpm test` — 运行所有测试
+- `pnpm -F openclaw-morphixai build` — 仅构建 OpenClaw 插件
+- `pnpm -F @morphixai/core build` — 仅构建核心
 
 ### 新增工具
 
-1. 在 `src/schemas/<name>-schema.ts` 创建 schema
-2. 在 `src/app-clients/<name>.ts` 创建平台客户端
-3. 在 `src/tools/<name>.ts` 实现工具逻辑
-4. 在 `index.ts` 注册工具
-5. 在 `skills/<name>/SKILL.md` 添加 Skill 文档
-6. 在 `test/app-clients/<name>.test.ts` 添加集成测试
+1. 在 `packages/core/src/schemas/<name>-schema.ts` 创建 schema
+2. 在 `packages/core/src/app-clients/<name>-client.ts` 创建平台客户端
+3. 在 `packages/openclaw-plugin/src/tools/<name>.ts` 实现工具逻辑
+4. 在 `packages/openclaw-plugin/src/index.ts` 注册工具
+5. 在 `packages/openclaw-plugin/skills/<name>/SKILL.md` 添加 Skill 文档
+6. 在 `packages/core/test/` 或 `packages/openclaw-plugin/test/` 添加测试
 
 ### 代码规范
 
@@ -111,7 +139,7 @@ Please use [GitHub Issues](https://github.com/Morphicai/openclaw-morphixai/issue
 
 1. 创建功能分支：`git checkout -b feat/your-feature`
 2. 修改代码并添加测试
-3. 确保 `npm run build` 和 `npm test` 通过
+3. 确保 `pnpm build` 和 `pnpm test` 通过
 4. 向 `main` 分支提交 Pull Request
 
 ### 反馈问题

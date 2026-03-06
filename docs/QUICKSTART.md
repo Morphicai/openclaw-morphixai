@@ -1,147 +1,103 @@
-# OpenClaw Office — 快速开始
+# MorphixAI — 快速开始
 
-5 分钟配置你的个人办公 AI 助手。
+5 分钟配置你的 AI Agent 办公助手。
 
 ## 前置条件
 
 - Node.js >= 18
-- 已安装 OpenClaw (`npm i -g openclaw@latest`)
-- 已安装 `glab` CLI (用于 GitLab 功能)
+- 已安装 OpenClaw (`npm i -g openclaw@latest`) 或 Claude Code / Cursor
 
-## 1. 安装 Skills
+## 方式一：OpenClaw 用户
 
-```bash
-# 方式 A: 直接复制
-cp -r packages/openclaw-office/skills/* ~/.openclaw/skills/
-
-# 方式 B: 使用安装脚本
-cd packages/openclaw-office && node index.js install
-```
-
-## 2. 复制模板
+### 1. 安装插件
 
 ```bash
-# Agent 人格和规则
-cp templates/SOUL.md ~/.openclaw/agents/main/agent/SOUL.md
-cp templates/AGENTS.md ~/.openclaw/agents/main/agent/AGENTS.md
-
-# 配置文件（使用前需要编辑！）
-cp templates/openclaw.personal.json ~/.openclaw/openclaw.json
+openclaw plugins install openclaw-morphixai
 ```
 
-## 3. 设置环境变量
+*如果你之前安装过旧名 `openclaw-morphix`，请先卸载再安装：*
+```bash
+openclaw plugins uninstall openclaw-morphix
+openclaw plugins install openclaw-morphixai
+```
+
+### 2. 配置 API Key
+
+获取 MorphixAI API Key：
+1. 访问 [MorphixAI Connections](https://morphix.app/connections) 链接你的第三方账号（GitHub、Jira 等）
+2. 访问 [MorphixAI API Keys](https://morphix.app/api-keys) 生成 `mk_xxxxxx` 密钥
+
+设置环境变量：
+```bash
+export MORPHIXAI_API_KEY="mk_your_api_key_here"
+```
+
+或在 OpenClaw 插件配置中填入。
+
+### 3. 重启并验证
 
 ```bash
-cp templates/.env.example ~/.openclaw/.env
-# 编辑 ~/.openclaw/.env 填入你的实际 token
+# 重启 OpenClaw
+openclaw gateway restart
+
+# 查看已注册的工具
+openclaw plugins list
 ```
 
-**方式 A: 本地 Token** (默认)
+你应该能看到 12 个 `mx_*` 工具已注册。
 
-| Token | 如何获取 |
-|-------|-----------|
-| `GITLAB_TOKEN` | GitLab → Settings → Access Tokens → 创建并赋予 `api` 权限 |
-| `JIRA_API_TOKEN` | https://id.atlassian.com/manage-profile/security/api-tokens |
-| `OUTLOOK_CLIENT_ID` | Azure Portal → App registrations → 创建 |
+## 方式二：Claude Code / Cursor / Windsurf（MCP 用户）
 
-**方式 B: Pipedream 代理** (推荐团队使用)
+### 1. 添加 MCP Server
 
-参见 [pipedream-proxy skill](../skills/pipedream-proxy/SKILL.md) 统一凭据管理：
-- 只需 1 个 token: `PIPEDREAM_TOKEN`
-- OAuth 自动刷新
-- 审计日志
-- 团队共享
-
+**Claude Code:**
 ```bash
-# ~/.openclaw/.env 使用 Pipedream
-PIPEDREAM_TOKEN=your-pipedream-api-key
-PIPEDREAM_PROJECT_ID=prj_abc123
+claude mcp add morphixai-mcp -- npx -y @morphixai/mcp-server --env MORPHIXAI_API_KEY="mk_your_api_key_here"
 ```
 
-## 4. 编辑配置
+**Claude Desktop / Cursor:**
 
-打开 `~/.openclaw/openclaw.json` 修改：
-
-| 字段 | 位置 | 修改为 |
-|-------|----------|-----------|
-| `email` | channels.tanka.email | 你的 Tanka 登录邮箱 |
-| `env` | channels.tanka.env | Tanka 服务器环境: `dev-sg`, `test-sg`, `uat-sg`, 或 `sd-or` |
-| `model` | agents.defaults.model | LLM 模型，默认 `claude-sonnet-4.5` |
-
-## 5. 安装浏览器扩展 (可选)
-
-用于访问已登录的网页：
-
-```bash
-openclaw browser extension install
+在 MCP 配置文件中添加：
+```json
+{
+  "mcpServers": {
+    "morphixai": {
+      "command": "npx",
+      "args": ["-y", "@morphixai/mcp-server"],
+      "env": {
+        "MORPHIXAI_API_KEY": "mk_your_api_key_here"
+      }
+    }
+  }
+}
 ```
 
-然后在 `chrome://extensions` 加载解压的扩展。
+### 2. 验证
 
-## 6. 启动
+在对话中测试：
+- "查看我的 GitHub PR"
+- "列出 Jira 上分配给我的 Issue"
+- "搜索 Notion 中的文档"
 
-```bash
-openclaw gateway start
-```
+## 可用工具一览
 
-## 7. 验证
+| 工具 | 说明 |
+|------|------|
+| `mx_link` | 账号链接管理与统一 API 代理 |
+| `mx_jira` | Jira Cloud |
+| `mx_gitlab` | GitLab |
+| `mx_github` | GitHub |
+| `mx_outlook` | Outlook 邮件 |
+| `mx_outlook_calendar` | Outlook 日历 |
+| `mx_ms_todo` | Microsoft To Do |
+| `mx_gmail` | Gmail |
+| `mx_google_tasks` | Google Tasks |
+| `mx_notion` | Notion |
+| `mx_confluence` | Confluence |
+| `mx_figma` | Figma |
 
-在 Tanka 私聊中测试：
-- "standup" → 应该返回每日简报
-- "查看 GitLab MR" → 应该列出打开的 MR
-- "帮我创建一个 memo" → 应该创建一个 Tanka memo
+## 下一步
 
-## 包含内容
-
-### Skills
-
-| Skill | 用途 |
-|-------|---------|
-| `gitlab-workflow` | MR/CI/Review，包含分支和提交规范 |
-| `daily-standup` | 早报聚合器，汇总 GitLab + Jira + 邮件 |
-
-### 模板
-
-| 文件 | 用途 |
-|------|---------|
-| `openclaw.personal.json` | 单人配置，默认安全加固 |
-| `AGENTS.md` | 开发 SOP：代码风格、git 规则、发布流程 |
-| `SOUL.md` | 精简中文助手人格 |
-| `.env.example` | 环境变量模板 |
-
-### 安全默认配置
-
-- DM: 配对模式（仅自己）
-- 群组: 需要 @提及（仅自己）
-- 网关: 仅本地回环
-- 浏览器: 禁用 JS eval
-- 秘钥: 日志脱敏
-- mDNS: 禁用
-
-## 自定义
-
-### 添加自己的 Skill
-
-```bash
-mkdir -p ~/.openclaw/skills/my-skill
-cat > ~/.openclaw/skills/my-skill/SKILL.md << 'SKILLEOF'
----
-name: my-skill
-description: 这个 skill 的作用。
-metadata:
-  openclaw:
-    emoji: "✨"
----
-
-# My Skill
-
-给 agent 的指令...
-SKILLEOF
-```
-
-### 修改团队规范
-
-编辑 `~/.openclaw/agents/main/agent/AGENTS.md`:
-- 第 2 节 (Git) 修改分支/提交规则
-- 第 3 节 (Release SOP) 修改发布步骤
-- 第 4 节 (Code Review) 修改审查清单
+- [USAGE.md](USAGE.md) — 完整使用指南和常见场景
+- [SKILLS.md](SKILLS.md) — Skills 参考和自定义
+- [SECURITY.md](SECURITY.md) — 安全配置
