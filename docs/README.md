@@ -1,4 +1,4 @@
-# OpenClaw Office 文档
+# MorphixAI 文档
 
 ## 🚀 快速开始
 
@@ -15,74 +15,46 @@
 ### 参考文档
 - **[REVIEW.md](REVIEW.md)** — 包审核报告
 
-## 📋 Skills 列表
+## 📋 工具和 Skills
+
+### 运行时工具（12 个）
+
+| 工具 | 说明 |
+|------|------|
+| `mx_link` | 账号链接管理与统一 API 代理 |
+| `mx_jira` | Jira Cloud（Issues、项目、状态流转） |
+| `mx_gitlab` | GitLab（项目、MR、Issue、Pipeline） |
+| `mx_github` | GitHub（Repo、Issue、PR、Workflow） |
+| `mx_outlook` | Outlook 邮件（读取、发送、搜索） |
+| `mx_outlook_calendar` | Outlook 日历（日程、事件） |
+| `mx_ms_todo` | Microsoft To Do（任务列表、任务） |
+| `mx_gmail` | Gmail（读取、发送、搜索、标签） |
+| `mx_google_tasks` | Google Tasks（任务列表、任务） |
+| `mx_notion` | Notion（页面、数据库、Block、搜索） |
+| `mx_confluence` | Confluence Cloud（空间、页面、搜索） |
+| `mx_figma` | Figma（文件、项目、组件、样式、评论） |
+
+### Skill 工作流（14 个）
 
 | Skill | 说明 | 依赖 |
 |-------|------|------|
-| **gitlab-workflow** | GitLab MR/CI/Review，包含分支命名和 commit 规范 | glab CLI, GITLAB_TOKEN |
-| **daily-standup** | 早报聚合器，汇总 GitLab + Jira + 邮件 | glab CLI (必需), Atlassian MCP (可选) |
-| **pipedream-proxy** | 通过 Pipedream 统一管理 API 凭据（可选） | PIPEDREAM_TOKEN |
-
-## ✅ 可用性检查清单
-
-让 OpenClaw Office 可用需要：
-
-### 必需
-1. ✅ Skills 文件 (已包含 4 个)
-2. ✅ 模板文件 (已包含 4 个)
-3. ❌ **安装 glab CLI**
-   ```bash
-   # macOS
-   brew install glab
-
-   # Linux/Windows
-   # 下载: https://gitlab.com/gitlab-org/cli/-/releases
-   ```
-
-4. ❌ **获取 GitLab Token**
-   - GitLab → Settings → Access Tokens
-   - Scope: `api`
-
-5. ❌ **配置环境变量**
-   ```bash
-   cp templates/.env.example ~/.openclaw/.env
-   # 编辑填入实际 token
-   ```
-
-6. ❌ **安装 Skills 和模板**
-   ```bash
-   cp -r skills/* ~/.openclaw/skills/
-   cp templates/SOUL.md ~/.openclaw/agents/main/agent/SOUL.md
-   cp templates/AGENTS.md ~/.openclaw/agents/main/agent/AGENTS.md
-   cp templates/openclaw.personal.json ~/.openclaw/openclaw.json
-   ```
-
-### 可选（增强功能）
-- Atlassian MCP (Jira/Confluence 集成)
-- Outlook 配置 (邮件功能)
-- Pipedream (统一凭据管理)
-
-## 📦 包含内容统计
-
-| 类型 | 数量 |
-|------|------|
-| Skills | 3 |
-| Templates | 4 |
-| 文档 | 5 |
-| 工具脚本 | 3 (package.json, index.js, verify.sh) |
-
-## 🗂️ 归档文档
-
-ClawSkillHub 相关文档（未来实现）已移至 `../backup/clawskillhub-docs/`:
-- 平台架构设计
-- 实施路线图
-- CLI 安装器设计
-- 技术决策记录
-- 分层架构
-- 实施指南
+| `gitlab-workflow` | GitLab MR/CI/Review，包含分支命名和 commit 规范 | `mx_gitlab` 工具 |
+| `github-workflow` | GitHub PR/Actions/Review 工作流 | `mx_github` 工具 |
+| `jira-workflow` | Jira Issue 管理和状态流转 | `mx_jira` 工具 |
+| `daily-standup` | 早报聚合器，汇总多个来源 | 多个工具 |
+| `gmail` | Gmail 邮件管理 | `mx_gmail` 工具 |
+| `outlook-email` | Outlook 邮件管理 | `mx_outlook` 工具 |
+| `outlook-calendar` | Outlook 日历管理 | `mx_outlook_calendar` 工具 |
+| `ms-todo` | Microsoft To Do 任务管理 | `mx_ms_todo` 工具 |
+| `google-tasks` | Google Tasks 任务管理 | `mx_google_tasks` 工具 |
+| `notion` | Notion 知识库管理 | `mx_notion` 工具 |
+| `confluence` | Confluence 文档管理 | `mx_confluence` 工具 |
+| `figma` | Figma 设计协作 | `mx_figma` 工具 |
+| `mx-link` | 第三方账号链接管理 | `mx_link` 工具 |
+| `pipedream-proxy` | 通过 Pipedream 统一管理 API 凭据（可选） | Pipedream Token |
 
 ## 🔗 快速链接
 
 - **主 README**: [../README.md](../README.md)
-- **验证脚本**: [../verify.sh](../verify.sh)
-- **安装脚本**: [../index.js](../index.js)
+- **贡献指南**: [../CONTRIBUTING.md](../CONTRIBUTING.md)
+- **变更日志**: [../CHANGELOG.md](../CHANGELOG.md)
