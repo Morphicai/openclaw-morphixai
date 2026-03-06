@@ -37,7 +37,7 @@ importers:
         specifier: ^1.0.0
         version: 1.27.1(zod@4.3.6)
       '@morphixai/core':
-        specifier: workspace:*
+        specifier: 0.6.0
         version: link:../core
     devDependencies:
       '@types/node':
@@ -50,13 +50,13 @@ importers:
   packages/openclaw-morphix:
     dependencies:
       openclaw-morphixai:
-        specifier: workspace:*
+        specifier: 0.6.0
         version: link:../openclaw-plugin
 
   packages/openclaw-plugin:
     dependencies:
       '@morphixai/core':
-        specifier: workspace:*
+        specifier: 0.6.0
         version: link:../core
       '@sinclair/typebox':
         specifier: ^0.34.48
