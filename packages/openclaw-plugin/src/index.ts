@@ -1,17 +1,17 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
-import { registerOfficeLinkTool } from "./src/tools/link.js";
-import { registerOfficeJiraTool } from "./src/tools/jira.js";
-import { registerOfficeGitLabTool } from "./src/tools/gitlab.js";
-import { registerOfficeGitHubTool } from "./src/tools/github.js";
-import { registerOfficeOutlookTool } from "./src/tools/outlook.js";
-import { registerOfficeMsTodoTool } from "./src/tools/ms-todo.js";
-import { registerOfficeGmailTool } from "./src/tools/gmail.js";
-import { registerOfficeGoogleTasksTool } from "./src/tools/google-tasks.js";
-import { registerOfficeNotionTool } from "./src/tools/notion.js";
-import { registerOfficeConfluenceTool } from "./src/tools/confluence.js";
-import { registerOfficeOutlookCalendarTool } from "./src/tools/outlook-calendar.js";
-import { registerOfficeFigmaTool } from "./src/tools/figma.js";
+import { registerOfficeLinkTool } from "./tools/link.js";
+import { registerOfficeJiraTool } from "./tools/jira.js";
+import { registerOfficeGitLabTool } from "./tools/gitlab.js";
+import { registerOfficeGitHubTool } from "./tools/github.js";
+import { registerOfficeOutlookTool } from "./tools/outlook.js";
+import { registerOfficeMsTodoTool } from "./tools/ms-todo.js";
+import { registerOfficeGmailTool } from "./tools/gmail.js";
+import { registerOfficeGoogleTasksTool } from "./tools/google-tasks.js";
+import { registerOfficeNotionTool } from "./tools/notion.js";
+import { registerOfficeConfluenceTool } from "./tools/confluence.js";
+import { registerOfficeOutlookCalendarTool } from "./tools/outlook-calendar.js";
+import { registerOfficeFigmaTool } from "./tools/figma.js";
 
 /**
  * MorphixAI skills plugin for OpenClaw

@@ -1,7 +1,7 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeLinkSchema, type OfficeLinkParams } from "../schemas/link-schema.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { OfficeLinkSchema, type OfficeLinkParams } from "@morphixai/core";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 /** Cached client instance keyed on apiKey + baseUrl */
 let cachedClient: MorphixClient | null = null;

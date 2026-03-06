@@ -2,11 +2,11 @@ import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import {
   OfficeGoogleTasksSchema,
   type OfficeGoogleTasksParams,
-} from "../schemas/google-tasks-schema.js";
-import { GoogleTasksClient } from "../app-clients/google-tasks-client.js";
+} from "@morphixai/core";
+import { GoogleTasksClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "google_tasks";
 

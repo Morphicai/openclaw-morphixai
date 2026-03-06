@@ -4,8 +4,8 @@
  * Provides config resolution, client caching, and automatic account lookup.
  */
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 // ─── Client caching ───
 

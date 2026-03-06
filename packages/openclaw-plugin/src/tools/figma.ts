@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeFigmaSchema, type OfficeFigmaParams } from "../schemas/figma-schema.js";
-import { FigmaClient } from "../app-clients/figma-client.js";
+import { OfficeFigmaSchema, type OfficeFigmaParams } from "@morphixai/core";
+import { FigmaClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "figma";
 

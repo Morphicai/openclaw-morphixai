@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeOutlookSchema, type OfficeOutlookParams } from "../schemas/outlook-schema.js";
-import { OutlookClient } from "../app-clients/outlook-client.js";
+import { OfficeOutlookSchema, type OfficeOutlookParams } from "@morphixai/core";
+import { OutlookClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "microsoft_outlook";
 

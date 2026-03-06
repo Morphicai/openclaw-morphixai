@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-morphixai",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "MorphixAI OpenClaw 插件 (此包名已弃用，建议安装 @morphixai/openclaw-plugin)",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'No build needed'"
+  },
+  "dependencies": {
+    "@morphixai/openclaw-plugin": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.js"],
+    "skills": "./node_modules/@morphixai/openclaw-plugin/skills"
+  }
+}

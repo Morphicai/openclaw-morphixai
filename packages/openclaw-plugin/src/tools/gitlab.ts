@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeGitLabSchema, type OfficeGitLabParams } from "../schemas/gitlab-schema.js";
-import { GitLabClient } from "../app-clients/gitlab-client.js";
+import { OfficeGitLabSchema, type OfficeGitLabParams } from "@morphixai/core";
+import { GitLabClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "gitlab";
 
