@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { GoogleTasksClient } from "../../src/app-clients/google-tasks-client.js";
+import { GoogleTasksClient } from "../../../src/app-clients/google-tasks-client.js";
 import {
   CAN_RUN,
   createClient,

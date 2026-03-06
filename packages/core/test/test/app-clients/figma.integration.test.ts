@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { FigmaClient } from "../../src/app-clients/figma-client.js";
+import { FigmaClient } from "../../../src/app-clients/figma-client.js";
 import {
   CAN_RUN,
   createClient,

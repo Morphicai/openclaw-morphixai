@@ -4,7 +4,7 @@
  * Uses mock fetch to test client logic without hitting real APIs.
  */
 import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MorphixClient, MorphixAPIError } from '../src/morphix-client.js';
+import { MorphixClient, MorphixAPIError } from '../../src/morphix-client.js';
 
 // ─── Helpers ───
 

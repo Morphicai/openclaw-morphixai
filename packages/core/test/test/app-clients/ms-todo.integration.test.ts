@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { MsTodoClient } from "../../src/app-clients/ms-todo-client.js";
+import { MsTodoClient } from "../../../src/app-clients/ms-todo-client.js";
 import {
   CAN_RUN,
   createClient,

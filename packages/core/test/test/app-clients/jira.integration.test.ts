@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll } from "vitest";
-import { JiraClient } from "../../src/app-clients/jira-client.js";
+import { JiraClient } from "../../../src/app-clients/jira-client.js";
 import {
   CAN_RUN,
   createClient,

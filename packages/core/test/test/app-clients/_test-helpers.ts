@@ -9,7 +9,7 @@
  *
  * If an app is not connected, the test prints guidance and skips gracefully.
  */
-import { MorphixClient } from "../../src/morphix-client.js";
+import { MorphixClient } from "../../../src/morphix-client.js";
 
 const CONNECTIONS_URL = "https://morphix.app/connections";
 const API_KEY_URL = "https://morphix.app/api-keys";
