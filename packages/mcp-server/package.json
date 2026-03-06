@@ -1,6 +1,6 @@
 {
   "name": "@morphixai/mcp-server",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "MorphixAI MCP Server (for Claude Code, Cursor, etc.)",
   "main": "./dist/index.js",
