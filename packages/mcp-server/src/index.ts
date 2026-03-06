@@ -13,12 +13,15 @@ import {
   GitHubClient,
   GitLabClient,
   JiraClient,
+  FlightsClient,
   OfficeGitHubSchema,
   OfficeGitLabSchema,
   OfficeJiraSchema,
+  OfficeFlightsSchema,
   type OfficeGitHubParams,
   type OfficeGitLabParams,
   type OfficeJiraParams,
+  type OfficeFlightsParams,
 } from "@morphixai/core";
 
 // --- Helpers ---
@@ -92,6 +95,13 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         description:
           "Jira integration: list projects, search issues (JQL), create/update issues, transition issues, add comments.",
         inputSchema: OfficeJiraSchema as never,
+      },
+      {
+        name: "mx_flights",
+        description:
+          "Flight booking integration (Duffel): search flights, compare offers, book tickets, manage orders, search airports. " +
+          "Actions: search_flights, list_offers, get_offer, create_3ds_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
+        inputSchema: OfficeFlightsSchema as never,
       },
     ],
   };
@@ -333,6 +343,71 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             break;
           default:
             throw new McpError(ErrorCode.InvalidParams, `Unknown Jira action: ${(args as { action?: string }).action}`);
+        }
+        return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+      }
+
+      case "mx_flights": {
+        const p = args as unknown as OfficeFlightsParams;
+        const flights = new FlightsClient({ apiKey: API_KEY, baseUrl: process.env.MORPHIXAI_BASE_URL });
+
+        let result;
+        switch (p.action) {
+          case "search_flights":
+            result = await flights.searchFlights({
+              slices: p.slices,
+              passengers: p.passengers,
+              cabin_class: p.cabin_class,
+              max_connections: p.max_connections,
+            });
+            break;
+          case "list_offers":
+            result = await flights.listOffers({
+              offer_request_id: p.offer_request_id,
+              limit: p.limit,
+              sort: p.sort,
+            });
+            break;
+          case "get_offer":
+            result = await flights.getOffer(p.offer_id);
+            break;
+          case "create_3ds_session":
+            result = await flights.create3DSSession({
+              card_id: p.card_id,
+              resource_id: p.resource_id,
+            });
+            break;
+          case "create_order":
+            result = await flights.createOrder({
+              offer_id: p.offer_id,
+              passengers: p.passengers,
+              type: p.type,
+            });
+            break;
+          case "list_orders":
+            result = await flights.listOrders({
+              status: p.status,
+              limit: p.limit,
+              offset: p.offset,
+            });
+            break;
+          case "get_order":
+            result = await flights.getOrder(p.order_id);
+            break;
+          case "pay_order":
+            result = await flights.payOrder(p.order_id);
+            break;
+          case "cancel_order":
+            result = await flights.cancelOrder(p.order_id);
+            break;
+          case "get_seat_maps":
+            result = await flights.getSeatMaps(p.offer_id);
+            break;
+          case "search_airports":
+            result = await flights.searchAirports(p.query);
+            break;
+          default:
+            throw new McpError(ErrorCode.InvalidParams, `Unknown flights action: ${(args as { action?: string }).action}`);
         }
         return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
       }

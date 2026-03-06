@@ -12,6 +12,7 @@ import { registerOfficeNotionTool } from "./tools/notion.js";
 import { registerOfficeConfluenceTool } from "./tools/confluence.js";
 import { registerOfficeOutlookCalendarTool } from "./tools/outlook-calendar.js";
 import { registerOfficeFigmaTool } from "./tools/figma.js";
+import { registerOfficeFlightsTool } from "./tools/flights.js";
 
 /**
  * MorphixAI skills plugin for OpenClaw
@@ -31,6 +32,7 @@ import { registerOfficeFigmaTool } from "./tools/figma.js";
  *   - mx_confluence: Confluence Cloud (spaces, pages, search)
  *   - mx_outlook_calendar: Outlook Calendar (calendars, events)
  *   - mx_figma: Figma (files, projects, components, styles, comments)
+ *   - mx_flights: Flights (search, book, manage orders via Duffel)
  */
 
 const appTools = [
@@ -46,6 +48,7 @@ const appTools = [
   { name: "mx_confluence", register: registerOfficeConfluenceTool },
   { name: "mx_outlook_calendar", register: registerOfficeOutlookCalendarTool },
   { name: "mx_figma", register: registerOfficeFigmaTool },
+  { name: "mx_flights", register: registerOfficeFlightsTool },
 ];
 
 const plugin: {
@@ -58,7 +61,7 @@ const plugin: {
   id: "skills",
   name: "MorphixAI Skills",
   description:
-    "MorphixAI workflow skills and third-party integration: Jira, GitLab, GitHub, Outlook, Gmail, Microsoft To Do, Google Tasks, Notion, Confluence, Outlook Calendar, Figma — with unified account linking and API proxy",
+    "MorphixAI workflow skills and third-party integration: Jira, GitLab, GitHub, Outlook, Gmail, Microsoft To Do, Google Tasks, Notion, Confluence, Outlook Calendar, Figma, Flights — with unified account linking and API proxy",
   configSchema: emptyPluginConfigSchema(),
   register(api: OpenClawPluginApi) {
     let registered = 0;
@@ -87,3 +90,4 @@ export { registerOfficeNotionTool };
 export { registerOfficeConfluenceTool };
 export { registerOfficeOutlookCalendarTool };
 export { registerOfficeFigmaTool };
+export { registerOfficeFlightsTool };
