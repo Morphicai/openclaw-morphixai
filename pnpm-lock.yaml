@@ -49,13 +49,7 @@ importers:
 
   packages/openclaw-morphix:
     dependencies:
-      '@morphixai/openclaw-plugin':
-        specifier: workspace:*
-        version: link:../openclaw-plugin
-
-  packages/openclaw-morphixai:
-    dependencies:
-      '@morphixai/openclaw-plugin':
+      openclaw-morphixai:
         specifier: workspace:*
         version: link:../openclaw-plugin
 

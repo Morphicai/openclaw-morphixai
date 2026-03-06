@@ -2,17 +2,17 @@
   "name": "openclaw-morphix",
   "version": "0.3.0",
   "type": "module",
-  "description": "DEPRECATED: Please install @morphixai/openclaw-plugin instead. 此包已迁往 @morphixai/openclaw-plugin",
-  "deprecated": "This package has been renamed to @morphixai/openclaw-plugin. Please update your dependencies.",
+  "description": "DEPRECATED: Please install openclaw-morphixai instead. 此包已迁往 openclaw-morphixai",
+  "deprecated": "This package has been renamed to openclaw-morphixai. Please update your dependencies.",
   "main": "index.js",
   "scripts": {
     "build": "echo 'No build needed'"
   },
   "dependencies": {
-    "@morphixai/openclaw-plugin": "workspace:*"
+    "openclaw-morphixai": "workspace:*"
   },
   "openclaw": {
     "extensions": ["./index.js"],
-    "skills": "./node_modules/@morphixai/openclaw-plugin/skills"
+    "skills": "./node_modules/openclaw-morphixai/skills"
   }
 }
