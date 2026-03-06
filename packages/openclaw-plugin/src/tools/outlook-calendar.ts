@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeOutlookCalendarSchema, type OfficeOutlookCalendarParams } from "../schemas/outlook-calendar-schema.js";
-import { OutlookCalendarClient } from "../app-clients/outlook-calendar-client.js";
+import { OfficeOutlookCalendarSchema, type OfficeOutlookCalendarParams } from "@morphixai/core";
+import { OutlookCalendarClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "microsoft_outlook_calendar";
 

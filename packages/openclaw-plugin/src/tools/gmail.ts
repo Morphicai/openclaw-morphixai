@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeGmailSchema, type OfficeGmailParams } from "../schemas/gmail-schema.js";
-import { GmailClient } from "../app-clients/gmail-client.js";
+import { OfficeGmailSchema, type OfficeGmailParams } from "@morphixai/core";
+import { GmailClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "gmail";
 

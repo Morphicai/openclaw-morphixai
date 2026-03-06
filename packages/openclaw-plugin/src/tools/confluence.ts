@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeConfluenceSchema, type OfficeConfluenceParams } from "../schemas/confluence-schema.js";
-import { ConfluenceClient } from "../app-clients/confluence-client.js";
+import { OfficeConfluenceSchema, type OfficeConfluenceParams } from "@morphixai/core";
+import { ConfluenceClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "confluence";
 

@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeJiraSchema, type OfficeJiraParams } from "../schemas/jira-schema.js";
-import { JiraClient } from "../app-clients/jira-client.js";
+import { OfficeJiraSchema, type OfficeJiraParams } from "@morphixai/core";
+import { JiraClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "jira";
 

@@ -1,78 +1,14 @@
 {
-  "name": "openclaw-morphixai",
-  "version": "0.3.0",
-  "type": "module",
-  "description": "OpenClaw 办公 Skills：GitLab、Jira、Gmail、Outlook 工作流 + 统一第三方账号链接与 API 代理",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist",
-    "skills",
-    "openclaw.plugin.json"
-  ],
+  "name": "morphix-ai-plugins-monorepo",
+  "private": true,
+  "description": "MorphixAI AI Agent Plugins Monorepo (OpenClaw & MCP)",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "install-skills": "node dist/index.js install",
-    "test": "vitest run",
-    "test:watch": "vitest"
-  },
-  "author": "MorphixAI <hello@morphix.app>",
-  "license": "MIT",
-  "homepage": "https://morphix.app",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Morphicai/openclaw-morphixai"
-  },
-  "keywords": [
-    "openclaw",
-    "skills",
-    "plugin",
-    "gitlab",
-    "jira",
-    "confluence",
-    "outlook",
-    "github",
-    "gmail",
-    "slack",
-    "office",
-    "workflow",
-    "agent",
-    "morphixai",
-    "pipedream"
-  ],
-  "openclaw": {
-    "extensions": ["./dist/index.js"],
-    "skills": "./skills",
-    "install": {
-      "npmSpec": "openclaw-morphixai",
-      "localPath": ".",
-      "defaultChoice": "npm"
-    }
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "dependencies": {
-    "@sinclair/typebox": "^0.34.48"
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean"
   },
   "devDependencies": {
     "typescript": "^5.3.0",
     "vitest": "^4.0.0"
-  },
-  "peerDependencies": {
-    "openclaw": ">=2026.1.29"
-  },
-  "peerDependenciesMeta": {
-    "openclaw": {
-      "optional": true
-    }
   }
 }

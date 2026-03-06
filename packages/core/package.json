@@ -1,0 +1,26 @@
+{
+  "name": "@morphixai/core",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "MorphixAI 核心业务逻辑层 (Clients & Schemas)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.48"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "typescript": "^5.3.0",
+    "vitest": "^4.0.0"
+  }
+}

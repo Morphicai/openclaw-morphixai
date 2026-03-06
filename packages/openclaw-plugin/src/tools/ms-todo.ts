@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeMsTodoSchema, type OfficeMsTodoParams } from "../schemas/ms-todo-schema.js";
-import { MsTodoClient } from "../app-clients/ms-todo-client.js";
+import { OfficeMsTodoSchema, type OfficeMsTodoParams } from "@morphixai/core";
+import { MsTodoClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "microsofttodo";
 

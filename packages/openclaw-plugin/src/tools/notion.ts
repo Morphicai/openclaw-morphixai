@@ -1,9 +1,9 @@
 import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { OfficeNotionSchema, type OfficeNotionParams } from "../schemas/notion-schema.js";
-import { NotionClient } from "../app-clients/notion-client.js";
+import { OfficeNotionSchema, type OfficeNotionParams } from "@morphixai/core";
+import { NotionClient } from "@morphixai/core";
 import { resolveConfig, resolveAppAccount, AppNotConnectedError, NO_API_KEY_ERROR, CONNECTIONS_URL } from "./_tool-helpers.js";
-import { MorphixClient, MorphixAPIError } from "../morphix-client.js";
-import { json } from "../helpers.js";
+import { MorphixClient, MorphixAPIError } from "@morphixai/core";
+import { json } from "@morphixai/core";
 
 const APP_SLUG = "notion";
 

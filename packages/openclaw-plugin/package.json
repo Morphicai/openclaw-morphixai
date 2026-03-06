@@ -1,0 +1,29 @@
+{
+  "name": "@morphixai/openclaw-plugin",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "MorphixAI OpenClaw 插件适配层",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "skills",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@morphixai/core": "workspace:*",
+    "@sinclair/typebox": "^0.34.48"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "openclaw": ">=2026.1.29"
+  },
+  "openclaw": {
+    "extensions": ["./dist/index.js"],
+    "skills": "./skills"
+  }
+}
