@@ -100,7 +100,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "mx_flights",
         description:
           "Flight booking integration (Duffel): search flights, compare offers, book tickets, manage orders, search airports. " +
-          "Actions: search_flights, list_offers, get_offer, create_3ds_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
+          "Actions: search_flights, list_offers, get_offer, create_payment_session, create_3ds_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
         inputSchema: OfficeFlightsSchema as never,
       },
     ],
@@ -370,6 +370,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             break;
           case "get_offer":
             result = await flights.getOffer(p.offer_id);
+            break;
+          case "create_payment_session":
+            result = await flights.createPaymentSession({
+              offer_id: p.offer_id,
+              passengers: p.passengers,
+            });
             break;
           case "create_3ds_session":
             result = await flights.create3DSSession({

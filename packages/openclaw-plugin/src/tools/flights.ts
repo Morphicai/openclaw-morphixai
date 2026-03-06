@@ -11,7 +11,7 @@ export function registerOfficeFlightsTool(api: OpenClawPluginApi) {
       label: "Flights",
       description:
         "Flight booking integration (Duffel): search flights, compare offers, book tickets, manage orders, search airports. " +
-        "Actions: search_flights, list_offers, get_offer, create_3ds_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
+        "Actions: search_flights, list_offers, get_offer, create_payment_session, create_3ds_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
       parameters: OfficeFlightsSchema,
       async execute(_toolCallId, params) {
         const p = params as OfficeFlightsParams;
@@ -46,6 +46,14 @@ export function registerOfficeFlightsTool(api: OpenClawPluginApi) {
 
             case "get_offer":
               return json(await flights.getOffer(p.offer_id));
+
+            case "create_payment_session":
+              return json(
+                await flights.createPaymentSession({
+                  offer_id: p.offer_id,
+                  passengers: p.passengers,
+                }),
+              );
 
             case "create_3ds_session":
               return json(

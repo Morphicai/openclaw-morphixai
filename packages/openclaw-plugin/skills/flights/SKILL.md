@@ -167,6 +167,22 @@ mx_flights:
 
 ## 典型预订流程
 
+### 方式 A：信用卡支付（推荐）
+
+通过支付链接让用户在安全页面输入信用卡信息（PCI 合规）：
+
+```
+1. 搜索机场: search_airports, query: "上海"              → 获取 IATA 代码 (PVG/SHA)
+2. 搜索航班: search_flights                              → 获取 offers 列表
+3. 确认价格: get_offer, offer_id: "off_xxx"              → 验证最新价格
+4. 收集乘客信息（通过对话逐项引导）
+5. 创建支付会话: create_payment_session                   → 获取 payment_url
+6. 将 payment_url 展示给用户，引导点击支付
+7. 用户完成支付后: list_orders 或 get_order 确认出票结果
+```
+
+### 方式 B：直接下单（API 付款）
+
 ```
 1. 搜索机场: search_airports, query: "上海"       → 获取 IATA 代码 (PVG/SHA)
 2. 搜索航班: search_flights                       → 获取 offers 列表
@@ -177,14 +193,49 @@ mx_flights:
 
 ## 信用卡支付流程（用户直付）
 
-如果需要用户信用卡直接付款，流程涉及前端页面：
+如果需要用户信用卡直接付款，Agent 通过 `create_payment_session` 生成支付链接：
 
 1. **Agent 搜索航班**并展示报价
-2. **Agent 收集乘客信息**
-3. **Agent 生成支付链接**，引导用户跳转到支付页面
-4. 用户在支付页面输入信用卡信息（前端直接提交到 Duffel Cards API）
-5. 如需 3DS 验证，页面渲染银行验证 UI
-6. 支付完成后，Agent 创建订单
+2. **Agent 收集乘客信息**（姓名、生日、性别、手机、邮箱、护照）
+3. **Agent 调用 `create_payment_session`** 生成支付链接
+4. **Agent 展示支付链接**给用户，用户点击跳转到安全支付页面
+5. 用户在支付页面输入信用卡信息（前端直接提交到 Duffel Cards API，PCI 合规）
+6. 支付完成后，Agent 调用 `list_orders` 确认出票
+
+### 创建支付会话
+
+```
+mx_flights:
+  action: create_payment_session
+  offer_id: "off_0000AgqMVLkQ8X3p3rmHYC"
+  passengers:
+    - id: "pas_0000AgqMV123"
+      given_name: "John"
+      family_name: "Doe"
+      born_on: "1990-05-15"
+      gender: "m"
+      title: "mr"
+      email: "john@example.com"
+      phone_number: "+442080160509"
+      identity_documents:
+        - type: "passport"
+          unique_identifier: "P12345678"
+          issuing_country_code: "GB"
+          expires_on: "2030-01-01"
+```
+
+返回值包含 `payment_url`（展示给用户点击）、`expires_at`（支付链接有效期）和 `offer_summary`（订单摘要）。
+
+**展示支付链接时应包含：**
+- 可点击的 `payment_url`（原样展示，不可修改）
+- 航班摘要（航班号、日期、航线）
+- 乘客姓名
+- 价格（使用 `offer_summary` 中的值）
+- 有效期提醒
+
+### 3DS 验证（前端自动处理）
+
+3DS 验证在支付页面自动完成，Agent 无需直接调用。但如有需要：
 
 ```
 mx_flights:
