@@ -7,7 +7,7 @@ This repository contains the official integrations for **MorphixAI**, allowing v
 This repository is structured as a `pnpm workspace` monorepo to ensure maximum code reuse and pure dependency trees for different platforms.
 
 - **`@morphixai/core`**: The platform-agnostic core engine. It contains all API clients, authentication logic, and TypeBox schemas.
-- **`@morphixai/openclaw-plugin`**: The adapter for OpenClaw. It exposes tools and skill prompts native to the OpenClaw Agent ecosystem.
+- **`openclaw-morphixai`**: The adapter for OpenClaw. It exposes tools and skill prompts native to the OpenClaw Agent ecosystem.
 - **`@morphixai/mcp-server`**: The adapter for MCP (Model Context Protocol). It exposes the core capabilities as a standard MCP server, making it compatible with Claude Code, Cursor, and Claude Desktop.
 
 ---
@@ -50,9 +50,9 @@ Add the following to your `claude_desktop_config.json` or Cursor MCP settings:
 Install the plugin directly within your OpenClaw environment:
 
 ```bash
-openclaw plugins install @morphixai/openclaw-plugin
+openclaw plugins install openclaw-morphixai
 ```
-*Note: The legacy packages `openclaw-morphix` and `openclaw-morphixai` have been deprecated, but installing them will safely proxy to the new `@morphixai/openclaw-plugin`.*
+*Note: The legacy package `openclaw-morphix` has been deprecated, but installing it will safely proxy to `openclaw-morphixai`.*
 
 ---
 

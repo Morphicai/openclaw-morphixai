@@ -1,12 +1,12 @@
 # Package Moved / 包已迁移
 
-**`openclaw-morphix` is now `@morphixai/openclaw-plugin`.**
+**`openclaw-morphix` is now `openclaw-morphixai`.**
 
 This legacy package name is now a proxy and will no longer receive direct updates. To ensure you have the latest features (including MCP server support), please update your installation:
 
 ---
 
-**`openclaw-morphix` 现在已更名为 `@morphixai/openclaw-plugin`。**
+**`openclaw-morphix` 现在已更名为 `openclaw-morphixai`。**
 
 该旧包目前仅作为兼容性代理，不再直接进行功能更新。为了获取最新功能（包括对 Claude Code 的 MCP 支持），请更新安装命令：
 
@@ -15,5 +15,5 @@ This legacy package name is now a proxy and will no longer receive direct update
 openclaw plugins uninstall openclaw-morphix
 
 # Install new package
-openclaw plugins install @morphixai/openclaw-plugin
+openclaw plugins install openclaw-morphixai
 ```
