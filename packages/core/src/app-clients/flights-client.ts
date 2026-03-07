@@ -96,6 +96,24 @@ export interface FlightOrder {
   cancelled_at?: string;
 }
 
+export interface CreatePaymentSessionRequest {
+  offer_id: string;
+  passengers: PassengerDetail[];
+}
+
+export interface PaymentSession {
+  session_id: string;
+  payment_url: string;
+  expires_at: string;
+  offer_summary: {
+    flight: string;
+    date: string;
+    total_amount: string;
+    total_currency: string;
+    slices: any[];
+  };
+}
+
 export interface AirportResult {
   id: string;
   name: string;
@@ -142,8 +160,7 @@ export class FlightsClient {
     };
     if (options.limit) params.limit = String(options.limit);
     if (options.sort) params.sort = options.sort;
-    const resp = await this.request<{ offers: FlightOffer[] }>("GET", "/flights/offers", { params });
-    return resp.offers ?? resp as any;
+    return this.request<FlightOffer[]>("GET", "/flights/offers", { params });
   }
 
   async getOffer(offerId: string): Promise<FlightOffer> {
@@ -184,6 +201,12 @@ export class FlightsClient {
 
   async cancelOrder(orderId: string): Promise<{ success: boolean; cancellation_id: string }> {
     return this.request<{ success: boolean; cancellation_id: string }>("POST", `/flights/orders/${orderId}/cancel`);
+  }
+
+  // ─── Payment Sessions ───
+
+  async createPaymentSession(request: CreatePaymentSessionRequest): Promise<PaymentSession> {
+    return this.request<PaymentSession>("POST", "/flights/payment-sessions", { body: request });
   }
 
   // ─── Seat Maps ───
