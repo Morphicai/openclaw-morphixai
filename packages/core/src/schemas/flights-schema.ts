@@ -75,13 +75,6 @@ export const OfficeFlightsSchema = Type.Union([
     offer_id: Type.String({ description: "Offer ID (off_xxx)" }),
   }),
 
-  // Create 3D Secure session (required for credit card payments)
-  Type.Object({
-    action: Type.Literal("create_3ds_session"),
-    card_id: Type.String({ description: "Card token from Duffel Cards API (created client-side)" }),
-    resource_id: Type.String({ description: "The offer ID or order ID to pay for" }),
-  }),
-
   // Create order (book a flight)
   Type.Object({
     action: Type.Literal("create_order"),
@@ -128,6 +121,13 @@ export const OfficeFlightsSchema = Type.Union([
   Type.Object({
     action: Type.Literal("get_seat_maps"),
     offer_id: Type.String({ description: "Offer ID (off_xxx)" }),
+  }),
+
+  // Create payment session (generate payment link for credit card payment)
+  Type.Object({
+    action: Type.Literal("create_payment_session"),
+    offer_id: Type.String({ description: "The offer to pay for (off_xxx)" }),
+    passengers: Type.Array(PassengerDetailType, { description: "One entry per passenger from the offer", minItems: 1 }),
   }),
 
   // Search airports
