@@ -1,6 +1,20 @@
-# MorphixAI AI Agent Plugins
+<p align="center">
+  <a href="https://morphix.app">
+    <img src="https://morphix.app/_next/image?url=%2Fimages%2Ficon.png&w=128&q=75" alt="MorphixAI" width="80" />
+  </a>
+</p>
 
-This repository contains the official integrations for **MorphixAI**, allowing various AI Agents (such as OpenClaw, Claude Code, Cursor, and Windsurf) to seamlessly interact with workplace tools like GitHub, GitLab, Jira, Notion, Google Workspace, and Office 365.
+<h1 align="center">MorphixAI AI Agent Plugins</h1>
+
+<p align="center">
+  <a href="https://morphix.app">morphix.app</a>
+</p>
+
+<p align="center">
+  <strong>English</strong> | <a href="./README.zh-CN.md">简体中文</a>
+</p>
+
+This repository contains the official integrations for **[MorphixAI](https://morphix.app)**, allowing various AI Agents (such as OpenClaw, Claude Code, Cursor, and Windsurf) to seamlessly interact with workplace tools like GitHub, GitLab, Jira, Notion, Google Workspace, and Office 365.
 
 ## 📦 Architecture
 
@@ -56,12 +70,12 @@ openclaw plugins install openclaw-morphixai
 
 ---
 
-## 🔑 Authentication
+## 🔑 Getting Started
 
-All MorphixAI plugins require a **MorphixAI API Key**. 
-1. Visit [MorphixAI Connections](https://morphix.app/connections) to link your third-party accounts (GitHub, Jira, etc.).
-2. Visit [MorphixAI API Keys](https://morphix.app/api-keys) to generate your `mk_xxxxxx` key.
-3. Pass the key via the `MORPHIXAI_API_KEY` environment variable.
+1. **Register / Login**: Visit [morphix.app](https://morphix.app) to create your MorphixAI account or sign in.
+2. **Get your API Key**: Go to [MorphixAI API Keys](https://morphix.app/api-keys) and create a new key (format: `mk_xxxxxx`).
+3. **Link your accounts** *(optional)*: Visit [MorphixAI Connections](https://morphix.app/connections) to connect third-party platforms (GitHub, Jira, Notion, etc.) that you want to use through AI agents.
+4. **Configure your environment**: Pass the key via the `MORPHIXAI_API_KEY` environment variable, then follow the [Installation](#-installation--usage) instructions above for your AI agent.
 
 ## 🧩 Skills
 
