@@ -234,3 +234,7 @@ MORPHIXAI_API_KEY=mk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 3. **缓存 account_id** — 在对话中缓存 `account_id`，无需每次都查询
 4. **组合使用** — 一个对话中可以跨 skill 操作（先用 `jira-workflow` 查任务，再用 `mx_link: proxy` 发 Slack 通知）
 5. **优雅降级** — 如果 API Key 未配置，提示用户设置环境变量
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

@@ -122,3 +122,7 @@ mx_outlook:
 - 搜索使用 Microsoft Graph `$search` 语法
 - `body_type` 默认为 `"Text"`，如需 HTML 格式需显式指定 `"HTML"`
 - `account_id` 参数通常省略，工具自动检测已链接的 Outlook 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

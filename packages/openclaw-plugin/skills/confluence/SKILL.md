@@ -197,3 +197,7 @@ mx_confluence:
 - 更新页面时必须提供正确的 `version` 号（当前版本 + 1）
 - CQL 搜索功能强大，建议充分利用
 - `account_id` 参数通常省略，工具自动检测已链接的 Confluence 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

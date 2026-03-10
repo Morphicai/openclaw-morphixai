@@ -122,3 +122,7 @@ mx_google_tasks:
 - `status` 只有两个值：`needsAction`（待完成）和 `completed`（已完成）
 - `show_completed` 默认不包含已完成任务
 - `account_id` 参数通常省略，工具自动检测已链接的 Google Tasks 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

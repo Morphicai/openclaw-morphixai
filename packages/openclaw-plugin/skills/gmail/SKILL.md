@@ -123,3 +123,7 @@ mx_gmail:
 - 发送邮件内容为纯文本格式
 - Gmail 搜索语法功能强大，建议充分利用
 - `account_id` 参数通常省略，工具自动检测已链接的 Gmail 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

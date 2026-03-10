@@ -2,7 +2,18 @@
   "name": "openclaw-morphixai",
   "version": "0.7.0",
   "type": "module",
-  "description": "MorphixAI OpenClaw 插件适配层",
+  "description": "MorphixAI plugin for OpenClaw — connect AI agents to GitHub, GitLab, Jira, Notion, Gmail, Outlook, Figma, and more.",
+  "license": "MIT",
+  "author": "MorphixAI <support@morphix.app> (https://morphix.app)",
+  "homepage": "https://github.com/Morphicai/openclaw-morphixai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morphicai/openclaw-morphixai.git",
+    "directory": "packages/openclaw-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/Morphicai/openclaw-morphixai/issues"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

@@ -144,3 +144,7 @@ mx_outlook_calendar: action: get_calendar_view
 - 无客套话，无寒暄
 - 紧急事项优先标记
 - 仅用列表，不用段落
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

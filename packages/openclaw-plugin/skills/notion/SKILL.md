@@ -152,3 +152,7 @@ mx_notion:
 - 搜索结果支持分页：`has_more: true` 时使用 `start_cursor` 获取下一页
 - 数据库页面的 `properties` 格式取决于数据库的字段定义
 - `account_id` 参数通常省略，工具自动检测已链接的 Notion 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)
