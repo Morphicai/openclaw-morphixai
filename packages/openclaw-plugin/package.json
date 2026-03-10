@@ -1,6 +1,6 @@
 {
   "name": "openclaw-morphixai",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "description": "MorphixAI OpenClaw 插件适配层",
   "main": "./dist/index.js",
@@ -15,7 +15,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@morphixai/core": "0.6.0",
+    "@morphixai/core": "0.7.0",
     "@sinclair/typebox": "^0.34.48"
   },
   "devDependencies": {

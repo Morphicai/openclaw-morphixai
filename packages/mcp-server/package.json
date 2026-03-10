@@ -1,6 +1,6 @@
 {
   "name": "@morphixai/mcp-server",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "description": "MorphixAI MCP Server (for Claude Code, Cursor, etc.)",
   "main": "./dist/index.js",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "@morphixai/core": "0.6.0"
+    "@morphixai/core": "0.7.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.5",
