@@ -2,7 +2,18 @@
   "name": "@morphixai/core",
   "version": "0.7.0",
   "type": "module",
-  "description": "MorphixAI 核心业务逻辑层 (Clients & Schemas)",
+  "description": "MorphixAI core engine — API clients and TypeBox schemas for workplace tool integrations.",
+  "license": "MIT",
+  "author": "MorphixAI <support@morphix.app> (https://morphix.app)",
+  "homepage": "https://github.com/morphix-ai/morphix-ai-plugins#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morphicai/openclaw-morphixai.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Morphicai/openclaw-morphixai/issues"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

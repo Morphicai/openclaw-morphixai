@@ -140,3 +140,7 @@ mx_github:
 - `list_issues` 自动过滤掉 PR（GitHub API 的 /issues 端点会返回 PR）
 - `trigger_workflow` 需要仓库有对应的 workflow 文件和 `workflow_dispatch` 触发器
 - `account_id` 参数通常省略，工具自动检测已链接的 GitHub 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

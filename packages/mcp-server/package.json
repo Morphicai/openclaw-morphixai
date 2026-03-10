@@ -2,21 +2,56 @@
   "name": "@morphixai/mcp-server",
   "version": "0.7.0",
   "type": "module",
-  "description": "MorphixAI MCP Server (for Claude Code, Cursor, etc.)",
+  "description": "MorphixAI MCP Server — connect AI agents (Claude Code, Cursor, Windsurf) to GitHub, GitLab, Jira, Notion, Gmail, Outlook, Figma, and 40+ workplace tools.",
   "main": "./dist/index.js",
   "bin": {
     "morphix-mcp": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "vitest run"
   },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "morphixai",
+    "claude",
+    "cursor",
+    "windsurf",
+    "ai-agent",
+    "github",
+    "gitlab",
+    "jira",
+    "notion",
+    "gmail",
+    "outlook",
+    "figma",
+    "confluence"
+  ],
+  "license": "MIT",
+  "author": "MorphixAI <support@morphix.app> (https://morphix.app)",
+  "homepage": "https://github.com/Morphicai/openclaw-morphixai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morphicai/openclaw-morphixai.git",
+    "directory": "packages/mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Morphicai/openclaw-morphixai/issues"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@morphixai/core": "0.7.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.5",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "vitest": "^4.0.0"
   }
 }

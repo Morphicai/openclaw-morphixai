@@ -112,3 +112,7 @@ mx_ms_todo:
 - `status` 可选值：`notStarted`、`inProgress`、`completed`、`waitingOnOthers`、`deferred`
 - `due_date` 格式为 `YYYY-MM-DD`
 - `account_id` 参数通常省略，工具自动检测已链接的 MS To Do 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

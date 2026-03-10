@@ -134,3 +134,7 @@ mx_jira:
 - JQL 查询必须包含 `project = X` 等限制条件
 - `transition_issue` 只能转换到当前状态可达的目标状态
 - `account_id` 参数通常省略，工具自动检测已链接的 Jira 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

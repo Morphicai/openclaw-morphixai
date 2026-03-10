@@ -242,3 +242,7 @@ mx_flights:
 - 乘客姓名必须与护照一致
 - `phone_number` 使用 E.164 格式（如 `"+8613800138000"`）
 - 信用卡信息**绝不能**通过 Agent 传递，必须在前端页面直接提交到 Duffel
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

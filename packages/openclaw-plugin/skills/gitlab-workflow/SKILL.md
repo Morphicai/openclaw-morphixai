@@ -425,3 +425,7 @@ Review MR 时，按顺序检查所有项目：
 - `mr_iid` 是 MR 在项目内的序号（非全局 ID），从 `list_merge_requests` 或 `create_merge_request` 返回结果中获取
 - `account_id` 参数通常省略，工具自动检测已链接的 GitLab 账号
 - `mx_link proxy` 获取 MR diff 可能因响应体过大返回 400，优先使用本地 git
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

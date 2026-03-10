@@ -27,3 +27,4 @@ backup/
 
 # Claude Code
 .claude/
+.tanka-bot

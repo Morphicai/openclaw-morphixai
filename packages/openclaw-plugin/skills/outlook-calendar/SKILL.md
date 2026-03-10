@@ -135,3 +135,7 @@ mx_outlook_calendar:
 - 创建带参会者的事件会自动发送会议邀请邮件
 - `calendar_id` 通常省略，使用默认日历
 - `account_id` 参数通常省略，工具自动检测已链接的 Outlook Calendar 账号
+
+---
+
+> 文档与源码：[GitHub](https://github.com/Morphicai/openclaw-morphixai)

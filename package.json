@@ -2,6 +2,15 @@
   "name": "morphix-ai-plugins-monorepo",
   "private": true,
   "description": "MorphixAI AI Agent Plugins Monorepo (OpenClaw & MCP)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morphicai/openclaw-morphixai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Morphicai/openclaw-morphixai/issues"
+  },
+  "homepage": "https://github.com/Morphicai/openclaw-morphixai#readme",
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
