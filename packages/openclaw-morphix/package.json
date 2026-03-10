@@ -1,6 +1,6 @@
 {
   "name": "openclaw-morphix",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "description": "DEPRECATED: Please install openclaw-morphixai instead. 此包已迁往 openclaw-morphixai",
   "deprecated": "This package has been renamed to openclaw-morphixai. Please update your dependencies.",
