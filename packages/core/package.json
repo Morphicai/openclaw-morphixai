@@ -1,6 +1,6 @@
 {
   "name": "@morphixai/core",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "description": "MorphixAI core engine — API clients and TypeBox schemas for workplace tool integrations.",
   "license": "MIT",

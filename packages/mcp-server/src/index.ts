@@ -90,7 +90,7 @@ function errorResult(message: string) {
 const server = new Server(
   {
     name: "morphixai-mcp",
-    version: "0.7.0",
+    version: "0.8.0",
   },
   {
     capabilities: {

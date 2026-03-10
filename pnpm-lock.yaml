@@ -37,7 +37,7 @@ importers:
         specifier: ^1.0.0
         version: 1.27.1(zod@4.3.6)
       '@morphixai/core':
-        specifier: 0.7.0
+        specifier: 0.8.0
         version: link:../core
     devDependencies:
       '@types/node':
@@ -46,17 +46,20 @@ importers:
       typescript:
         specifier: ^5.3.0
         version: 5.9.3
+      vitest:
+        specifier: ^4.0.0
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.6.1)(yaml@2.8.2)
 
   packages/openclaw-morphix:
     dependencies:
       openclaw-morphixai:
         specifier: 0.7.0
-        version: link:../openclaw-plugin
+        version: 0.7.0
 
   packages/openclaw-plugin:
     dependencies:
       '@morphixai/core':
-        specifier: 0.7.0
+        specifier: 0.8.0
         version: link:../core
       '@sinclair/typebox':
         specifier: ^0.34.48
@@ -776,6 +779,9 @@ packages:
     peerDependenciesMeta:
       '@cfworker/json-schema':
         optional: true
+
+  '@morphixai/core@0.7.0':
+    resolution: {integrity: sha512-QLCYkKQqUOa47OtKWSeGUWyZf+MzCKAS85RRfNU+yEQmqF5ECKiwU4ZKGdimTN3EUJVCaAg5ewaLvYBwu1z8LQ==}
 
   '@mozilla/readability@0.6.0':
     resolution: {integrity: sha512-juG5VWh4qAivzTAeMzvY9xs9HY5rAcr2E4I7tiSSCokRFi7XIZCAu92ZkSTsIj1OPceCifL3cpfteP3pDT9/QQ==}
@@ -2866,6 +2872,9 @@ packages:
       zod:
         optional: true
 
+  openclaw-morphixai@0.7.0:
+    resolution: {integrity: sha512-/e5i8+T2Kv2feI/WUlcjRp+PyD9xbKc7MDUKMebGBKrwI7ylwivv5vNu20Mu5nR8jQwNU9ONrAjaE8T+ZuW22Q==}
+
   openclaw@2026.2.26:
     resolution: {integrity: sha512-SAGBigUXYNGl+zPZCR3XkdMZ3wNEYsDybxnFcTZS90aE7Ztrb/avXEAzxv1XcR8xqDxIZFVZv+abHDRO+Nv1vA==}
     engines: {node: '>=22.12.0'}
@@ -4664,6 +4673,10 @@ snapshots:
       zod-to-json-schema: 3.25.1(zod@4.3.6)
     transitivePeerDependencies:
       - supports-color
+
+  '@morphixai/core@0.7.0':
+    dependencies:
+      '@sinclair/typebox': 0.34.48
 
   '@mozilla/readability@0.6.0': {}
 
@@ -6898,6 +6911,11 @@ snapshots:
     optionalDependencies:
       ws: 8.19.0
       zod: 4.3.6
+
+  openclaw-morphixai@0.7.0:
+    dependencies:
+      '@morphixai/core': 0.7.0
+      '@sinclair/typebox': 0.34.48
 
   openclaw@2026.2.26(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@napi-rs/canvas@0.1.95)(@types/express@5.0.6)(hono@4.12.3)(node-llama-cpp@3.15.1(typescript@5.9.3)):
     dependencies:
