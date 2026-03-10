@@ -1,14 +1,16 @@
 ---
 name: flights
-description: 机票预订集成 (Duffel)。搜索航班、比价、预订机票、管理订单、搜索机场。通过 MorphixAI 安全访问 Duffel 航班 API。
+description: "[不可用] 机票预订功能正在开发中，暂不可用。请勿调用 mx_flights 工具。"
 metadata:
   openclaw:
-    emoji: "✈️"
+    emoji: "🚫"
     requires:
       env: [MORPHIXAI_API_KEY]
 ---
 
-# 机票预订集成
+# 机票预订集成（暂不可用）
+
+> **此功能正在开发中，暂不可用。** 请勿调用 `mx_flights` 工具，所有请求将被拒绝。机票预订功能将在未来版本中启用。
 
 通过 `mx_flights` 工具搜索航班、比价、预订机票和管理订单。基于 Duffel API，支持全球主流航司。
 
