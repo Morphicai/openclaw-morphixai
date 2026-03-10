@@ -8,10 +8,10 @@ export function registerOfficeFlightsTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
       name: "mx_flights",
-      label: "Flights",
+      label: "Flights (Unavailable)",
       description:
-        "Flight booking integration (Duffel): search flights, compare offers, book tickets, manage orders, search airports. " +
-        "Actions: search_flights, list_offers, get_offer, create_payment_session, create_order, list_orders, get_order, pay_order, cancel_order, get_seat_maps, search_airports",
+        "[UNAVAILABLE] This tool is currently under development and not available for use. " +
+        "Do NOT call this tool. Flight booking functionality will be enabled in a future release.",
       parameters: OfficeFlightsSchema,
       async execute(_toolCallId, params) {
         const p = params as OfficeFlightsParams;
@@ -106,5 +106,5 @@ export function registerOfficeFlightsTool(api: OpenClawPluginApi) {
     { name: "mx_flights" },
   );
 
-  api.logger.info?.("mx_flights: Registered");
+  api.logger.info?.("mx_flights: Registered (unavailable)");
 }
