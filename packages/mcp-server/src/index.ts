@@ -86,6 +86,16 @@ function errorResult(message: string) {
   return { content: [{ type: "text" as const, text: `Error: ${message}` }], isError: true };
 }
 
+/**
+ * Wrap a Union/anyOf schema into a valid MCP inputSchema.
+ * MCP requires `type: "object"` at the top level, but TypeBox's Type.Union
+ * produces `{ anyOf: [...] }` without a `type` field.
+ */
+function wrapSchema(schema: Record<string, any>): Record<string, any> {
+  if (schema.type === "object") return schema;
+  return { type: "object", ...schema };
+}
+
 // --- Server Setup ---
 const server = new Server(
   {
@@ -116,54 +126,54 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: "mx_github",
         description:
           "GitHub integration: list repos, issues, pull requests, workflow runs. Create issues/PRs, update issues, trigger workflows.",
-        inputSchema: OfficeGitHubSchema as never,
+        inputSchema: wrapSchema(OfficeGitHubSchema as never),
       },
       {
         name: "mx_gitlab",
         description:
           "GitLab integration: manage projects, MRs, issues, and pipelines. Use format 'group/project' for project_id.",
-        inputSchema: OfficeGitLabSchema as never,
+        inputSchema: wrapSchema(OfficeGitLabSchema as never),
       },
       {
         name: "mx_jira",
         description:
           "Jira integration: list projects, search issues (JQL), create/update issues, transition issues, add comments.",
-        inputSchema: OfficeJiraSchema as never,
+        inputSchema: wrapSchema(OfficeJiraSchema as never),
       },
       {
         name: "mx_outlook",
         description:
           "Microsoft Outlook email integration: read, search, send, and reply to emails. List mail folders. " +
           "Actions: get_me, list_messages, get_message, send_mail, reply_to_message, search_messages, list_folders",
-        inputSchema: OfficeOutlookSchema as never,
+        inputSchema: wrapSchema(OfficeOutlookSchema as never),
       },
       {
         name: "mx_outlook_calendar",
         description:
           "Microsoft Outlook Calendar integration: list calendars, view/create/update/delete events, get calendar view by date range. " +
           "Actions: get_me, list_calendars, list_events, get_calendar_view, get_event, create_event, update_event, delete_event",
-        inputSchema: OfficeOutlookCalendarSchema as never,
+        inputSchema: wrapSchema(OfficeOutlookCalendarSchema as never),
       },
       {
         name: "mx_gmail",
         description:
           "Gmail integration: list, read, search, send emails. Manage labels, mark as read, trash messages. " +
           "Actions: get_profile, list_messages, get_message, send_mail, search_messages, list_labels, mark_as_read, trash_message",
-        inputSchema: OfficeGmailSchema as never,
+        inputSchema: wrapSchema(OfficeGmailSchema as never),
       },
       {
         name: "mx_google_tasks",
         description:
           "Google Tasks integration: manage task lists and tasks. Create, update, complete, and delete tasks. " +
           "Actions: list_task_lists, create_task_list, delete_task_list, list_tasks, get_task, create_task, update_task, complete_task, delete_task",
-        inputSchema: OfficeGoogleTasksSchema as never,
+        inputSchema: wrapSchema(OfficeGoogleTasksSchema as never),
       },
       {
         name: "mx_notion",
         description:
           "Notion integration: search pages/databases, create/update/archive pages, read/append block content, query databases. " +
           "Actions: get_me, search, get_page, create_page, update_page, archive_page, get_block_children, append_blocks, get_database, query_database",
-        inputSchema: OfficeNotionSchema as never,
+        inputSchema: wrapSchema(OfficeNotionSchema as never),
       },
       {
         name: "mx_confluence",
@@ -171,7 +181,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           "Confluence Cloud integration: spaces, pages CRUD, labels, comments, child pages, CQL search. " +
           "Actions: list_spaces, get_space, list_pages, get_page, create_page, update_page, delete_page, " +
           "get_child_pages, get_page_labels, add_page_label, delete_page_label, get_page_comments, add_page_comment, search",
-        inputSchema: OfficeConfluenceSchema as never,
+        inputSchema: wrapSchema(OfficeConfluenceSchema as never),
       },
       {
         name: "mx_figma",
@@ -181,28 +191,28 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           "Actions: get_me, list_team_projects, list_project_files, get_file, get_file_nodes, export_images, list_comments, " +
           "post_comment, delete_comment, list_versions, get_file_components, get_team_components, get_file_component_sets, " +
           "get_team_component_sets, get_file_styles, get_team_styles, get_local_variables, get_published_variables",
-        inputSchema: OfficeFigmaSchema as never,
+        inputSchema: wrapSchema(OfficeFigmaSchema as never),
       },
       {
         name: "mx_ms_todo",
         description:
           "Microsoft To Do integration: manage task lists and tasks. Create, update, complete, and delete tasks. " +
           "Actions: list_task_lists, create_task_list, list_tasks, get_task, create_task, update_task, complete_task, delete_task",
-        inputSchema: OfficeMsTodoSchema as never,
+        inputSchema: wrapSchema(OfficeMsTodoSchema as never),
       },
       {
         name: "mx_link",
         description:
           "Manage linked third-party accounts and call their APIs through MorphixAI proxy. " +
           "Actions: list_accounts, get_account, statistics, list_apps, connect (generate OAuth link), proxy (call third-party API), check_auth",
-        inputSchema: OfficeLinkSchema as never,
+        inputSchema: wrapSchema(OfficeLinkSchema as never),
       },
       {
         name: "mx_flights",
         description:
           "[UNAVAILABLE] This tool is currently under development and not available for use. " +
           "Do NOT call this tool — all requests will be rejected. Flight booking functionality will be enabled in a future release.",
-        inputSchema: OfficeFlightsSchema as never,
+        inputSchema: wrapSchema(OfficeFlightsSchema as never),
       },
     ],
   };

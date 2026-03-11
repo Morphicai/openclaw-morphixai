@@ -28,3 +28,4 @@ backup/
 # Claude Code
 .claude/
 .tanka-bot
+.mcp.json
