@@ -88,12 +88,54 @@ function errorResult(message: string) {
 
 /**
  * Wrap a Union/anyOf schema into a valid MCP inputSchema.
- * MCP requires `type: "object"` at the top level, but TypeBox's Type.Union
- * produces `{ anyOf: [...] }` without a `type` field.
+ * MCP / Claude API requires `type: "object"` at the top level and does NOT
+ * support `oneOf`, `allOf`, or `anyOf` at the top level.
+ * TypeBox's Type.Union produces `{ anyOf: [...] }`, so we flatten it into a
+ * single object by merging all variant properties.  The `action` field becomes
+ * a string enum, and every other property is marked optional (since each
+ * variant only uses a subset).
  */
 function wrapSchema(schema: Record<string, any>): Record<string, any> {
   if (schema.type === "object") return schema;
-  return { type: "object", ...schema };
+
+  const variants: Record<string, any>[] = schema.anyOf || schema.oneOf || [];
+  if (variants.length === 0) {
+    return { type: "object", ...schema };
+  }
+
+  const mergedProperties: Record<string, any> = {};
+  const actionEnumValues: string[] = [];
+
+  for (const variant of variants) {
+    if (variant.type !== "object" || !variant.properties) continue;
+    for (const [key, prop] of Object.entries<any>(variant.properties)) {
+      if (key === "action") {
+        // Collect action literal values for an enum
+        if (prop.const) actionEnumValues.push(prop.const);
+        continue;
+      }
+      if (!mergedProperties[key]) {
+        // Clone to avoid mutating the original schema and strip required-ness
+        mergedProperties[key] = { ...prop };
+      }
+      // If another variant has a richer description, keep the longer one
+    }
+  }
+
+  // Build the action property as a string enum
+  if (actionEnumValues.length > 0) {
+    mergedProperties["action"] = {
+      type: "string",
+      enum: actionEnumValues,
+      description: "The action to perform",
+    };
+  }
+
+  return {
+    type: "object",
+    properties: mergedProperties,
+    required: ["action"],
+  };
 }
 
 // --- Server Setup ---
