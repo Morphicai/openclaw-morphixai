@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://morphix.app">
-    <img src="https://morphixai.com/brand/logo-rounded.png" alt="MorphixAI" width="80" />
+    <img src="https://morphix.app/brand/logo-rounded.png" alt="MorphixAI" width="80" />
   </a>
 </p>
 
