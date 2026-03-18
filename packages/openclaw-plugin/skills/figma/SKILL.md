@@ -1,14 +1,16 @@
 ---
 name: figma
-description: Figma 集成。浏览团队项目与文件，读取设计结构、页面、节点，导出图片，管理评论，查看版本历史，检查组件/组件集/样式，获取设计变量（Token）。通过 MorphixAI 代理安全访问 Figma API。
+description: "[不可用] Figma 集成功能正在开发中，暂不可用。请勿调用 mx_figma 工具。"
 metadata:
   openclaw:
-    emoji: "🎨"
+    emoji: "🚫"
     requires:
       env: [MORPHIXAI_API_KEY]
 ---
 
-# Figma
+# Figma 集成（暂不可用）
+
+> **此功能正在开发中，暂不可用。** 请勿调用 `mx_figma` 工具。Figma 集成将在未来版本中启用。
 
 通过 `mx_figma` 工具访问 Figma 工作区：浏览项目文件、读取设计结构、导出图片、管理评论、查看组件库/组件集/样式、获取设计变量（Design Token）。
 
