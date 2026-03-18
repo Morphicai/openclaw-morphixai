@@ -11,10 +11,10 @@ export function registerOfficeFigmaTool(api: OpenClawPluginApi) {
   api.registerTool(
     {
       name: "mx_figma",
-      label: "Figma",
+      label: "Figma (Unavailable)",
       description:
-        "Figma integration: browse team projects & files, read file structure/pages/nodes, export images, manage comments, view version history, inspect components/component sets/styles, get design variables (tokens). " +
-        "Actions: get_me, list_team_projects, list_project_files, get_file, get_file_nodes, export_images, list_comments, post_comment, delete_comment, list_versions, get_file_components, get_team_components, get_file_component_sets, get_team_component_sets, get_file_styles, get_team_styles, get_local_variables, get_published_variables",
+        "[UNAVAILABLE] This tool is currently under development and not available for use. " +
+        "Do NOT call this tool. Figma integration will be enabled in a future release.",
       parameters: OfficeFigmaSchema,
       async execute(_toolCallId, params) {
         const p = params as OfficeFigmaParams;
