@@ -5,7 +5,10 @@ dist/
 .env
 .env.local
 .env.*.local
-test/.env
+**/test/.env
+
+# Turbo
+.turbo/
 
 # IDE
 .idea/
@@ -21,6 +24,9 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Coverage
+coverage/
 
 # Backup
 backup/
