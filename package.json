@@ -11,12 +11,18 @@
     "url": "https://github.com/Morphicai/openclaw-morphixai/issues"
   },
   "homepage": "https://github.com/Morphicai/openclaw-morphixai#readme",
+  "packageManager": "pnpm@10.26.2",
   "scripts": {
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "clean": "pnpm -r clean"
+    "build": "turbo build",
+    "test": "turbo test",
+    "clean": "turbo clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.30.0",
+    "turbo": "^2.8.17",
     "typescript": "^5.3.0",
     "vitest": "^4.0.0"
   }

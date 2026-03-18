@@ -1,6 +1,6 @@
 {
   "name": "@morphixai/mcp-server",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "type": "module",
   "description": "MorphixAI MCP Server — connect AI agents (Claude Code, Cursor, Windsurf) to GitHub, GitLab, Jira, Notion, Gmail, Outlook, Figma, and 40+ workplace tools.",
   "main": "./dist/index.js",
@@ -47,7 +47,7 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "@morphixai/core": "0.8.0"
+    "@morphixai/core": "0.8.2"
   },
   "devDependencies": {
     "@types/node": "^25.3.5",

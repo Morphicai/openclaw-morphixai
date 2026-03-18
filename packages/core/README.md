@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://morphix.app">
-    <img src="https://morphix.app/_next/image?url=%2Fimages%2Ficon.png&w=128&q=75" alt="MorphixAI" width="80" />
+    <img src="https://morphixai.com/brand/logo-rounded.png" alt="MorphixAI" width="80" />
   </a>
 </p>
 
