@@ -43,7 +43,7 @@ importers:
         specifier: ^1.0.0
         version: 1.27.1(zod@4.3.6)
       '@morphixai/core':
-        specifier: 0.8.0
+        specifier: 0.8.2
         version: link:../core
     devDependencies:
       '@types/node':
@@ -65,7 +65,7 @@ importers:
   packages/openclaw-plugin:
     dependencies:
       '@morphixai/core':
-        specifier: 0.8.0
+        specifier: 0.8.2
         version: link:../core
       '@sinclair/typebox':
         specifier: ^0.34.48
