@@ -58,7 +58,7 @@ const plugin: {
   configSchema: unknown;
   register: (api: OpenClawPluginApi) => void;
 } = {
-  id: "skills",
+  id: "openclaw-morphixai",
   name: "MorphixAI Skills",
   description:
     "MorphixAI workflow skills and third-party integration: Jira, GitLab, GitHub, Outlook, Gmail, Microsoft To Do, Google Tasks, Notion, Confluence, Outlook Calendar, Figma, Flights — with unified account linking and API proxy",
