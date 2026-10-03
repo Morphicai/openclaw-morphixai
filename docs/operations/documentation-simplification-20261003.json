@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-03",
+  "scope": "Documentation only; original blobs remain recoverable by commit/hash",
+  "actions": [
+    {
+      "owner": "openclaw",
+      "source": "docs/SKILLS.md",
+      "source_commit": "ba14c5b45622459512ae601e011a9e1e9e1065b5",
+      "original_sha256": "05daf6df8fed76d2d1ce81601004d2a6787043ed3cf91ee74f2a359af7e32fef",
+      "original_bytes": 3685,
+      "action": "rewrite",
+      "reason": "Match directory inventory and explicitly separate installed Skill content from tool availability",
+      "destination": "docs/SKILLS.md",
+      "final_owner": "openclaw",
+      "final_path": "docs/SKILLS.md",
+      "final_sha256": "25151ef3a93f926eb5c09eb18225144b1e91fb08d7afddaea907aa8d949d9c42",
+      "final_bytes": 4391
+    },
+    {
+      "owner": "openclaw",
+      "source": "docs/SECURITY.md",
+      "source_commit": "ba14c5b45622459512ae601e011a9e1e9e1065b5",
+      "original_sha256": "a72c98e93f79b84a99508efad06948dd23856e6748a9a1cdee01bb84c5ae3c4d",
+      "original_bytes": 3206,
+      "action": "rewrite",
+      "destination": "docs/SECURITY.md",
+      "reason": "Update adjacent index/reference for the canonical current or historical location",
+      "final_owner": "openclaw",
+      "final_path": "docs/SECURITY.md",
+      "final_sha256": "301506f62b4f524ed93c441744d0e9da181b8aacacf46e315a13ab8eb9b6f72f",
+      "final_bytes": 3231
+    }
+  ]
+}
