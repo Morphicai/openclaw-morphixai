@@ -6,7 +6,7 @@ Skills 随插件自动安装，无需手动复制：
 
 ```
 openclaw plugins install openclaw-morphixai
-  └── skills/                    ← 插件内置 14 个 skill
+  └── skills/                    ← 随包分发，清单以源目录为准
       ├── gitlab-workflow/
       ├── github-workflow/
       ├── jira-workflow/
@@ -19,9 +19,12 @@ openclaw plugins install openclaw-morphixai
       ├── notion/
       ├── confluence/
       ├── figma/
+      ├── flights/
       ├── mx-link/
       └── pipedream-proxy/
 ```
+
+源正文位于本仓 packages/openclaw-plugin/skills，每个目录含 SKILL.md；该目录是版本化分发来源，ClawHub 发布需另外核对。2026-10-03 复核目录有 15 项；此数字只描述本次快照。
 
 用户自定义 skill 放在 `~/.openclaw/skills/`，名称冲突时用户 skill 优先。
 
@@ -124,9 +127,17 @@ openclaw plugins install openclaw-morphixai
 
 ### figma
 
-**依赖**: `mx_figma` 工具
+**状态**：源 Skill 当前明确标记不可用，不应因安装存在就调用 mx_figma。接口/schema/client 的代码存在不表示账号态验收通过。
 
-**示例**: "查看 Figma 项目列表"、"获取设计文件的组件"
+**依赖**: `mx_figma` 工具（待 owner 完成接入验收）
+
+**未来用法示例**: "查看 Figma 项目列表"、"获取设计文件的组件"
+
+## 机票类 Skills
+
+### flights
+
+源 Skill 当前标记不可用，禁止调用 mx_flights；搜索/预订描述是未来接口说明，不是已经启用的能力。该包安装和 npm/ClawHub 分发成功不代替工具验收。
 
 ## 聚合类 Skills
 

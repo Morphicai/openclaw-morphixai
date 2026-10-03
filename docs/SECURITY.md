@@ -10,7 +10,7 @@
 
 **默认**: 本包使用本地 .env 以保持简单。
 
-**迁移路径**: 从 .env 开始 → 当需要团队协作或 OAuth 自动刷新时迁移到 [Pipedream](../skills/pipedream-proxy/SKILL.md)。
+**迁移路径**: 从 .env 开始 → 当需要团队协作或 OAuth 自动刷新时迁移到 [Pipedream](../packages/openclaw-plugin/skills/pipedream-proxy/SKILL.md)。
 
 **Pipedream 的安全优势**:
 - 单一 token 暴露（.env 中只有 `PIPEDREAM_TOKEN`）
